@@ -1,0 +1,49 @@
+для авторизации используется https://c-v-c.ru/openapi/status
+для списания https://c-v-c.ru/openapi/writeoff
+для инвентуры - https://c-v-c.ru/openapi/remainings
+
+
+ логин 7810127819 пароль 17AF038BB591
+
+{
+  "response": {
+    "code": 401,
+    "message": "Unauthorized",
+    "localizedMessage": "Пользователь не был аутентифицирован"
+  },
+  "version": "1.0"
+}
+
+{
+  "response": {
+    "code": 200,
+    "message": "OK",
+    "localizedMessage": "ОК"
+  },
+  "version": "1.0"
+}
+
+
+
+ {
+"positions": [{
+ "alcCode": "0177379000001560990",
+ "quantity": 8
+ }
+ 
+ 
+{
+  "response": {
+    "code": 400,
+    "message": "Bad request",
+    "localizedMessage": "В запросе обнаружена ошибка"
+  },
+  "version": "1.0"
+}
+
+{
+  "response": {
+    "statusCode": 200
+  },
+  "version": "1.0"
+}

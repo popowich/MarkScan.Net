@@ -47,10 +47,10 @@ namespace MarkScan.Network
 
             using (var responseStream = request.GetResponse().GetResponseStream())
             {
-                using (var stream = new StreamReader(responseStream))
-                {
-                    var str = stream.ReadToEnd();
-                }
+                //using (var stream = new StreamReader(responseStream))
+                //{
+                //    var str = stream.ReadToEnd();
+                //}
 
                 DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(ResponseBase<AuthResult>));
                 if (responseStream != null)

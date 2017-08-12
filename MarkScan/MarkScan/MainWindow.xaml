@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarkScan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="768" Width="1024" MinHeight="480" MinWidth="680" Background="#FF8ADFFF">
+        Title="MainWindow" Height="768" Width="488.5"  Background="#FF8ADFFF">
     <Grid>
         <Frame x:Name="generalFrame" Content="Frame" NavigationUIVisibility="Hidden"/>
 

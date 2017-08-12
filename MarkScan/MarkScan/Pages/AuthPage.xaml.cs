@@ -31,13 +31,15 @@ namespace MarkScan.Page
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            ResultScanPosititon pp = new ResultScanPosititon();
-            pp.Positions = new ResultScan[]
-            {
-                new ResultScan() {AlcCode = "0177379000001560990", Quantity = 8}
-            };
+            //ResultScanPosititon pp = new ResultScanPosititon();
+            //pp.Positions = new ResultScan[]
+            //{
+            //    new ResultScan() {AlcCode = "0177379000001560990", Quantity = 8}
+            //};
 
-            Network.CvcOpenApi.GetClientApi().Writeoff(pp);
+            //Network.CvcOpenApi.GetClientApi().Writeoff(pp);
+
+            MainWindow.viewModel.generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MainMenuPage.xaml", UriKind.Absolute));
         }
     }
 }

@@ -5,11 +5,9 @@ using System.Text;
 
 namespace MarkScan.ViewModels
 {
-    class MainWindowsVm
+    public class MainWindowsVm
     {
-        internal System.Windows.Controls.Frame generalFrame;
-
-
+        public System.Windows.Controls.Frame generalFrame;
 
     }
 }

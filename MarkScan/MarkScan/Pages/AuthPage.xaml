@@ -8,7 +8,7 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="AuthPage">
 
-    <Grid Background="Black">
+    <Grid >
         <TextBox x:Name="loginTx" HorizontalAlignment="Center" Height="23" Margin="71,56,60,0" TextWrapping="Wrap" Text="7810127819" VerticalAlignment="Top" Width="169"/>
         <TextBox x:Name="passTx" HorizontalAlignment="Center" Height="23" Margin="70,93,60,0" TextWrapping="Wrap" Text="17AF038BB591" VerticalAlignment="Top" Width="170"/>
         <Button x:Name="authBt" Content="Button" HorizontalAlignment="Center" Margin="71,142,60,0" VerticalAlignment="Top" Width="169" Click="authBt_Click"/>

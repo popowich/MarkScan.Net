@@ -21,11 +21,14 @@ namespace MarkScan
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowsVm viewModel;
+        public static MainWindowsVm viewModel;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            viewModel = new MainWindowsVm();
+            viewModel.generalFrame = generalFrame;
 
             generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/AuthPage.xaml", UriKind.Absolute));
         }
