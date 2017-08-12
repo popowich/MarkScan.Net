@@ -1,0 +1,17 @@
+D:\Projects\MarkScan\MarkScan\bin\Debug\MarkScan.exe
+D:\Projects\MarkScan\MarkScan\bin\Debug\MarkScan.pdb
+D:\Projects\MarkScan\MarkScan\obj\Debug\MarkScan.csprojResolveAssemblyReference.cache
+D:\Projects\MarkScan\MarkScan\obj\Debug\MainWindow.g.cs
+D:\Projects\MarkScan\MarkScan\obj\Debug\App.g.cs
+D:\Projects\MarkScan\MarkScan\obj\Debug\MarkScan_MarkupCompile.cache
+D:\Projects\MarkScan\MarkScan\obj\Debug\MarkScan_MarkupCompile.lref
+D:\Projects\MarkScan\MarkScan\obj\Debug\MainWindow.baml
+D:\Projects\MarkScan\MarkScan\obj\Debug\MarkScan.g.resources
+D:\Projects\MarkScan\MarkScan\obj\Debug\MarkScan.Properties.Resources.resources
+D:\Projects\MarkScan\MarkScan\obj\Debug\MarkScan.csproj.GenerateResource.Cache
+D:\Projects\MarkScan\MarkScan\obj\Debug\MarkScan.exe
+D:\Projects\MarkScan\MarkScan\obj\Debug\MarkScan.pdb
+D:\Projects\MarkScan\MarkScan\obj\Debug\Pages\AuthPage.g.cs
+D:\Projects\MarkScan\MarkScan\obj\Debug\Pages\AuthPage.baml
+D:\Projects\MarkScan\MarkScan\obj\Debug\Pages\MainMenuPage.g.cs
+D:\Projects\MarkScan\MarkScan\obj\Debug\Pages\MainMenuPage.baml
