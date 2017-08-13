@@ -31,5 +31,19 @@ namespace MarkScan.Pages
         {
             _mainMenuVm.GoToInventoryMenuPage();
         }
+
+        private void appWxitBt_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
+
+        private void changeUserBt_Click(object sender, RoutedEventArgs e)
+        {
+            //App._mainWindowsVm._generalFrame.Source =
+            //    new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/AuthPage.xaml",
+            //        UriKind.Absolute);
+           // App._mainWindowsVm._generalFrame.Source = null;
+           //  App._mainWindowsVm._generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/AuthPage.xaml", UriKind.Absolute));
+        }
     }
 }

@@ -75,9 +75,11 @@
     <Compile Include="RetailEquipment\HIDBarcodeReaderEventArgs.cs" />
     <Compile Include="Tools\Base64.cs" />
     <Compile Include="ViewModels\AuthPageVm.cs" />
+    <Compile Include="ViewModels\ETypeOperations.cs" />
     <Compile Include="ViewModels\InventoryMenuPageVm.cs" />
     <Compile Include="ViewModels\MainMenuPageVm.cs" />
     <Compile Include="ViewModels\MainWindowsVm.cs" />
+    <Compile Include="ViewModels\MarkScanPageVm.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -5,32 +5,41 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MarkScan.Pages"
       mc:Ignorable="d" 
-      d:DesignWidth="500" d:DesignHeight="500"
+      d:DesignWidth="640" d:DesignHeight="500"
       Title="MarkScanPage">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
             <RowDefinition Height="27"/>
-            <RowDefinition Height="24"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="38"/>
             <RowDefinition Height="27"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="215*"/>
+            <RowDefinition Height="62"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="106*"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lable" Content="Инвентаризация" Margin="90,0,90,0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="textBox" Margin="10,5" Grid.Row="4" TextWrapping="Wrap" Text="15N00001CJJRHTDA8MH1NS9111090190097471551531120421912173024240294724" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="12"/>
-        <Image x:Name="image" Margin="152,2,146,0" Grid.Row="3" Source="/MarkScan;component/Imgs/mark2.png" Height="58" VerticalAlignment="Top" HorizontalAlignment="Center" Width="202"/>
-        <Label x:Name="label1" Content="Поднесите акцизную марку" Margin="120,0" Grid.Row="2" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="14"/>
-        <Button x:Name="backBt" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="8" />
-        <Label x:Name="label1_Copy" Content="Ранее отсканированные марки" Margin="120,0" Grid.Row="5" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="14"/>
-        <WrapPanel Grid.Row="6">
-            <Label x:Name="label" Content="1"/>
-            <Label x:Name="label2" Content="Label" Width="481" Height="30"/>
+        <Label x:Name="nameOperation" Content="[Операция]" Margin="90,0,90,0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="barcodeTx" Margin="5" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" KeyDown="textBox_KeyDown" CharacterCasing="Upper" TextChanged="barcodeTx_TextChanged"/>
+        <Image x:Name="image" Margin="222,2,216,0" Grid.Row="3" Source="/MarkScan;component/Imgs/mark2.png" Height="58" VerticalAlignment="Top" HorizontalAlignment="Center" Width="202"/>
+        <Label x:Name="label" Content="Поднесите акцизную марку" Margin="120,0" Grid.Row="2" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="16"/>
+        <Button x:Name="backBt" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="10" Click="backBt_Click" />
+        <Label x:Name="label1_Copy" Content="Ранее отсканированные марки" Margin="120,0" Grid.Row="5" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="16"/>
+        <WrapPanel Grid.Row="6" Margin="0,5,0,5" x:Name="WrapPanel1">
+            <Label x:Name="label1" Content="1" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="label2" Content="" Width="600" Height="30" Background="#FF55A839" FontSize="14.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </WrapPanel>
-
+        <WrapPanel Grid.Row="7" Margin="0,5,0,5" x:Name="WrapPanel2">
+            <Label x:Name="label3" Content="2" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="label4" Content="" Width="600" Height="30" Background="#FF55A839" FontSize="14.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </WrapPanel>
+        <WrapPanel Grid.Row="8" Margin="0,5,0,5" x:Name="WrapPanel3">
+            <Label x:Name="label5" Content="3" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="label6" Content="" Width="600" Height="30" Background="#FF55A839" FontSize="14.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </WrapPanel>
     </Grid>
 </Page>

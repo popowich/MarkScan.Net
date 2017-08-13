@@ -122,7 +122,7 @@ namespace MarkScan
 
         public static void HandlerException(Exception ex)
         {
-            System.Diagnostics.Debug.Fail(ex.Message);
+           // System.Diagnostics.Debug.Fail(ex.Message);
 
             SaveLog("Exception: " + ex.Message);
             if (ex.InnerException != null)
