@@ -16,20 +16,25 @@ using MarkScan.ViewModels;
 namespace MarkScan.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainMenuPage.xaml
+    /// Логика взаимодействия для InventoryPage.xaml
     /// </summary>
-    public partial class MainMenuPage : System.Windows.Controls.Page
+    public partial class InventoryMenuPage : System.Windows.Controls.Page
     {
-        private MainMenuPageVm _mainMenuVm = new MainMenuPageVm();
+        private InventoryMenuPageVm _inventoryMenuPageVm = new InventoryMenuPageVm();
 
-        public MainMenuPage()
+        public InventoryMenuPage()
         {
             InitializeComponent();
         }
 
-        private void inventoryBt_Click(object sender, RoutedEventArgs e)
+        private void backPage_Click(object sender, RoutedEventArgs e)
         {
-            _mainMenuVm.GoToInventoryMenuPage();
+            _inventoryMenuPageVm.GoToMainMenuPage();
+        }
+
+        private void newBt_Click(object sender, RoutedEventArgs e)
+        {
+            _inventoryMenuPageVm.GoToMarkScan();
         }
     }
 }

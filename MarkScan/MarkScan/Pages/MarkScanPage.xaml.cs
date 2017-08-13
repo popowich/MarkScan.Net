@@ -11,23 +11,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MarkScan.Network;
-using MarkScan.ViewModels;
 
-namespace MarkScan
+namespace MarkScan.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MarkScanPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MarkScanPage : System.Windows.Controls.Page
     {
-        public MainWindow()
+        public MarkScanPage()
         {
             InitializeComponent();
-
-            App._mainWindowsVm._generalFrame = generalFrame;
-
-            App._mainWindowsVm.GoToAuthPage();
         }
     }
 }

@@ -1,0 +1,29 @@
+﻿<Page x:Class="MarkScan.Pages.InventoryMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarkScan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="400"
+      Title="InventoryPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="213*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="newBt" Content="Новая" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="1" Click="newBt_Click"/>
+        <Button x:Name="continuebt" Content="Продолжить" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="2"/>
+        <Button x:Name="testConnectBt" Content="Связь с сервером" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="3"/>
+        <Button x:Name="sendDataBt" Content="Отправить на СВС" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="5"/>
+        <Button x:Name="backPage" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="6" Click="backPage_Click"/>
+
+    </Grid>
+</Page>

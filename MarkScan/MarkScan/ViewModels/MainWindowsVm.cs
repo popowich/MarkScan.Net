@@ -5,9 +5,19 @@ using System.Text;
 
 namespace MarkScan.ViewModels
 {
-    public class MainWindowsVm
+    internal class MainWindowsVm
     {
-        public System.Windows.Controls.Frame generalFrame;
+        internal System.Windows.Controls.Frame _generalFrame;
+
+        internal void GoToAuthPage()
+        {
+            _generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/AuthPage.xaml", UriKind.Absolute));
+        }
+
+        internal void GoToMainMenuPage()
+        {
+            _generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MainMenuPage.xaml", UriKind.Absolute));
+        }
 
     }
 }

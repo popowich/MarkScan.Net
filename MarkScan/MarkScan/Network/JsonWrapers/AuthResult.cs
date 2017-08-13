@@ -10,7 +10,7 @@ namespace MarkScan.Network.JsonWrapers
     class AuthResult
     {
         [DataMember(Name = "code")]
-        public string Code { get; set; }
+        public int Code { get; set; }
 
         [DataMember(Name = "message")]
         public string Message { get; set; }

@@ -2,7 +2,7 @@
 для списания https://c-v-c.ru/openapi/writeoff
 для инвентуры - https://c-v-c.ru/openapi/remainings
 
-
+15N00001CJJRHTDA8MH1NS9111090190097471551531120421912173024240294724
  логин 7810127819 пароль 17AF038BB591
 
 {

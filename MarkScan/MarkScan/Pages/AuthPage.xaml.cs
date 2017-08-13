@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MarkScan.ViewModels;
 
 namespace MarkScan.Page
 {
@@ -19,27 +20,22 @@ namespace MarkScan.Page
     /// </summary>
     public partial class AuthPage : System.Windows.Controls.Page
     {
+        private AuthPageVm _viewModelAuthPageVm;
+
         public AuthPage()
         {
             InitializeComponent();
+
+            _viewModelAuthPageVm = new AuthPageVm(this);
+
+            if (!_viewModelAuthPageVm.IsPerfAuthoriation())
+                _viewModelAuthPageVm.GoToMainMenuPage();
         }
 
         private void authBt_Click(object sender, RoutedEventArgs e)
         {
-            Network.CvcOpenApi.GetClientApi().Auth(loginTx.Text, passTx.Text);
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            //ResultScanPosititon pp = new ResultScanPosititon();
-            //pp.Positions = new ResultScan[]
-            //{
-            //    new ResultScan() {AlcCode = "0177379000001560990", Quantity = 8}
-            //};
-
-            //Network.CvcOpenApi.GetClientApi().Writeoff(pp);
-
-            MainWindow.viewModel.generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MainMenuPage.xaml", UriKind.Absolute));
+           if(_viewModelAuthPageVm.Auth(loginTx.Text, passTx.Text) == true)
+               _viewModelAuthPageVm.GoToMainMenuPage();
         }
     }
 }

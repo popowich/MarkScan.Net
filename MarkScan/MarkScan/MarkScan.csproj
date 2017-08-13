@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CVC.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -57,14 +60,23 @@
     </ApplicationDefinition>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Network\JsonWrapers\SendDataResult.cs" />
+    <Compile Include="Pages\InventoryMenuPage.xaml.cs">
+      <DependentUpon>InventoryMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MarkScanPage.xaml.cs">
+      <DependentUpon>MarkScanPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ResultScan.cs" />
     <Compile Include="ResultScanPosititon.cs" />
     <Compile Include="RetailEquipment\HIDBarcodeReader.cs" />
     <Compile Include="RetailEquipment\HIDBarcodeReaderEventArgs.cs" />
     <Compile Include="Tools\Base64.cs" />
+    <Compile Include="ViewModels\AuthPageVm.cs" />
+    <Compile Include="ViewModels\InventoryMenuPageVm.cs" />
+    <Compile Include="ViewModels\MainMenuPageVm.cs" />
     <Compile Include="ViewModels\MainWindowsVm.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -82,7 +94,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\InventoryMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MarkScanPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,7 +137,18 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="CVC.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\CVC2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\mark2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

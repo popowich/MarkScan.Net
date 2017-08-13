@@ -32,6 +32,11 @@ namespace MarkScan.Network
             return _cvcOpenApi ?? (_cvcOpenApi = new CvcOpenApi());
         }
 
+        internal void SetTokenAuth(string login, string pass)
+        {
+            _tokenAuth = "Basic " + Tools.Base64.ToBase64(Encoding.ASCII, $"{login}:{pass}");
+        }
+
         /// <summary>
         /// Авторизация
         /// </summary>
@@ -40,7 +45,7 @@ namespace MarkScan.Network
         /// <returns></returns>
         internal ResponseBase<AuthResult> Auth(string login, string pass)
         {
-            _tokenAuth = "Basic " + Tools.Base64.ToBase64(Encoding.ASCII, $"{login}:{pass}");
+            SetTokenAuth(login, pass);
 
             HttpWebRequest request = getHttpWebRequestt("GET", "/openapi/status", false);
             request.Headers.Add("Authorization", _tokenAuth);

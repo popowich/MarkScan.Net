@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MarkScan"
         mc:Ignorable="d"
-        Title="MainWindow" Height="768" Width="488.5"  Background="#FF8ADFFF">
+        Title="MainWindow" Height="700" Width="500"  Background="#FF8ADFFF" Icon="CVC.ico">
     <Grid>
-        <Frame x:Name="generalFrame" Content="Frame" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="generalFrame" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>

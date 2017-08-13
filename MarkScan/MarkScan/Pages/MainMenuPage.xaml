@@ -4,13 +4,25 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MarkScan.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="MainMenuPage">
+      mc:Ignorable="d"
+      Title="MainMenuPage" ShowsNavigationUI="False" d:DesignHeight="500" d:DesignWidth="400">
 
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Center" Margin="107,56,86,0" VerticalAlignment="Top" Width="107"/>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Center" Margin="107,93,86,0" VerticalAlignment="Top" Width="107"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="183*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="inventoryBt" Content="Инвентаризация" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="1" Click="inventoryBt_Click"/>
+        <Button x:Name="testConnectBt" Content="Связь с сервером" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="3"/>
+        <Button x:Name="writeOffBt" Content="Списание" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="2"/>
+        <Button x:Name="appWxitBt" Content="Выход из программы" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="6"/>
+        <Button x:Name="changeUserBt" Content="Смена пользователя" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="5"/>
 
     </Grid>
 </Page>
