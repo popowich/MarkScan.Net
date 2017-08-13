@@ -1,8 +1,11 @@
-для авторизации используется https://c-v-c.ru/openapi/status
+﻿для авторизации используется https://c-v-c.ru/openapi/status
 для списания https://c-v-c.ru/openapi/writeoff
 для инвентуры - https://c-v-c.ru/openapi/remainings
 
 15N00001CJJRHTDA8MH1NS9111090190097471551531120421912173024240294724
+
+177481000001526569
+
  логин 7810127819 пароль 17AF038BB591
 
 {
