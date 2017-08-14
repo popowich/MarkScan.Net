@@ -24,7 +24,7 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Label x:Name="nameOperation" Content="[Операция]" Margin="90,0,90,0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="barcodeTx" Margin="5" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" KeyDown="textBox_KeyDown" CharacterCasing="Upper" TextChanged="barcodeTx_TextChanged"/>
+        <TextBox x:Name="barcodeTx" Margin="5" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" KeyDown="textBox_KeyDown" CharacterCasing="Upper" TextChanged="barcodeTx_TextChanged" KeyUp="barcodeTx_KeyUp" PreviewKeyUp="barcodeTx_PreviewKeyUp"/>
         <Image x:Name="image" Margin="222,2,216,0" Grid.Row="3" Source="/MarkScan;component/Imgs/mark2.png" Height="58" VerticalAlignment="Top" HorizontalAlignment="Center" Width="202"/>
         <Label x:Name="label" Content="Поднесите акцизную марку" Margin="120,0" Grid.Row="2" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="16"/>
         <Button x:Name="backBt" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="10" Click="backBt_Click" />

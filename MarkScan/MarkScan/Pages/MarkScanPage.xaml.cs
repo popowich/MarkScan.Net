@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MarkScan.ViewModels;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 
 namespace MarkScan.Pages
 {
@@ -22,6 +23,7 @@ namespace MarkScan.Pages
     public partial class MarkScanPage : System.Windows.Controls.Page
     {
         private MarkScanPageVm _markScanPageVm;
+        private System.Windows.Forms.Timer _timer;
 
         public MarkScanPage()
         {
@@ -34,7 +36,13 @@ namespace MarkScan.Pages
             WrapPanel3.Visibility = Visibility.Hidden;
 
             barcodeTx.Focus();
+
+            _timer = new System.Windows.Forms.Timer();
+            _timer.Tick += _timer_Tick;
+            _timer.Interval = 500;
         }
+
+
 
         internal void SetOpearation(ETypeOperations typeOperations)
         {
@@ -50,7 +58,8 @@ namespace MarkScan.Pages
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
-            count += 1;
+            _timer.Stop();
+            _timer.Start();
         }
 
         private void handle(string code)
@@ -64,8 +73,13 @@ namespace MarkScan.Pages
 
         private void barcodeTx_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (count == 68)
+            if (barcodeTx.Text.Length == 68)
             {
+                barcodeTx.TextChanged -= barcodeTx_TextChanged;
+
+                barcodeTx.Text = Tools.KeyboardMapper.TranslateFromCyrillic(barcodeTx.Text);
+                barcodeTx.SelectionStart = barcodeTx.Text.Length;
+
                 barcodeTx.IsEnabled = false;
 
                 count = 0;
@@ -93,16 +107,61 @@ namespace MarkScan.Pages
 
                     i++;
                 }
-                barcodeTx.Clear();
 
+                handle(barcodeTx.Text);
+
+                barcodeTx.Text = "";
                 barcodeTx.IsEnabled = true;
-                // handle(barcodeTx.Text);
+
+                barcodeTx.TextChanged += barcodeTx_TextChanged;
+
             }
 
         }
 
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            if(barcodeTx.Text.Length > 0 && barcodeTx.Text.Length != 68)
+            {
+                _timer.Stop();
+
+                migati();
+            }
+        }
+
+        private void migati()
+        {
+            int count = 0;
+
+            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+            t.Interval = 250;
+            t.Start();
+            t.Tick += (object sender, EventArgs e) =>
+            {
+                if (count % 2 == 0)
+                {
+                    barcodeTx.Background = Brushes.Red;
+                }
+                else
+                {
+                    barcodeTx.Background = Brushes.White;
+                }
+
+                if (count == 3)
+                {
+                    barcodeTx.Text = "";
+                    t.Stop();
+                    t.Dispose();
+                }
+
+                count++;
+            };
+        }
+
         private string conv(string code )
         {
+            BigInteger bigIntFromDouble = new BigInteger(0);
+
             double n = 0;
             double sum = 0;
             int count = code.Length - 1;
@@ -118,16 +177,27 @@ namespace MarkScan.Pages
                 else
                     break;
 
+                bigIntFromDouble = bigIntFromDouble + new BigInteger(n);
                 sum += n;
                 n = 0;
 
                 count--;
             }
 
-            decimal d = (decimal) sum;
+            MessageBox.Show(bigIntFromDouble.ToString());
 
-            return n.ToString();
+            return bigIntFromDouble.ToString();
 
+        }
+
+        private void barcodeTx_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void barcodeTx_PreviewKeyUp(object sender, KeyEventArgs e)
+        {
+           
         }
     }
 }

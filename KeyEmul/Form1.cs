@@ -27,7 +27,7 @@ namespace KeyEmul
             {
                 BaseIO.UtilitesWinAPI.EmulatePressKey(BaseIO.UtilitesWinAPI.ConvertCharToKey(ch));
                 //Задержка между нажатиями
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(1);
             }
 
            // BaseIO.UtilitesWinAPI.EmulatePressKey(Keys.Enter);

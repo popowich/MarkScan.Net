@@ -7,9 +7,9 @@ namespace MarkScan.ViewModels
 {
     internal class AuthPageVm
     {
-        private Page.AuthPage _authPage;
+        private Pages.AuthPage _authPage;
 
-        internal AuthPageVm(Page.AuthPage authPage)
+        internal AuthPageVm(Pages.AuthPage authPage)
         {
             _authPage = authPage;
         }

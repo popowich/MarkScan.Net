@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MarkScan.ViewModels;
 
-namespace MarkScan.Page
+namespace MarkScan.Pages
 {
     /// <summary>
     /// Логика взаимодействия для AuthPage.xaml
@@ -30,6 +30,13 @@ namespace MarkScan.Page
 
             if (!_viewModelAuthPageVm.IsPerfAuthoriation())
                 _viewModelAuthPageVm.GoToMainMenuPage();
+        }
+
+        public AuthPage(bool handle)
+        {
+            InitializeComponent();
+
+            _viewModelAuthPageVm = new AuthPageVm(this);
         }
 
         private void authBt_Click(object sender, RoutedEventArgs e)

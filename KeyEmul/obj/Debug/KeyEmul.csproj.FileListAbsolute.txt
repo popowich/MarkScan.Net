@@ -16,3 +16,12 @@ D:\MyProjekt\Free-lance\Архив\ItidaCatcherBarcode\AitidaCatcherBarcode\KeyE
 D:\MyProjekt\Free-lance\Архив\ItidaCatcherBarcode\AitidaCatcherBarcode\KeyEmul\obj\Debug\KeyEmul.csproj.GenerateResource.Cache
 D:\MyProjekt\Free-lance\Архив\ItidaCatcherBarcode\AitidaCatcherBarcode\KeyEmul\obj\Debug\KeyEmul.exe
 D:\MyProjekt\Free-lance\Архив\ItidaCatcherBarcode\AitidaCatcherBarcode\KeyEmul\obj\Debug\KeyEmul.pdb
+D:\Projects\MarkScanNet\KeyEmul\bin\Debug\KeyEmul.exe.config
+D:\Projects\MarkScanNet\KeyEmul\bin\Debug\KeyEmul.exe
+D:\Projects\MarkScanNet\KeyEmul\bin\Debug\KeyEmul.pdb
+D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.csprojResolveAssemblyReference.cache
+D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.Form1.resources
+D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.Properties.Resources.resources
+D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.csproj.GenerateResource.Cache
+D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.exe
+D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.pdb
