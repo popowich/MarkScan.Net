@@ -25,3 +25,12 @@ D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.Properties.Resources.resources
 D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.csproj.GenerateResource.Cache
 D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.exe
 D:\Projects\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.pdb
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\bin\Debug\KeyEmul.exe.config
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\bin\Debug\KeyEmul.exe
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\bin\Debug\KeyEmul.pdb
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.csprojResolveAssemblyReference.cache
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.Form1.resources
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.Properties.Resources.resources
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.csproj.GenerateResource.Cache
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.exe
+D:\MyProjekt\Free-lance\MarkScanNet\KeyEmul\obj\Debug\KeyEmul.pdb

@@ -13,9 +13,15 @@ namespace MarkScan.ViewModels
             App._mainWindowsVm._generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MainMenuPage.xaml", UriKind.Absolute));
         }
 
-        internal void GoToMarkScan()
+        internal void GoToMarkScanNew()
         {
-            App._mainWindowsVm._generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MarkScanPage.xaml", UriKind.Absolute));
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.MarkScanPage(true));
+            App._mainWindowsVm._generalFrame.ContentRendered += _generalFrame_ContentRendered;
+        }
+
+        internal void GoToMarkScanСontinue()
+        {
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.MarkScanPage(false));
             App._mainWindowsVm._generalFrame.ContentRendered += _generalFrame_ContentRendered;
         }
 

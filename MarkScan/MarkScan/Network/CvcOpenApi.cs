@@ -72,7 +72,7 @@ namespace MarkScan.Network
         /// <summary>
         /// Отправка данных инвентаризации
         /// </summary>
-        internal void Remainings(ResultScanPosititon positions)
+        internal bool Remainings(ResultScanPosititon positions)
         {
             HttpWebRequest request = getHttpWebRequestt("PATCH", "/openapi/remainings", true);
 
@@ -104,8 +104,12 @@ namespace MarkScan.Network
                 using (var stream = new StreamReader(responseStream))
                 {
                     var str = stream.ReadToEnd();
+
+                    return str.IndexOf("200") > -1;
                 }
             }
+
+            return false;
         }
         /// <summary>
         /// Отпрака данных списания

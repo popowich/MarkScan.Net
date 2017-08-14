@@ -34,7 +34,17 @@ namespace MarkScan.Pages
 
         private void newBt_Click(object sender, RoutedEventArgs e)
         {
-            _inventoryMenuPageVm.GoToMarkScan();
+            _inventoryMenuPageVm.GoToMarkScanNew();
+        }
+
+        private void continuebt_Click(object sender, RoutedEventArgs e)
+        {
+            _inventoryMenuPageVm.GoToMarkScanСontinue();
+        }
+
+        private void sendDataBt_Click(object sender, RoutedEventArgs e)
+        {
+            new Models.MarkScanPageModel(false)._sendToCvC();
         }
     }
 }

@@ -17,7 +17,6 @@ D:\Projects\MarkScan\MarkScan\obj\Debug\Pages\MainMenuPage.g.cs
 D:\Projects\MarkScan\MarkScan\obj\Debug\Pages\MainMenuPage.baml
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\bin\Debug\MarkScan.exe
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\bin\Debug\MarkScan.pdb
-D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\Debug\MarkScan.csprojResolveAssemblyReference.cache
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\Debug\MainWindow.g.cs
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\Debug\Pages\AuthPage.g.cs
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\Debug\Pages\InventoryMenuPage.g.cs

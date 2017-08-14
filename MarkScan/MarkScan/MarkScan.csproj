@@ -60,6 +60,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Models\MarkScanPageModel.cs" />
     <Compile Include="Network\JsonWrapers\SendDataResult.cs" />
     <Compile Include="Pages\InventoryMenuPage.xaml.cs">
       <DependentUpon>InventoryMenuPage.xaml</DependentUpon>
@@ -75,6 +76,7 @@
     <Compile Include="RetailEquipment\HIDBarcodeReader.cs" />
     <Compile Include="RetailEquipment\HIDBarcodeReaderEventArgs.cs" />
     <Compile Include="Tools\Base64.cs" />
+    <Compile Include="Tools\Convertor36To10.cs" />
     <Compile Include="Tools\KeyboardMapper.cs" />
     <Compile Include="ViewModels\AuthPageVm.cs" />
     <Compile Include="ViewModels\ETypeOperations.cs" />
