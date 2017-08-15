@@ -25,8 +25,11 @@ namespace MarkScan
         {
             InitializeComponent();
 
-            App._mainWindowsVm._generalFrame = generalFrame;      
+            App._mainWindowsVm._generalFrame = generalFrame;
+            App._mainWindowsVm._MainWindow = this;
             App._mainWindowsVm.GoToAuthPage();
+
+            App._mainWindowsVm.SetVersion();
         }
     }
 }

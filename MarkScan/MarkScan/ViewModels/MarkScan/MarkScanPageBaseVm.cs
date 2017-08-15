@@ -13,10 +13,10 @@ namespace MarkScan.ViewModels
     public abstract class MarkScanPageBaseVm
     {
         protected Pages.MarkScanPage _markScanPage;
-        protected IMarkScanPageModel _markScanPageModel;
+        protected IMarkScanModel _markScanPageModel;
         protected System.Windows.Forms.Timer _timer;
 
-        public MarkScanPageBaseVm( IMarkScanPageModel markScanPageModel)
+        public MarkScanPageBaseVm( IMarkScanModel markScanPageModel)
         {
             _markScanPageModel = markScanPageModel;
 
@@ -71,6 +71,8 @@ namespace MarkScan.ViewModels
                 {
                     _markScanPage.barcodeTx.Text = "";
                     _markScanPage.barcodeTx.IsEnabled = true;
+                    _markScanPage.barcodeTx.Focus();
+
                     t.Stop();
                     t.Dispose();
                 }
@@ -100,6 +102,7 @@ namespace MarkScan.ViewModels
 
                 _markScanPage.barcodeTx.Text = "";
                 _markScanPage.barcodeTx.IsEnabled = true;
+                _markScanPage.barcodeTx.Focus();
 
                 _markScanPage.barcodeTx.TextChanged += barcodeTx_TextChanged;
 

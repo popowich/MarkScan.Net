@@ -8,7 +8,7 @@ namespace MarkScan.ViewModels
     public class MarkScanInventoryPageVm : MarkScanPageBaseVm, IMarkScanPageVm
     {
         public MarkScanInventoryPageVm(bool newInventory) :
-            base(new Models.MarkScanPageInventoryModel(newInventory))
+            base(new Models.MarkScanInventoryModel(newInventory))
         {
 
         }
@@ -22,7 +22,7 @@ namespace MarkScan.ViewModels
 
         public void GoToOpearationMenuPage()
         {
-            App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new ViewModels.InventoryOpeationMenuPageVm()));
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new ViewModels.OperationInventoryMenuPageVm()));
         }
     }
 }

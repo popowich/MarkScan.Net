@@ -27,6 +27,7 @@ namespace MarkScan.Pages
             InitializeComponent();
 
             _operationMenuVm = operationMenuVm;
+            _operationMenuVm.SetPage(this);
         }
 
         private void backPage_Click(object sender, RoutedEventArgs e)
@@ -47,6 +48,11 @@ namespace MarkScan.Pages
         private void sendDataBt_Click(object sender, RoutedEventArgs e)
         {
             _operationMenuVm.SendDatatoCvC();
+        }
+
+        private void testConnectBt_Click(object sender, RoutedEventArgs e)
+        {
+            _operationMenuVm.TestConnect();
         }
     }
 }

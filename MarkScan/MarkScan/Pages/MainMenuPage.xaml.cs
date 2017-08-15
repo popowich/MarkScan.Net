@@ -20,26 +20,40 @@ namespace MarkScan.Pages
     /// </summary>
     public partial class MainMenuPage : System.Windows.Controls.Page
     {
-        private MainMenuPageVm _mainMenuVm = new MainMenuPageVm();
+        private MainMenuPageVm _mainMenuVm;
 
         public MainMenuPage()
         {
             InitializeComponent();
+
+            _mainMenuVm = new MainMenuPageVm(this);
         }
 
         private void inventoryBt_Click(object sender, RoutedEventArgs e)
         {
-            _mainMenuVm.GoToInventoryMenuPage();
+            _mainMenuVm.GoToInventoryOperationMenuPage();
         }
 
-        private void appWxitBt_Click(object sender, RoutedEventArgs e)
+        private void writeOffBt_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
+            _mainMenuVm.GoToWriteOffOperationMenuPage();
+        }
+
+        private void testConnectBt_Click(object sender, RoutedEventArgs e)
+        {
+            _mainMenuVm.TestConnect();
         }
 
         private void changeUserBt_Click(object sender, RoutedEventArgs e)
         {
-            App._mainWindowsVm._generalFrame.Navigate(new Pages.QuaerePage(new ViewModels.QuaereChandeUserVm(), "Вы действительно хотите сменить пользователя ?"));
+            _mainMenuVm.GoToChangeAuth();
         }
+
+        private void appWxitBt_Click(object sender, RoutedEventArgs e)
+        {
+            _mainMenuVm.Exit();
+        }
+
+
     }
 }

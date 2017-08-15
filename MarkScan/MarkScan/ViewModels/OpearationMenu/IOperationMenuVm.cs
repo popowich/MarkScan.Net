@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
+using MarkScan.Pages;
 
 namespace MarkScan.ViewModels
 {
@@ -11,5 +9,7 @@ namespace MarkScan.ViewModels
         void GoToMarkScanNew();
         void GoToMarkScanСontinue();
         void SendDatatoCvC();
+        void TestConnect();
+        void SetPage(OperationMenuPage operationMenuPage);
     }
 }

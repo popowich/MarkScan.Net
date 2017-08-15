@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MarkScan.Models;
 using MarkScan.Pages;
 
 namespace MarkScan.ViewModels
 {
-    public class InventoryOpeationMenuPageVm: IOperationMenuVm
+    public class OperationInventoryMenuPageVm: OperationInventoryMenuBase, IOperationMenuVm
     {
         public void GoToMainMenuPage()
         {
@@ -16,7 +12,7 @@ namespace MarkScan.ViewModels
 
         public void GoToMarkScanNew()
         {
-            var model = new Models.MarkScanPageInventoryModel(false);
+            var model = new Models.MarkScanInventoryModel(false);
 
             if (model.ScanResults.Count > 0)
             {
@@ -37,6 +33,7 @@ namespace MarkScan.ViewModels
         {
             App._mainWindowsVm._generalFrame.Navigate(new Pages.QuaerePage(new ViewModels.QuaereInventorySendDataVm(), "Подтвердите отправку инвентаризации на сервер"));
         }
+
 
     }
 }

@@ -1,31 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
-using System.Windows;
+using System.Linq;
 
 namespace MarkScan.Models
 {
-    public class MarkScanPageInventoryModel: IMarkScanPageModel
+    public abstract class MarkScanModelBase
     {
         /// <summary>
         /// Коллеция отсканированных данных
         /// </summary>
         public List<ScanResult> ScanResults { get; } = new List<ScanResult>();
+        /// <summary>
+        /// Путь к файлу данных
+        /// </summary>
+        public abstract string FileDataPath { get;}
 
-        public MarkScanPageInventoryModel(bool newInventory)
+        public MarkScanModelBase(bool newDatay)
         {
-            if (newInventory)
-                _clearData();
+            if (newDatay)
+                ClearData();
             else
                 _readData();
         }
 
-        /// <summary>
-        /// Обработать акцизную марку
-        /// </summary>
-        /// <param name="exciseStamp"></param>
+
         public void HandleExciseStamp(string exciseStamp)
         {
             string alkCode36 = exciseStamp.Substring(3, 16);
@@ -44,14 +43,14 @@ namespace MarkScan.Models
 
         public bool ValidExciseStamp(string exciseStamp)
         {
-            return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68;
+            return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68 && ScanResults.FirstOrDefault(x=>x.ExciseStamp == exciseStamp) == null;
         }
 
-        private void _saveNewData(string exciseStamp, string alkCode)
+        protected void _saveNewData(string exciseStamp, string alkCode)
         {
             try
             {
-                using (var stream = new StreamWriter(AppSettings.CurrDir + "\\InventoryData.txt", true))
+                using (var stream = new StreamWriter(FileDataPath, true))
                 {
                     stream.WriteLine(exciseStamp + ";" + alkCode);
                 }
@@ -62,14 +61,14 @@ namespace MarkScan.Models
             }
         }
 
-        private void _readData()
+        protected void _readData()
         {
             try
             {
-                if (!File.Exists(AppSettings.CurrDir + "\\InventoryData.txt"))
+                if (!File.Exists(FileDataPath))
                     return;
 
-                using (var stream = new StreamReader(AppSettings.CurrDir + "\\InventoryData.txt"))
+                using (var stream = new StreamReader(FileDataPath))
                 {
                     while (stream.EndOfStream == false)
                     {
@@ -87,14 +86,14 @@ namespace MarkScan.Models
             }
         }
 
-        private void _clearData()
+        public void ClearData()
         {
             try
             {
-                if (!File.Exists(AppSettings.CurrDir + "\\InventoryData.txt"))
+                if (!File.Exists(FileDataPath))
                     return;
 
-                using (var stream = new StreamWriter(AppSettings.CurrDir + "\\InventoryData.txt", false))
+                using (var stream = new StreamWriter(FileDataPath, false))
                 {
 
                 }
@@ -105,52 +104,22 @@ namespace MarkScan.Models
             }
         }
 
-        public void SendToCvC()
+        public bool SendToCvC()
         {
-            if (ScanResults.Count == 0)
-            {
-                MessageBox.Show("Отправлять нечего!");
-                return;
-            }
+            var resultPositiones = new ResultScanPosititon();
+            List<ResultScan> listScan = new List<ResultScan>();
 
-            var resulP = new ResultScanPosititon();
-
-            List<ResultScan> ss = new List<ResultScan>();
             var phoneGroups = ScanResults.GroupBy(p => p.AlcCode)
                     .Select(g => new { Name = g.Key, Count = g.Count() });
 
             foreach (var data in phoneGroups)
-            {
-                ss.Add(new ResultScan() { AlcCode = data.Name, Quantity = data.Count });
-            }
+                listScan.Add(new ResultScan() { AlcCode = data.Name, Quantity = data.Count });
 
-            resulP.Positions = ss.ToArray();
+            resultPositiones.Positions = listScan.ToArray();
 
-            try
-            {
-                if (Network.CvcOpenApi.GetClientApi().Remainings(resulP))
-                    MessageBox.Show("Отправлено успешно!");
-                else
-                    MessageBox.Show("Отправлено не удалось!");
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-                AppSettings.HandlerException(e);
-            }
-
+            return _sendToCvC(resultPositiones);
         }
-    }
 
-    public class ScanResult
-    {
-        /// <summary>
-        /// Акцизная марка
-        /// </summary>
-        internal string ExciseStamp { get; set; }
-        /// <summary>
-        /// Алкод
-        /// </summary>
-        internal string AlcCode { get; set; }
+        protected abstract bool _sendToCvC(ResultScanPosititon resultPositiones);
     }
 }

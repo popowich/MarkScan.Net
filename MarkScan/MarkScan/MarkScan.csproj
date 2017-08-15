@@ -60,8 +60,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppSettings.cs" />
-    <Compile Include="Models\IMarkScanPageModel.cs" />
-    <Compile Include="Models\MarkScanPageModel.cs" />
+    <Compile Include="Models\IMarkScanModel.cs" />
+    <Compile Include="Models\MarkScanModelBase.cs" />
+    <Compile Include="Models\MarkScanWriteOffModel.cs" />
+    <Compile Include="Models\MarkScanInventoryModel.cs" />
+    <Compile Include="Models\ScanResult.cs" />
     <Compile Include="Network\JsonWrapers\SendDataResult.cs" />
     <Compile Include="Pages\OperationMenuPage.xaml.cs">
       <DependentUpon>OperationMenuPage.xaml</DependentUpon>
@@ -87,19 +90,25 @@
     <Compile Include="Tools\KeyboardMapper.cs" />
     <Compile Include="ViewModels\AuthPageVm.cs" />
     <Compile Include="ViewModels\ETypeOperations.cs" />
-    <Compile Include="ViewModels\IMarkScanPageVm.cs" />
-    <Compile Include="ViewModels\InventoryMenuPageVm.cs" />
-    <Compile Include="ViewModels\IOperationMenuVm.cs" />
-    <Compile Include="ViewModels\IQuaereVm.cs" />
-    <Compile Include="ViewModels\ISendDataToCvCVm.cs" />
+    <Compile Include="ViewModels\MarkScan\IMarkScanPageVm.cs" />
+    <Compile Include="ViewModels\MarkScan\MarkScanWriteOffPageVm.cs" />
+    <Compile Include="ViewModels\OpearationMenu\OperationInventoryMenuBase.cs" />
+    <Compile Include="ViewModels\OpearationMenu\OperationWriteOffMenuPageVm.cs" />
+    <Compile Include="ViewModels\OpearationMenu\OperationInventoryMenuPageVm.cs" />
+    <Compile Include="ViewModels\OpearationMenu\IOperationMenuVm.cs" />
+    <Compile Include="ViewModels\Quaere\IQuaereVm.cs" />
+    <Compile Include="ViewModels\Quaere\QuaereWriteOffSendDataVm.cs" />
+    <Compile Include="ViewModels\Quaere\QuaereWriteOffMenuVm.cs" />
+    <Compile Include="ViewModels\SendData\ISendDataToCvCVm.cs" />
     <Compile Include="ViewModels\MainMenuPageVm.cs" />
     <Compile Include="ViewModels\MainWindowsVm.cs" />
-    <Compile Include="ViewModels\MarkScanInventoryPageVm.cs" />
-    <Compile Include="ViewModels\MarkScanPageBaseVm.cs" />
-    <Compile Include="ViewModels\QuaereChandeUserVm.cs" />
-    <Compile Include="ViewModels\QuaereInventiryMenuVm.cs" />
-    <Compile Include="ViewModels\QuaereInventorySendDataVm.cs" />
-    <Compile Include="ViewModels\SendDataInventoryToCvCVm.cs" />
+    <Compile Include="ViewModels\MarkScan\MarkScanInventoryPageVm.cs" />
+    <Compile Include="ViewModels\MarkScan\MarkScanPageBaseVm.cs" />
+    <Compile Include="ViewModels\Quaere\QuaereChandeUserVm.cs" />
+    <Compile Include="ViewModels\Quaere\QuaereInventiryMenuVm.cs" />
+    <Compile Include="ViewModels\Quaere\QuaereInventorySendDataVm.cs" />
+    <Compile Include="ViewModels\SendData\SendDataWriteOffToCvCVm.cs" />
+    <Compile Include="ViewModels\SendData\SendDataInventoryToCvCVm.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -178,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imgs\mark2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\marka3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

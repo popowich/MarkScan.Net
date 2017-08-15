@@ -30,6 +30,12 @@ namespace MarkScan.Pages
 
             if (!_viewModelAuthPageVm.IsPerfAuthoriation())
                 _viewModelAuthPageVm.GoToMainMenuPage();
+            else
+            {
+                AppSettings.settings.Login = "";
+                App._mainWindowsVm.SetVersion();
+            }
+
         }
 
         public AuthPage(bool handle)
@@ -37,12 +43,17 @@ namespace MarkScan.Pages
             InitializeComponent();
 
             _viewModelAuthPageVm = new AuthPageVm(this);
+
+            AppSettings.settings.Login = "";
+            App._mainWindowsVm.SetVersion();
         }
 
         private void authBt_Click(object sender, RoutedEventArgs e)
         {
            if(_viewModelAuthPageVm.Auth(loginTx.Text, passTx.Text) == true)
                _viewModelAuthPageVm.GoToMainMenuPage();
+
+            App._mainWindowsVm.SetVersion();
         }
     }
 }

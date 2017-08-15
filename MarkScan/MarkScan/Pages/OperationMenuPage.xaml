@@ -14,16 +14,19 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="213*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="67"/>
+            <RowDefinition Height="58*"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Button x:Name="newBt" Content="Новая" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="1" Click="newBt_Click"/>
         <Button x:Name="continuebt" Content="Продолжить" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="2" Click="continuebt_Click"/>
-        <Button x:Name="testConnectBt" Content="Связь с сервером" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="3"/>
-        <Button x:Name="sendDataBt" Content="Отправить на СВС" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="5" Click="sendDataBt_Click"/>
-        <Button x:Name="backPage" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="6" Click="backPage_Click"/>
+        <Button x:Name="testConnectBt" Content="Связь с сервером" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="3" Click="testConnectBt_Click"/>
+        <Button x:Name="sendDataBt" Content="Отправить на СВС" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="7" Click="sendDataBt_Click"/>
+        <Button x:Name="backPage" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="8" Click="backPage_Click"/>
+        <TextBox x:Name="messageTxb" Grid.Row="5" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" TextAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="24" SelectionBrush="{x:Null}" BorderThickness="0" IsReadOnly="True" Cursor="Arrow"/>
 
     </Grid>
 </Page>

@@ -5,12 +5,14 @@ using System.Text;
 
 namespace MarkScan.Models
 {
-    public interface IMarkScanPageModel
+    public interface IMarkScanModel
     {
         List<ScanResult> ScanResults { get; }
 
         void HandleExciseStamp(string exciseStamp);
         bool ValidExciseStamp(string exciseStamp);
-        void SendToCvC();
+        bool SendToCvC();
+
+        void ClearData();
     }
 }

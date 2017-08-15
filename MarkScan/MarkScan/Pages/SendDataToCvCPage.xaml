@@ -5,11 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MarkScan.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="640"
       Title="SendDataToCvCPage">
 
     <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="54" Margin="38,119,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="205"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="229*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="messageTxb" Margin="0,118,0,57" TextWrapping="Wrap" Text="Выполняется отправка данных..." TextAlignment="Center" FontSize="21.333" Height="54" VerticalAlignment="Center"/>
+        <Button x:Name="backPage" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="1" Click="backPage_Click"/>
 
     </Grid>
 </Page>

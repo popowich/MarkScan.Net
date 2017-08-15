@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Mark Scan.Net" Height="604.576" Width="640"  Background="#FF8ADFFF" Icon="CVC.ico">
     <Grid>
-        <Frame x:Name="generalFrame" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="generalFrame" NavigationUIVisibility="Hidden" Margin="0,0,0,10"/>
+        <Label x:Name="verLb" Content="Ver:0.0.0" HorizontalAlignment="Right" Width="66" Height="28" VerticalAlignment="Bottom" FontSize="13.333" Margin="0,0,6,0" HorizontalContentAlignment="Right"/>
+        <Label x:Name="loginLb" Content="00000000000000000" Height="28" VerticalAlignment="Bottom" FontSize="13.333" HorizontalAlignment="Left" Width="162" Margin="3,0,0,0"/>
 
     </Grid>
 </Window>

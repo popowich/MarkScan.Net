@@ -9,5 +9,6 @@ namespace MarkScan.ViewModels
     {
         void SetPage(Pages.SendDataToCvCPage page);
         void SendData();
+        void GoToOperationMenu();
     }
 }

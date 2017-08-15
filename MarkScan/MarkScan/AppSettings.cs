@@ -17,6 +17,17 @@ namespace MarkScan
             }
         }
 
+        /// <summary>
+        /// Версия сборки
+        /// </summary>
+        public static string VerAssembly
+        {
+            get
+            {
+                return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
+        }
+
         internal static string CurrDir { get; private set; }
 
         internal static string LogFile { get; private set; }

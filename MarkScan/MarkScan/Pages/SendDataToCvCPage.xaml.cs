@@ -35,5 +35,10 @@ namespace MarkScan.Pages
         {
             _sendDataToCvCVm.SendData();
         }
+
+        private void backPage_Click(object sender, RoutedEventArgs e)
+        {
+            _sendDataToCvCVm.GoToOperationMenu();
+        }
     }
 }

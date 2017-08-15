@@ -15,7 +15,7 @@
             <RowDefinition Height="61"/>
             <RowDefinition Height="229*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="quaereText" Margin="10" Grid.Row="1" Text="Текст вопроса" FontSize="20" HorizontalAlignment="Center" Width="620" TextAlignment="Center" TextWrapping="Wrap" />
+        <TextBlock x:Name="quaereText" Grid.Row="1" Text="Текст вопроса" FontSize="20" HorizontalAlignment="Center" Width="640" TextAlignment="Center" TextWrapping="Wrap" />
         <Button x:Name="yesBt" Content="Да" HorizontalAlignment="Center" Margin="119,0,353,0" Grid.Row="2" VerticalAlignment="Top" Width="168" Height="61" FontSize="20" Background="#FF0F6FC6" Foreground="White" Click="yesBt_Click"/>
         <Button x:Name="noBt" Content="Нет" Margin="353,0,119,0" Grid.Row="2" VerticalAlignment="Top" Height="61" FontSize="20" HorizontalAlignment="Center" Width="168" Background="#FF0F6FC6" Foreground="White" Click="noBt_Click"/>
 
