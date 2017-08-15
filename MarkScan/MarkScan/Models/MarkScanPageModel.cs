@@ -7,14 +7,14 @@ using System.Windows;
 
 namespace MarkScan.Models
 {
-    internal class MarkScanPageModel
+    public class MarkScanPageInventoryModel: IMarkScanPageModel
     {
         /// <summary>
         /// Коллеция отсканированных данных
         /// </summary>
-        internal List<ScanResult> _scanResults = new List<ScanResult>();
+        public List<ScanResult> ScanResults { get; } = new List<ScanResult>();
 
-        internal MarkScanPageModel(bool newInventory)
+        public MarkScanPageInventoryModel(bool newInventory)
         {
             if (newInventory)
                 _clearData();
@@ -26,7 +26,7 @@ namespace MarkScan.Models
         /// Обработать акцизную марку
         /// </summary>
         /// <param name="exciseStamp"></param>
-        internal void HandleExciseStamp(string exciseStamp)
+        public void HandleExciseStamp(string exciseStamp)
         {
             string alkCode36 = exciseStamp.Substring(3, 16);
             string alkCode10 = Tools.Convertor36To10String.Convert(alkCode36);
@@ -38,11 +38,11 @@ namespace MarkScan.Models
                     alkCode10 = "0" + alkCode10;
             }
 
-            _scanResults.Add(new ScanResult() { ExciseStamp = exciseStamp, AlcCode = alkCode10 });
+            ScanResults.Add(new ScanResult() { ExciseStamp = exciseStamp, AlcCode = alkCode10 });
             _saveNewData(exciseStamp, alkCode10);
         }
 
-        internal bool ValidExciseStamp(string exciseStamp)
+        public bool ValidExciseStamp(string exciseStamp)
         {
             return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68;
         }
@@ -76,7 +76,7 @@ namespace MarkScan.Models
                         string str = stream.ReadLine();
                         string[] mas = str.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
                         if (mas.Length == 2)
-                            _scanResults.Add(new ScanResult() { ExciseStamp = mas[0], AlcCode = mas[1] });
+                            ScanResults.Add(new ScanResult() { ExciseStamp = mas[0], AlcCode = mas[1] });
 
                     }
                 }
@@ -105,9 +105,9 @@ namespace MarkScan.Models
             }
         }
 
-        internal void _sendToCvC()
+        public void SendToCvC()
         {
-            if (_scanResults.Count == 0)
+            if (ScanResults.Count == 0)
             {
                 MessageBox.Show("Отправлять нечего!");
                 return;
@@ -116,7 +116,7 @@ namespace MarkScan.Models
             var resulP = new ResultScanPosititon();
 
             List<ResultScan> ss = new List<ResultScan>();
-            var phoneGroups = _scanResults.GroupBy(p => p.AlcCode)
+            var phoneGroups = ScanResults.GroupBy(p => p.AlcCode)
                     .Select(g => new { Name = g.Key, Count = g.Count() });
 
             foreach (var data in phoneGroups)
@@ -142,7 +142,7 @@ namespace MarkScan.Models
         }
     }
 
-    internal class ScanResult
+    public class ScanResult
     {
         /// <summary>
         /// Акцизная марка

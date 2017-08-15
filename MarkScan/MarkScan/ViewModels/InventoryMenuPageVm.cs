@@ -2,35 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MarkScan.Models;
 using MarkScan.Pages;
 
 namespace MarkScan.ViewModels
 {
-    internal class InventoryMenuPageVm
+    public class InventoryOpeationMenuPageVm: IOperationMenuVm
     {
-        internal void GoToMainMenuPage()
+        public void GoToMainMenuPage()
         {
             App._mainWindowsVm._generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MainMenuPage.xaml", UriKind.Absolute));
         }
 
-        internal void GoToMarkScanNew()
+        public void GoToMarkScanNew()
         {
-            App._mainWindowsVm._generalFrame.Navigate(new Pages.MarkScanPage(true));
-            App._mainWindowsVm._generalFrame.ContentRendered += _generalFrame_ContentRendered;
+            var model = new Models.MarkScanPageInventoryModel(false);
+
+            if (model.ScanResults.Count > 0)
+            {
+                App._mainWindowsVm._generalFrame.Navigate( new Pages.QuaerePage(new ViewModels.QuaereInventiryMenuVm(), "Имеются неотправленные данные инвентаризации. Они будут потеряны, продолжить ?"));
+            }
+            else
+            {
+                App._mainWindowsVm._generalFrame.Navigate(new Pages.MarkScanPage(new MarkScanInventoryPageVm(true)));
+            }
         }
 
-        internal void GoToMarkScanСontinue()
+        public void GoToMarkScanСontinue()
         {
-            App._mainWindowsVm._generalFrame.Navigate(new Pages.MarkScanPage(false));
-            App._mainWindowsVm._generalFrame.ContentRendered += _generalFrame_ContentRendered;
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.MarkScanPage(new MarkScanInventoryPageVm(false)));
         }
 
-        private void _generalFrame_ContentRendered(object sender, EventArgs e)
+        public void SendDatatoCvC()
         {
-            var page = App._mainWindowsVm._generalFrame.Content as MarkScanPage;
-            page.SetOpearation(ETypeOperations.Inventory);
-
-            App._mainWindowsVm._generalFrame.ContentRendered -= _generalFrame_ContentRendered;
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.QuaerePage(new ViewModels.QuaereInventorySendDataVm(), "Подтвердите отправку инвентаризации на сервер"));
         }
+
     }
 }

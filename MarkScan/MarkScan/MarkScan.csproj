@@ -60,16 +60,23 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Models\IMarkScanPageModel.cs" />
     <Compile Include="Models\MarkScanPageModel.cs" />
     <Compile Include="Network\JsonWrapers\SendDataResult.cs" />
-    <Compile Include="Pages\InventoryMenuPage.xaml.cs">
-      <DependentUpon>InventoryMenuPage.xaml</DependentUpon>
+    <Compile Include="Pages\OperationMenuPage.xaml.cs">
+      <DependentUpon>OperationMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MarkScanPage.xaml.cs">
       <DependentUpon>MarkScanPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\QuaerePage.xaml.cs">
+      <DependentUpon>QuaerePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SendDataToCvCPage.xaml.cs">
+      <DependentUpon>SendDataToCvCPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ResultScan.cs" />
     <Compile Include="ResultScanPosititon.cs" />
@@ -80,10 +87,19 @@
     <Compile Include="Tools\KeyboardMapper.cs" />
     <Compile Include="ViewModels\AuthPageVm.cs" />
     <Compile Include="ViewModels\ETypeOperations.cs" />
+    <Compile Include="ViewModels\IMarkScanPageVm.cs" />
     <Compile Include="ViewModels\InventoryMenuPageVm.cs" />
+    <Compile Include="ViewModels\IOperationMenuVm.cs" />
+    <Compile Include="ViewModels\IQuaereVm.cs" />
+    <Compile Include="ViewModels\ISendDataToCvCVm.cs" />
     <Compile Include="ViewModels\MainMenuPageVm.cs" />
     <Compile Include="ViewModels\MainWindowsVm.cs" />
-    <Compile Include="ViewModels\MarkScanPageVm.cs" />
+    <Compile Include="ViewModels\MarkScanInventoryPageVm.cs" />
+    <Compile Include="ViewModels\MarkScanPageBaseVm.cs" />
+    <Compile Include="ViewModels\QuaereChandeUserVm.cs" />
+    <Compile Include="ViewModels\QuaereInventiryMenuVm.cs" />
+    <Compile Include="ViewModels\QuaereInventorySendDataVm.cs" />
+    <Compile Include="ViewModels\SendDataInventoryToCvCVm.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,7 +116,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\InventoryMenuPage.xaml">
+    <Page Include="Pages\OperationMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,6 +125,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MarkScanPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\QuaerePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SendDataToCvCPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

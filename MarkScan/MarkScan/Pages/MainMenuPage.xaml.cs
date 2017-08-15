@@ -39,12 +39,7 @@ namespace MarkScan.Pages
 
         private void changeUserBt_Click(object sender, RoutedEventArgs e)
         {
-            //App._mainWindowsVm._generalFrame.Source =
-            //    new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/AuthPage.xaml",
-            //        UriKind.Absolute);
-            // App._mainWindowsVm._generalFrame.Source = null;
-
-            App._mainWindowsVm._generalFrame.Navigate(new Pages.AuthPage(true));
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.QuaerePage(new ViewModels.QuaereChandeUserVm(), "Вы действительно хотите сменить пользователя ?"));
         }
     }
 }

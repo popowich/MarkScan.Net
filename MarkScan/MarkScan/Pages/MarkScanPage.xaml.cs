@@ -22,9 +22,9 @@ namespace MarkScan.Pages
     /// </summary>
     public partial class MarkScanPage : System.Windows.Controls.Page
     {
-        private MarkScanPageVm _markScanPageVm;
+        private IMarkScanPageVm _markScanPageVm;
 
-        public MarkScanPage(bool newInventory)
+        public MarkScanPage(IMarkScanPageVm markScanPageVm)
         {
             InitializeComponent();
 
@@ -37,17 +37,14 @@ namespace MarkScan.Pages
 
             barcodeTx.Focus();
 
-            _markScanPageVm = new MarkScanPageVm(this, newInventory);
-        }
+            _markScanPageVm = markScanPageVm;
+            _markScanPageVm.SetOwnerPage(this);
 
-        internal void SetOpearation(ETypeOperations typeOperations)
-        {
-            _markScanPageVm.SetTypeeOperation(typeOperations);
         }
 
         private void backBt_Click(object sender, RoutedEventArgs e)
         {
-            _markScanPageVm.GoToInventoryMenuPage();
+            _markScanPageVm.GoToOpearationMenuPage();
         }
 
     }

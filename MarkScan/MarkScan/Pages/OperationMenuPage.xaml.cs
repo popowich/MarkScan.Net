@@ -18,33 +18,35 @@ namespace MarkScan.Pages
     /// <summary>
     /// Логика взаимодействия для InventoryPage.xaml
     /// </summary>
-    public partial class InventoryMenuPage : System.Windows.Controls.Page
+    public partial class OperationMenuPage : System.Windows.Controls.Page
     {
-        private InventoryMenuPageVm _inventoryMenuPageVm = new InventoryMenuPageVm();
+        private IOperationMenuVm _operationMenuVm;
 
-        public InventoryMenuPage()
+        public OperationMenuPage(IOperationMenuVm operationMenuVm)
         {
             InitializeComponent();
+
+            _operationMenuVm = operationMenuVm;
         }
 
         private void backPage_Click(object sender, RoutedEventArgs e)
         {
-            _inventoryMenuPageVm.GoToMainMenuPage();
+            _operationMenuVm.GoToMainMenuPage();
         }
 
         private void newBt_Click(object sender, RoutedEventArgs e)
         {
-            _inventoryMenuPageVm.GoToMarkScanNew();
+            _operationMenuVm.GoToMarkScanNew();
         }
 
         private void continuebt_Click(object sender, RoutedEventArgs e)
         {
-            _inventoryMenuPageVm.GoToMarkScanСontinue();
+            _operationMenuVm.GoToMarkScanСontinue();
         }
 
         private void sendDataBt_Click(object sender, RoutedEventArgs e)
         {
-            new Models.MarkScanPageModel(false)._sendToCvC();
+            _operationMenuVm.SendDatatoCvC();
         }
     }
 }

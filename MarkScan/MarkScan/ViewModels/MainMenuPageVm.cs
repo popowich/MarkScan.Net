@@ -9,7 +9,7 @@ namespace MarkScan.ViewModels
     {
         internal void GoToInventoryMenuPage()
         {
-            App._mainWindowsVm._generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/InventoryMenuPage.xaml", UriKind.Absolute));
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new ViewModels.InventoryOpeationMenuPageVm()));
         }
     }
 }
