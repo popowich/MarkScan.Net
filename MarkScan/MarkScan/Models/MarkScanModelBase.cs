@@ -46,6 +46,11 @@ namespace MarkScan.Models
             return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68 && ScanResults.FirstOrDefault(x=>x.ExciseStamp == exciseStamp) == null;
         }
 
+        public bool ValidExciseStampForLength(string exciseStamp)
+        {
+            return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68;
+        }
+
         protected void _saveNewData(string exciseStamp, string alkCode)
         {
             try

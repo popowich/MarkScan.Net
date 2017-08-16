@@ -89,25 +89,29 @@ namespace MarkScan.ViewModels
 
         private void barcodeTx_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (_markScanPageModel.ValidExciseStamp((_markScanPage.barcodeTx.Text)))
+            if (_markScanPageModel.ValidExciseStampForLength((_markScanPage.barcodeTx.Text)))
             {
                 _markScanPage.barcodeTx.TextChanged -= barcodeTx_TextChanged;
 
                 _markScanPage.barcodeTx.Text = Tools.KeyboardMapper.TranslateFromCyrillic(_markScanPage.barcodeTx.Text);
                 _markScanPage.barcodeTx.SelectionStart = _markScanPage.barcodeTx.Text.Length;
 
-                _markScanPageModel.HandleExciseStamp(_markScanPage.barcodeTx.Text);
+                if (_markScanPageModel.ValidExciseStamp((_markScanPage.barcodeTx.Text)))
+                {
+                    _markScanPageModel.HandleExciseStamp(_markScanPage.barcodeTx.Text);
 
-                _markScanPage.barcodeTx.IsEnabled = false;
+                    _markScanPage.barcodeTx.IsEnabled = false;
 
-                _markScanPage.barcodeTx.Text = "";
-                _markScanPage.barcodeTx.IsEnabled = true;
-                _markScanPage.barcodeTx.Focus();
+                    _markScanPage.barcodeTx.Text = "";
+                    _markScanPage.barcodeTx.IsEnabled = true;
+                    _markScanPage.barcodeTx.Focus();
+
+                    _updateLables();
+                    _updateCountScan();
+                }
 
                 _markScanPage.barcodeTx.TextChanged += barcodeTx_TextChanged;
 
-                _updateLables();
-                _updateCountScan();
             }
 
         }

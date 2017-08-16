@@ -26,7 +26,7 @@ namespace MarkScan.ViewModels
 
                 if (model.SendToCvC())
                 {
-                    _page.messageTxb.Text = "Списание отправлена успешно!";
+                    _page.messageTxb.Text = "Списание отправлено успешно!";
                     _page.messageTxb.Foreground = Brushes.Green;
                     model.ClearData();
                 }
@@ -61,7 +61,7 @@ namespace MarkScan.ViewModels
                 _timer.Dispose();
             }
 
-            App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new OperationInventoryMenuPageVm()));
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new OperationWriteOffMenuPageVm()));
         }
 
         private void _goBack()
@@ -76,7 +76,7 @@ namespace MarkScan.ViewModels
             _timer.Interval = 7000;
             _timer.Tick += (object sender, EventArgs e) =>
             {
-                App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new OperationInventoryMenuPageVm()));
+                App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new OperationWriteOffMenuPageVm()));
                 _timer.Dispose();
             };
             _timer.Start();
