@@ -27,18 +27,27 @@ namespace MarkScan.Models
 
         public void HandleExciseStamp(string exciseStamp)
         {
-            string alkCode36 = exciseStamp.Substring(3, 16);
-            string alkCode10 = Tools.Convertor36To10String.Convert(alkCode36);
-
-            if (alkCode10.Length < 19)
+            try
             {
-                int difference = 19 - alkCode10.Length;
-                for (int i = 1; i <= difference; i++)
-                    alkCode10 = "0" + alkCode10;
-            }
+                string alkCode36 = exciseStamp.Substring(3, 16);
+                string alkCode10 = Tools.Convertor36To10String.Convert(alkCode36);
 
-            ScanResults.Add(new ScanResult() { ExciseStamp = exciseStamp, AlcCode = alkCode10 });
-            _saveNewData(exciseStamp, alkCode10);
+                if (alkCode10.Length < 19)
+                {
+                    int difference = 19 - alkCode10.Length;
+                    for (int i = 1; i <= difference; i++)
+                        alkCode10 = "0" + alkCode10;
+                }
+
+                ScanResults.Add(new ScanResult() { ExciseStamp = exciseStamp, AlcCode = alkCode10 });
+                _saveNewData(exciseStamp, alkCode10);
+            }
+            catch (Exception e)
+            {
+              AppSettings.SaveDebug("Ошибка обработки марки: " + exciseStamp);
+              AppSettings.HandlerException(e);
+            }
+   
         }
 
         public bool ValidExciseStamp(string exciseStamp)

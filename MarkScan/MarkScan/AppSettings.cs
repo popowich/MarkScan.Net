@@ -110,42 +110,60 @@ namespace MarkScan
                 return null;
         }
 
-        private static void SaveLog(string _text)
+        public static void SaveDebug(string debug)
         {
+            if (!string.IsNullOrEmpty(LogFile))
+            {
+                StreamWriter write = null;
+                try
+                {
+                    write = new StreamWriter(LogFile, true, Encoding.UTF8);
+                    write.WriteLine(DateTime.Now + " - Debug: " + debug);
+                }
+                catch (Exception ex2)
+                {
 
-            StreamWriter write = null;
-            try
-            {
-                write = new StreamWriter(LogFile, true, Encoding.GetEncoding("windows-1251"));
-                write.WriteLine(DateTime.Now.ToString() + ">> " + _text);
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Ошибка записи лог файла", "Внимание", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                System.Diagnostics.Debug.Fail(ex.Message);
-            }
-            finally
-            {
-                if (write != null)
-                    write.Close();
+                }
+                finally
+                {
+                    if (write != null)
+                        write.Close();
+                }
             }
         }
 
         public static void HandlerException(Exception ex)
         {
-           // System.Diagnostics.Debug.Fail(ex.Message);
-
-            SaveLog("Exception: " + ex.Message);
-            if (ex.InnerException != null)
+            if (!string.IsNullOrEmpty(LogFile))
             {
-                SaveLog("------>InnerException: " + ex.InnerException.Message);
-                if (ex.InnerException.InnerException != null)
+                StreamWriter write = null;
+                try
                 {
-                    SaveLog("------>InnerException: " + ex.InnerException.InnerException.Message);
-                    if (ex.InnerException.InnerException.InnerException != null)
+                    write = new StreamWriter(LogFile, true, Encoding.UTF8);
+                    write.WriteLine(DateTime.Now + " - Error: " + ex.Message);
+                    write.WriteLine("StackTrace" + ex.StackTrace);
+
+                    if (ex.InnerException != null)
                     {
-                        SaveLog("------>InnerException: " + ex.InnerException.InnerException.InnerException.Message);
+                        write.WriteLine("              ->  " + ex.InnerException.Message);
+                        if (ex.InnerException.InnerException != null)
+                        {
+                            write.WriteLine("                -> " + ex.InnerException.InnerException.Message);
+                            if (ex.InnerException.InnerException.InnerException != null)
+                            {
+                                write.WriteLine("                  -> " + ex.InnerException.InnerException.InnerException.Message);
+                            }
+                        }
                     }
+                }
+                catch (Exception ex2)
+                {
+
+                }
+                finally
+                {
+                    if (write != null)
+                        write.Close();
                 }
             }
         }

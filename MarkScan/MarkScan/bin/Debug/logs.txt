@@ -1,19 +1,13 @@
-13.08.2017 17:14:43>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-13.08.2017 17:17:03>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-13.08.2017 17:17:31>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-13.08.2017 17:18:52>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-13.08.2017 17:19:43>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-14.08.2017 0:50:36>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-14.08.2017 0:50:47>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-14.08.2017 19:36:09>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-14.08.2017 23:33:45>> Exception: Файл 'D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\bin\Debug\InventoryData.txt' не найден.
-15.08.2017 23:01:14>> Exception: Невозможно разрешить удаленное имя: 'c-v-c.ru'
-15.08.2017 23:47:04>> Exception: ? ??????? ?????????? ??????
-15.08.2017 23:47:57>> Exception: В запросе обнаружена ошибка
-15.08.2017 23:48:52>> Exception: В запросе обнаружена ошибка
-15.08.2017 23:53:37>> Exception: В запросе обнаружена ошибка
-15.08.2017 23:53:44>> Exception: В запросе обнаружена ошибка
-15.08.2017 23:54:47>> Exception: В запросе обнаружена ошибка
-16.08.2017 0:18:31>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-16.08.2017 0:51:24>> Exception: Авторизация не выполнена: Пользователь не был аутентифицирован
-16.08.2017 0:52:12>> Exception: В запросе обнаружена ошибка
+п»ї16.08.2017 23:23:06 - Error: РќРµРІРѕР·РјРѕР¶РЅРѕ СЂР°Р·СЂРµС€РёС‚СЊ СѓРґР°Р»РµРЅРЅРѕРµ РёРјСЏ: 'c-v-c.ru'
+StackTrace   РІ System.Net.HttpWebRequest.GetResponse()
+   РІ MarkScan.Network.CvcOpenApi.Auth(String login, String pass) РІ D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\Network\CvcOpenApi.cs:СЃС‚СЂРѕРєР° 53
+   РІ MarkScan.ViewModels.AuthPageVm.Auth(String login, String pass) РІ D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\ViewModels\AuthPageVm.cs:СЃС‚СЂРѕРєР° 27
+16.08.2017 23:23:34 - Error: РђРІС‚РѕСЂРёР·Р°С†РёСЏ РЅРµ РІС‹РїРѕР»РЅРµРЅР°: РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅРµ Р±С‹Р» Р°СѓС‚РµРЅС‚РёС„РёС†РёСЂРѕРІР°РЅ
+StackTrace   РІ MarkScan.ViewModels.AuthPageVm.Auth(String login, String pass) РІ D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\ViewModels\AuthPageVm.cs:СЃС‚СЂРѕРєР° 39
+16.08.2017 23:48:15 - Debug: РћС€РёР±РєР° РѕС‚РїСЂР°РІРєРё РёРЅРІРµС‚Р°СЂРёР·Р°С†РёРё
+16.08.2017 23:48:15 - Error: РЈРґР°Р»РµРЅРЅС‹Р№ СЃРµСЂРІРµСЂ РІРѕР·РІСЂР°С‚РёР» РѕС€РёР±РєСѓ: (400) РќРµРґРѕРїСѓСЃС‚РёРјС‹Р№ Р·Р°РїСЂРѕСЃ.
+StackTrace   РІ System.Net.HttpWebRequest.GetResponse()
+   РІ MarkScan.Network.CvcOpenApi.Remainings(ResultScanPosititon positions) РІ D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\Network\CvcOpenApi.cs:СЃС‚СЂРѕРєР° 82
+   РІ MarkScan.Models.MarkScanInventoryModel._sendToCvC(ResultScanPosititon resultPositiones) РІ D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\Models\MarkScanInventoryModel.cs:СЃС‚СЂРѕРєР° 19
+   РІ MarkScan.Models.MarkScanModelBase.SendToCvC() РІ D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\Models\MarkScanModelBase.cs:СЃС‚СЂРѕРєР° 134
+   РІ MarkScan.ViewModels.SendDataInventoryToCvCVm.SendData() РІ D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\ViewModels\SendData\SendDataInventoryToCvCVm.cs:СЃС‚СЂРѕРєР° 24

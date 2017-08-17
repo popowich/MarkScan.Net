@@ -36,13 +36,12 @@ namespace MarkScan.ViewModels
                 }
                 else
                 {
-                    throw new Exception("Авторизация не выполнена: " + result.Response.LocalizedMessage);
+                    throw new Exception("Авторизация не выполнена: LocalizedMessage: " + result.Response.LocalizedMessage + ", code: " + result.Response.Code );
                 }
             }
             catch (Exception e)
             {           
                 AppSettings.HandlerException(e);
-
                 SetMessageError(e.Message);
             }
 

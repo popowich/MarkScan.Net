@@ -42,6 +42,7 @@ namespace MarkScan.ViewModels
                 _page.messageTxb.Text = "Ошибка отправки списания: " + e.Message;
                 _page.messageTxb.Foreground = Brushes.OrangeRed;
 
+                AppSettings.SaveDebug("Ошибка отправки инветаризации");
                 AppSettings.HandlerException(e);
             }
 

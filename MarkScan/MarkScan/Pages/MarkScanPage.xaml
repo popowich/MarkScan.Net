@@ -46,7 +46,7 @@
         <Label x:Name="label5" Content="3" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="9" HorizontalAlignment="Left" Width="19"/>
         <Label x:Name="label6" Content="" Background="#FF55A839" FontSize="14.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="9" Margin="20,5,10,5" Grid.ColumnSpan="4"/>
         <Label x:Name="label7" Content="Отсканировано бутылок" Grid.Row="5" FontSize="16" VerticalContentAlignment="Bottom" Padding="5,5,0,2" Height="34" VerticalAlignment="Top" HorizontalContentAlignment="Right" Grid.Column="1" Margin="0,0,136,0"/>
-        <WrapPanel Grid.Row="5" Height="34" VerticalAlignment="Top" Grid.Column="1" Margin="207,0,0,0">
+        <WrapPanel Grid.Row="5" Height="34" VerticalAlignment="Top" Margin="207,0,0,0" Grid.Column="1">
             <Label x:Name="countScan" Content="0" FontSize="22" FontWeight="Bold"/>
             <Label x:Name="label9" Content="шт" FontSize="16" VerticalContentAlignment="Bottom" Padding="2,5,5,2"/>
         </WrapPanel>

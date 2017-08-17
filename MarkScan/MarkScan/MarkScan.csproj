@@ -81,8 +81,8 @@
     <Compile Include="Pages\SendDataToCvCPage.xaml.cs">
       <DependentUpon>SendDataToCvCPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ResultScan.cs" />
-    <Compile Include="ResultScanPosititon.cs" />
+    <Compile Include="Network\JsonWrapers\ResultScan.cs" />
+    <Compile Include="Network\JsonWrapers\ResultScanPosititon.cs" />
     <Compile Include="RetailEquipment\HIDBarcodeReader.cs" />
     <Compile Include="RetailEquipment\HIDBarcodeReaderEventArgs.cs" />
     <Compile Include="Tools\Base64.cs" />
