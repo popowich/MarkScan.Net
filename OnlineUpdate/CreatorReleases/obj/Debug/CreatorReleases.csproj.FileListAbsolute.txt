@@ -1,0 +1,60 @@
+D:\Разработки\Ахив\Oculus PRO\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe.config
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe.config
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.pdb
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.csprojResolveAssemblyReference.cache
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.FormCreatorReleases.resources
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.OptionesForm.resources
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.Properties.Resources.resources
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.csproj.GenerateResource.Cache
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.exe
+D:\MyProjekt\Проекты  Free-lance\Oculus PRO\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.pdb
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe.config
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.exe
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.pdb
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.pdb
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.csprojResolveAssemblyReference.cache
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.FormCreatorReleases.resources
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.OptionesForm.resources
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.Properties.Resources.resources
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.csproj.GenerateResource.Cache
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe.config
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.pdb
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.csprojResolveAssemblyReference.cache
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.FormCreatorReleases.resources
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.OptionesForm.resources
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.Properties.Resources.resources
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.csproj.GenerateResource.Cache
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.exe
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.pdb
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.ProgressForm.resources
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\BytesRoad.Net.Ftp.dll
+D:\MyProjekt\Free-lance\Carvard LLC\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\BytesRoad.Net.Sockets.dll
+D:\Рабочий архив\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe.config
+D:\Рабочий архив\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.exe
+D:\Рабочий архив\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.pdb
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.ProgressForm.resources
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\BytesRoad.Net.Ftp.dll
+D:\Разработки\Carval\Service Phone Integration New\Service Phone Integration\CreatorReleases\CreatorReleases\bin\Debug\BytesRoad.Net.Sockets.dll
+D:\MyProjekt\Free-lance\Carvard LLC\CreatorReleases\CreatorReleases\bin\Debug\CreatorReleases.exe.config
+D:\MyProjekt\Free-lance\Carvard LLC\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.exe
+D:\MyProjekt\Free-lance\Carvard LLC\CreatorReleases\CreatorReleases\obj\Debug\CreatorReleases.pdb
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\Debug\CreatorReleases.exe.config
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\Debug\CreatorReleases.exe
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\Debug\CreatorReleases.pdb
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\Debug\BytesRoad.Net.Ftp.dll
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\Debug\BytesRoad.Net.Sockets.dll
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.csprojResolveAssemblyReference.cache
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.FormCreatorReleases.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.OptionesForm.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.ProgressForm.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.Properties.Resources.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.csproj.GenerateResource.Cache
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.exe
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.pdb
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\Debug\CreatorReleases.ExceptionForm.resources

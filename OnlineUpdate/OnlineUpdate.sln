@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineUpdate", "OnlineUpdate\OnlineUpdate.csproj", "{04EA8109-285C-4BB3-A454-8365E91D0EF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Installer", "Installer\Installer.csproj", "{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatorReleases", "CreatorReleases\CreatorReleases.csproj", "{7C6083A7-2B19-4777-9B2C-62FFDA540A27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReleaseBuilder", "ReleaseBuilder", "{AA928D77-B911-43A7-B2EA-7C9763900483}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{4FCDF789-2091-418F-B34D-C7D11F1A660A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000} = {8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04EA8109-285C-4BB3-A454-8365E91D0EF0}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{04EA8109-285C-4BB3-A454-8365E91D0EF0}.Debug|Any CPU.Build.0 = Debug|x86
+		{04EA8109-285C-4BB3-A454-8365E91D0EF0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{04EA8109-285C-4BB3-A454-8365E91D0EF0}.Debug|x86.Build.0 = Debug|Any CPU
+		{04EA8109-285C-4BB3-A454-8365E91D0EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04EA8109-285C-4BB3-A454-8365E91D0EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04EA8109-285C-4BB3-A454-8365E91D0EF0}.Release|x86.ActiveCfg = Release|Any CPU
+		{04EA8109-285C-4BB3-A454-8365E91D0EF0}.Release|x86.Build.0 = Release|Any CPU
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}.Debug|Any CPU.Build.0 = Debug|x86
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}.Debug|x86.ActiveCfg = Debug|x86
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}.Debug|x86.Build.0 = Debug|x86
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}.Release|x86.ActiveCfg = Release|x86
+		{8FF32BDF-ECDC-403E-AF42-1DE7D95DD000}.Release|x86.Build.0 = Release|x86
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27}.Debug|Any CPU.Build.0 = Debug|x86
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27}.Debug|x86.Build.0 = Debug|Any CPU
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27}.Release|x86.ActiveCfg = Release|Any CPU
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27}.Release|x86.Build.0 = Release|Any CPU
+		{4FCDF789-2091-418F-B34D-C7D11F1A660A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4FCDF789-2091-418F-B34D-C7D11F1A660A}.Debug|Any CPU.Build.0 = Debug|x86
+		{4FCDF789-2091-418F-B34D-C7D11F1A660A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4FCDF789-2091-418F-B34D-C7D11F1A660A}.Debug|x86.Build.0 = Debug|Any CPU
+		{4FCDF789-2091-418F-B34D-C7D11F1A660A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FCDF789-2091-418F-B34D-C7D11F1A660A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FCDF789-2091-418F-B34D-C7D11F1A660A}.Release|x86.ActiveCfg = Release|Any CPU
+		{4FCDF789-2091-418F-B34D-C7D11F1A660A}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7C6083A7-2B19-4777-9B2C-62FFDA540A27} = {AA928D77-B911-43A7-B2EA-7C9763900483}
+	EndGlobalSection
+EndGlobal

@@ -65,3 +65,6 @@ D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\Debug\MarkScan.exe
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\Debug\MarkScan.pdb
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\bin\Debug\MarkScan.pdb
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\Debug\MarkScan.csprojResolveAssemblyReference.cache
+D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\bin\Debug\OnlineUpdate.dll
+D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\bin\Debug\OnlineUpdate.pdb

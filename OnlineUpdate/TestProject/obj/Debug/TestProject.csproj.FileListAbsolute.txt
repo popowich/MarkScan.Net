@@ -1,0 +1,9 @@
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\bin\Debug\TestProject.exe.config
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\bin\Debug\TestProject.exe
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\bin\Debug\TestProject.pdb
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\obj\Debug\TestProject.exe
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\obj\Debug\TestProject.pdb
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\bin\Debug\OnlineUpdate.dll
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\bin\Debug\OnlineUpdate.pdb
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\TestProject\bin\Debug\ICSharpCode.SharpZipLib.dll

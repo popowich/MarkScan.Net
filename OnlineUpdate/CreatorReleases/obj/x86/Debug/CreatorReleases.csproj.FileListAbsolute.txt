@@ -1,0 +1,15 @@
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\x86\Debug\CreatorReleases.exe.config
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\x86\Debug\CreatorReleases.exe
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\x86\Debug\CreatorReleases.pdb
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\x86\Debug\BytesRoad.Net.Ftp.dll
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\x86\Debug\ICSharpCode.SharpZipLib.dll
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\bin\x86\Debug\BytesRoad.Net.Sockets.dll
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.csprojResolveAssemblyReference.cache
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.ExceptionForm.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.FormCreatorReleases.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.OptionesForm.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.ProgressForm.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.Properties.Resources.resources
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.csproj.GenerateResource.Cache
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.exe
+D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\CreatorReleases\obj\x86\Debug\CreatorReleases.pdb

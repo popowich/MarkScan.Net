@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UpgradeToVersion></UpgradeToVersion>
+<PublicationDate></PublicationDate>
+<UpdateDescriptiones></UpdateDescriptiones>
+<UpdateFiles>
+    <PathInstall></PathInstall>
+	<PathDownload></PathDownload>
+	<MD5></MD5>
+</UpdateFiles>

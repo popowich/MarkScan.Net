@@ -30,6 +30,12 @@ namespace MarkScan
 
         internal static string CurrDir { get; private set; }
 
+        internal static string UserWorkDir { get; set; }
+
+        internal static string UpdateDir { get; private set; }
+
+        internal static string LogsDir { get; private set; }
+
         internal static string LogFile { get; private set; }
 
         internal static AppSettings settings;
@@ -41,9 +47,30 @@ namespace MarkScan
         static AppSettings()
         {
             CurrDir = System.Windows.Forms.Application.ExecutablePath.Remove(System.Windows.Forms.Application.ExecutablePath.LastIndexOf('\\'));
-            LogFile = CurrDir + "\\logs.txt";
+            UserWorkDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\MarkScanNet";
+            UpdateDir = UserWorkDir + "\\TempUpdate";
+            LogsDir = UserWorkDir + "\\Logs";
+
+            LogFile = LogsDir + "\\logs.txt";
 
             settings = new AppSettings();
+
+            try
+            {
+
+                //Создаем дирректорию приложения
+                if (!Directory.Exists(UserWorkDir))
+                    Directory.CreateDirectory(UserWorkDir);
+                if (!Directory.Exists(UpdateDir))
+                    Directory.CreateDirectory(UpdateDir);
+
+                if (!Directory.Exists(LogsDir))
+                    Directory.CreateDirectory(LogsDir);
+            }
+            catch (Exception ex)
+            {
+                HandlerException(ex);
+            }
         }
 
         public bool LoadSettings()
@@ -84,7 +111,6 @@ namespace MarkScan
                 element = document.CreateElement("Password");
                 element.InnerText = this.Pass;
                 document.DocumentElement.AppendChild(element);
-
 
                 document.Save(CurrDir + "\\settings.conf");
             }
