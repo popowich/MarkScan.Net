@@ -6,32 +6,55 @@ using System.Text;
 
 namespace Installer
 {
-    class BackUpFiles
+    class BackUManager
     {
-        private string _currentVersion;
         private string _rootDirBackUp;
-        private string _rootDirSoyrce;
+        private string _rootDirSource;
 
-        internal BackUpFiles(string currentVersion, string rootDirBackUp, string rootDirSoyrce)
+        internal BackUManager(string rootDirBackUp, string rootDirSource)
         {
-            _currentVersion = currentVersion;
             _rootDirBackUp = rootDirBackUp;
-            _rootDirSoyrce = rootDirSoyrce;
+            _rootDirSource = rootDirSource;
         }
 
-        internal void BackUp(List<FileInstall> filesFileInstalls)
+        internal void BackUpFiles(string backUpVersion, List<FileInstall> filesFileInstalls)
         {
-            string dir = _rootDirBackUp + "\\" + _currentVersion;
+            string dir = _rootDirBackUp + "\\" + backUpVersion;
 
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
 
             foreach (var file in filesFileInstalls)
             {
-                string ff = file.SourceFile.Replace(_rootDirSoyrce, "");
-                string backUpPath = _rootDirBackUp + ff;
+                string pathDest = file.SourceFile.Replace(_rootDirSource, _rootDirBackUp);
 
-                file.CopyFile(backUpPath);
+                file.CopyFile(pathDest);
+            }
+        }
+
+        internal void RecoveryFiles(string recoveryVersion)
+        {
+            string dir = _rootDirBackUp + "\\" + recoveryVersion;
+
+            if (!Directory.Exists(dir))
+                throw  new Exception($"Каталог восстановления версии {recoveryVersion} приложения не обнаружен");
+
+            var files = Directory.GetFiles(dir, null, SearchOption.AllDirectories);
+
+            foreach (var file in files)
+            {
+                string pathDest = file.Replace(_rootDirBackUp, _rootDirSource);
+
+                if (File.Exists(pathDest))
+                {
+                    FileInfo fi = new FileInfo(pathDest);
+                    if (fi.IsReadOnly)
+                        fi.IsReadOnly = false;
+
+                    fi.Delete();
+                }
+
+                File.Copy(file, pathDest, true);
             }
         }
 

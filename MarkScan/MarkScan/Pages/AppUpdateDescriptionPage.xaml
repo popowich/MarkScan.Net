@@ -1,0 +1,29 @@
+﻿<Page x:Class="MarkScan.Pages.AppUpdateDescriptionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MarkScan.Pages"
+      mc:Ignorable="d" 
+      d:DesignWidth="640" d:DesignHeight="595"
+      Title="AppUpdateDescriptionPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="49"/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="154*"/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="61"/>
+            <RowDefinition Height="150*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="titleUpdateLb" Content="Обнаружена новая версия приложения" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
+        <Label x:Name="decriptUpdateLb" Content="Новое в версии..." Grid.Row="3" FontSize="16" Margin="10,0"/>
+        <Label x:Name="quaereLb" Content="Обновить сейчас ?" Margin="0,1,0,0" Grid.Row="5" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="yesBt" Content="Да" HorizontalAlignment="Center" Margin="102,0,370,0" Grid.Row="6" VerticalAlignment="Top" Width="168" Height="61" FontSize="20" Background="#FF0F6FC6" Foreground="White" />
+        <Button x:Name="noBt" Content="Нет" Margin="374,0,98,0" Grid.Row="6" VerticalAlignment="Top" Height="61" FontSize="20" HorizontalAlignment="Center" Width="168" Background="#FF0F6FC6" Foreground="White" />
+
+    </Grid>
+</Page>

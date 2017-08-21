@@ -86,6 +86,9 @@
     <Compile Include="Models\MarkScanInventoryModel.cs" />
     <Compile Include="Models\ScanResult.cs" />
     <Compile Include="Network\JsonWrapers\SendDataResult.cs" />
+    <Compile Include="Pages\AppUpdateDescriptionPage.xaml.cs">
+      <DependentUpon>AppUpdateDescriptionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OperationMenuPage.xaml.cs">
       <DependentUpon>OperationMenuPage.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,7 @@
     <Compile Include="Tools\Convertor36To10.cs" />
     <Compile Include="Tools\KeyboardMapper.cs" />
     <Compile Include="Updater\UpdateService.cs" />
+    <Compile Include="ViewModels\AppUpdateDescriptopnVm.cs" />
     <Compile Include="ViewModels\AuthPageVm.cs" />
     <Compile Include="ViewModels\ETypeOperations.cs" />
     <Compile Include="ViewModels\MarkScan\IMarkScanPageVm.cs" />
@@ -142,6 +146,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AppUpdateDescriptionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AuthPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

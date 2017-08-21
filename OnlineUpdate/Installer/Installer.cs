@@ -47,7 +47,7 @@ namespace Installer
         /// <summary>
         /// Испошльзовать бэкап фалйлов перед установкой новой версии
         /// </summary>
-        public bool UseBaclUpFiles { get; set; }
+        public bool UseBakcUpFiles { get; set; }
 
         /// <summary>
         /// Список устанавливаемых файлов
@@ -216,6 +216,10 @@ namespace Installer
                 document.Load(_file);
 
                 Version verTemp = null;
+                Version.TryParse(GetInnerTextXML(document, "CurrentVersion"), out verTemp);
+                this.CurrentVersion = verTemp;
+
+                verTemp = null;
                 Version.TryParse(GetInnerTextXML(document, "UpgradeToVersion"), out verTemp);
                 this.UpgradeToVersion = verTemp;
 
@@ -229,9 +233,9 @@ namespace Installer
                 RootDirBackUp = GetInnerTextXML(document, "RootDirBackUp");
                 LogFile = GetInnerTextXML(document, "LogFile");
 
-                bool useBaclUpFiles = false;
-                bool.TryParse(GetInnerTextXML(document, "UseBaclUpFiles"), out useBaclUpFiles);
-                UseBaclUpFiles = useBaclUpFiles;
+                bool useBakcUpFiles = false;
+                bool.TryParse(GetInnerTextXML(document, "UseBakcUpFiles"), out useBakcUpFiles);
+                UseBakcUpFiles = useBakcUpFiles;
 
                 var runApplicationes = GetNodeXML(document, "RunApplicationes");
                 if (runApplicationes != null)
@@ -310,16 +314,16 @@ namespace Installer
                      //Вызов событиея "Старт установки файлов"
                      this.OnBeginInstallEvent(this, new BeginInstallEventArgs(this.InstallFiles.Count));
 
-                     var backUp = new BackUpFiles(CurrentVersion.ToString(), RootDirBackUp, RootDirUpdate);
-
-                     if (UseBaclUpFiles)
-                         backUp.BackUp(this.InstallFiles);
+                     if (UseBakcUpFiles)
+                         new BackUManager(RootDirBackUp, RootDirUpdate).BackUpFiles(CurrentVersion.ToString(), this.InstallFiles);
 
                      //Устанвока файлов
                      foreach (FileInstall file in this.InstallFiles)
                      {
                          this.BeginInstallFileEvent(this, new InstallFileEventArgs(file));
+
                          file.InstalFile();
+
                          this.OnInstalledFileEvent(this, new InstallFileEventArgs(file));
                      }
 
@@ -337,6 +341,9 @@ namespace Installer
                  }
                  catch (Exception ex)
                  {
+                     if (UseBakcUpFiles)
+                         new BackUManager(RootDirBackUp, RootDirUpdate).RecoveryFiles(CurrentVersion.ToString());
+
                      this.IsErrors = true;
                      this.OnErrorEvent(this, new ErrorEventArgs(ex));
                  }

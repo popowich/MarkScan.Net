@@ -57,6 +57,10 @@ namespace OnlineUpdate
         /// Обработчик загрузки части файла
         /// </summary>
         public event EventHandler<SaveBuffEventArgs> ReadRangeCurrentFileEvent;
+        /// <summary>
+        /// Завершение проверки наличия обновления 
+        /// </summary>
+        public event EventHandler<EndChekUpdateEventArgs> EndCheckUpdateEvent;
 
         /// <summary>
         /// Обработчик исключительной ситуции 
@@ -95,6 +99,13 @@ namespace OnlineUpdate
         public void OnReadRangeCurrentFileEvent(Object _sender, SaveBuffEventArgs _e)
         {
             var eventHandler = ReadRangeCurrentFileEvent;
+            if (eventHandler != null)
+                eventHandler(_sender, _e);
+        }
+
+        public void OnEndCheckUpdateEvent(Object _sender, EndChekUpdateEventArgs _e)
+        {
+            var eventHandler = EndCheckUpdateEvent;
             if (eventHandler != null)
                 eventHandler(_sender, _e);
         }
@@ -163,6 +174,15 @@ namespace OnlineUpdate
             }
         }
 
+        public void BeginCheckUpdatesAsync()
+        {
+            var taskUpdate = Task.Factory.StartNew(() =>
+            {
+                UpdateDescription res = CheckUpdates();
+                OnEndCheckUpdateEvent(this, new EndChekUpdateEventArgs() { Description = res });
+            });
+        }
+
         public void BeginUpdate()
         {
             CancellationToken cancaleToken = _cancaleTokenSource.Token;
@@ -178,7 +198,7 @@ namespace OnlineUpdate
                     try
                     {
                         //Проверка налаияи обновления
-                        checkResult =  _updateChecker.CheckUpdates();
+                        checkResult = _updateChecker.CheckUpdates();
 
                         if (checkResult != null && checkResult.AllowUpdate)
                         {

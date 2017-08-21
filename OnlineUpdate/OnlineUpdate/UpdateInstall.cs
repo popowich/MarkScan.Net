@@ -91,6 +91,11 @@ namespace OnlineUpdate
                 document.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\"?><head></head>");
 
                 System.Xml.XmlNode element = null;
+
+                element = document.CreateElement("CurrentVersion");
+                element.InnerText = _updateInfo.CurrentVersion.ToString();
+                document.DocumentElement.AppendChild(element);
+
                 if (_updateInfo.UpgradeToVersion != null)
                 {
                     element = document.CreateElement("UpgradeToVersion");
@@ -110,8 +115,16 @@ namespace OnlineUpdate
                     document.DocumentElement.AppendChild(element);
                 }
 
+                element = document.CreateElement("UseBakcUpFiles");
+                element.InnerText = UpdateManager.Options.UseBakcUpFiles.ToString();
+                document.DocumentElement.AppendChild(element);
+
                 element = document.CreateElement("RootDirTemp");
                 element.InnerText = UpdateManager.Options.DirTempFiles;
+                document.DocumentElement.AppendChild(element);
+
+                element = document.CreateElement("RootDirBackUp");
+                element.InnerText = UpdateManager.Options.RootDirBackUp;
                 document.DocumentElement.AppendChild(element);
 
                 element = document.CreateElement("RootDirUpdate");

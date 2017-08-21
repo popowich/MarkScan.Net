@@ -40,7 +40,11 @@ namespace OnlineUpdate
         /// <summary>
         /// Испошльзовать бэкап фалйлов перед установкой новой версии
         /// </summary>
-        public bool UseBaclUpFiles { get; set; }
+        public bool UseBakcUpFiles { get; set; }
+        /// <summary>
+        /// Каталог хранения резервной копии
+        /// </summary>
+        public string RootDirBackUp { get; set; }
 
         #region Описание обновляемого приложения
 

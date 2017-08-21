@@ -44,3 +44,13 @@ D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Install
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Installer.csproj.GenerateResource.Cache
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\UpdateInstaller.exe
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\UpdateInstaller.pdb
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\UpdateInstaller.exe.config
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\UpdateInstaller.exe
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\UpdateInstaller.pdb
+D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Installer.csprojResolveAssemblyReference.cache
+D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Installer.ProcessInstallForm.resources
+D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Installer.Properties.Resources.resources
+D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Installer.ServiceInstall.resources
+D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Installer.csproj.GenerateResource.Cache
+D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\UpdateInstaller.exe
+D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\UpdateInstaller.pdb
