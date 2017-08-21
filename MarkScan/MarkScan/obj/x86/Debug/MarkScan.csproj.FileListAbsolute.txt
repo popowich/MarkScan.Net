@@ -56,3 +56,5 @@ D:\Projects\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\MarkScan.exe
 D:\Projects\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\MarkScan.pdb
 D:\Projects\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\Pages\AppUpdateDescriptionPage.g.cs
 D:\Projects\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\Pages\AppUpdateDescriptionPage.baml
+D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\Pages\AppUpdateDescriptionPage.g.cs
+D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\Pages\AppUpdateDescriptionPage.baml

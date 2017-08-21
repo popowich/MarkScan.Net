@@ -21,7 +21,7 @@ namespace MarkScan
 
             Network.CvcOpenApi.GetClientApi().SetTokenAuth(AppSettings.settings.Login, AppSettings.settings.Pass);
 
-            Updater.UpdateService.GetService().InitUpdateService();
+            Updater.UpdateService.GetService().SatrtChekUpate();
 
             base.OnStartup(e);
         }

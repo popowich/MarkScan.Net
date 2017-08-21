@@ -11,11 +11,13 @@ namespace Installer
         private string _rootDirBackUp;
         private string _rootDirSource;
 
+   
         internal BackUManager(string rootDirBackUp, string rootDirSource)
         {
             _rootDirBackUp = rootDirBackUp;
             _rootDirSource = rootDirSource;
         }
+
 
         internal void BackUpFiles(string backUpVersion, List<FileInstall> filesFileInstalls)
         {

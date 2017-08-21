@@ -10,14 +10,14 @@ namespace MarkScan.Updater
     {
         private static UpdateService Instance;
 
-        private  UpdateManager upManager;
+        private UpdateManager upManager;
 
         internal static UpdateService GetService()
         {
             return Instance ?? (Instance = new UpdateService());
         }
 
-        internal void InitUpdateService()
+        internal UpdateService()
         {
             string appLocation = System.Reflection.Assembly.GetEntryAssembly().Location;
 
@@ -36,7 +36,7 @@ namespace MarkScan.Updater
 
         internal void SatrtChekUpate()
         {
-            upManager.BeginCheckUpdatesAsync();
+            upManager.BeginCheckUpdates();
         }
 
         internal void SatrtUpate()
@@ -44,7 +44,7 @@ namespace MarkScan.Updater
             upManager.BeginUpdate();
         }
 
-        internal  void Dispose()
+        internal void Dispose()
         {
             if (upManager != null)
                 upManager.Dispose();
@@ -55,11 +55,14 @@ namespace MarkScan.Updater
 
         private void UpManager_EndCheckUpdateEvent(object sender, OnlineUpdate.UpdaterEventArgs.EndChekUpdateEventArgs e)
         {
-            App._mainWindowsVm._generalFrame.Navigate(
-                new Pages.AppUpdateDescriptionPage(new AppUpdateDescriptopnVm(e.Description)));
+            App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate
+            {
+                App._mainWindowsVm._generalFrame.Navigate(
+                    new Pages.AppUpdateDescriptionPage(new AppUpdateDescriptopnVm(e.Description)));
+            });
         }
 
-        private  void UpManager_EndDownloadFilesEvent(object sender, OnlineUpdate.UpdaterEventArgs.EndLoadUpdateFilesEventArgs e)
+        private void UpManager_EndDownloadFilesEvent(object sender, OnlineUpdate.UpdaterEventArgs.EndLoadUpdateFilesEventArgs e)
         {
             //if (e.Description != null && e.Description.AllowUpdate)
             //{
@@ -72,7 +75,7 @@ namespace MarkScan.Updater
             //}
         }
 
-        private  void UpManager_ErrorEvent(object sender, ErrorEventArgs e)
+        private void UpManager_ErrorEvent(object sender, ErrorEventArgs e)
         {
             AppSettings.HandlerException(new Exception("OnlineUpdate error", e.GetException()));
         }

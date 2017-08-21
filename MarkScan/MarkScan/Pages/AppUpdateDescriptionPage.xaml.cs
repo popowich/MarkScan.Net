@@ -34,5 +34,15 @@ namespace MarkScan.Pages
         {
             _myPresenter.SetPage(this);
         }
+
+        private void yesBt_Click(object sender, RoutedEventArgs e)
+        {
+            _myPresenter.GoToUpdate();
+        }
+
+        private void noBt_Click(object sender, RoutedEventArgs e)
+        {
+            _myPresenter.CancelUpdate();
+        }
     }
 }

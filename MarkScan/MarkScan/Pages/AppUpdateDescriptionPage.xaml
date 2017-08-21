@@ -10,20 +10,21 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="49"/>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="154*"/>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="61"/>
-            <RowDefinition Height="150*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="51"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="181*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="104"/>
+            <RowDefinition Height="63"/>
+            <RowDefinition Height="97*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="titleUpdateLb" Content="Обнаружена новая версия приложения" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18"/>
-        <Label x:Name="decriptUpdateLb" Content="Новое в версии..." Grid.Row="3" FontSize="16" Margin="10,0"/>
-        <Label x:Name="quaereLb" Content="Обновить сейчас ?" Margin="0,1,0,0" Grid.Row="5" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="yesBt" Content="Да" HorizontalAlignment="Center" Margin="102,0,370,0" Grid.Row="6" VerticalAlignment="Top" Width="168" Height="61" FontSize="20" Background="#FF0F6FC6" Foreground="White" />
-        <Button x:Name="noBt" Content="Нет" Margin="374,0,98,0" Grid.Row="6" VerticalAlignment="Top" Height="61" FontSize="20" HorizontalAlignment="Center" Width="168" Background="#FF0F6FC6" Foreground="White" />
+        <Label x:Name="titleUpdateLb" Content="Обнаружена новая версия приложения" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26.667" Foreground="#FF1706BD"/>
+        <Label x:Name="decriptUpdateLb" Content="Новое в версии..." Grid.Row="3" FontSize="16" Margin="47,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderBrush="#FF4FB6DC" RenderTransformOrigin="0,0" BorderThickness="1">
+        </Label>
+        <Label x:Name="quaereLb" Content="Обновить сейчас ?" Margin="0,1,0,0" Grid.Row="5" FontSize="21.333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="yesBt" Content="Да" HorizontalAlignment="Center" Margin="102,0,370,1" Grid.Row="6" Width="168" FontSize="20" Background="#FF0F6FC6" Foreground="White" Click="yesBt_Click" />
+        <Button x:Name="noBt" Content="Нет" Margin="374,0,98,1" Grid.Row="6" FontSize="20" HorizontalAlignment="Center" Width="168" Background="#FF0F6FC6" Foreground="White" Click="noBt_Click" />
 
     </Grid>
 </Page>

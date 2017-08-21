@@ -174,12 +174,19 @@ namespace OnlineUpdate
             }
         }
 
-        public void BeginCheckUpdatesAsync()
+        public void BeginCheckUpdates()
         {
             var taskUpdate = Task.Factory.StartNew(() =>
             {
-                UpdateDescription res = CheckUpdates();
-                OnEndCheckUpdateEvent(this, new EndChekUpdateEventArgs() { Description = res });
+                try
+                {
+                    UpdateDescription res = CheckUpdates();
+                    OnEndCheckUpdateEvent(this, new EndChekUpdateEventArgs() { Description = res });
+                }
+                catch (Exception ex)
+                {
+                    this.OnErrorEvent(this, new ErrorEventArgs(new Exception("Failure during an check update", ex)));
+                }
             });
         }
 
