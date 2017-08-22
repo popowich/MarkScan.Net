@@ -106,7 +106,7 @@ namespace Installer
                 }
 
                 //Копируем файл с заменой старого файла
-                File.Copy(SourceFile, pathDest, true);
+                File.Copy(DestFile, pathDest, true);
             }
             catch (Exception ex)
             {

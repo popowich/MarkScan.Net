@@ -93,7 +93,7 @@ namespace OnlineUpdate
                 System.Xml.XmlNode element = null;
 
                 element = document.CreateElement("CurrentVersion");
-                element.InnerText = _updateInfo.CurrentVersion.ToString();
+                element.InnerText = UpdateManager.Options.CurrentVersionUpdateApp.ToString();
                 document.DocumentElement.AppendChild(element);
 
                 if (_updateInfo.UpgradeToVersion != null)

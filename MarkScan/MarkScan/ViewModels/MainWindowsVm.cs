@@ -28,7 +28,7 @@ namespace MarkScan.ViewModels
 
         internal void ChekUpdate()
         {
-            Updater.UpdateService.GetService().SatrtUpate();
+            Updater.UpdateService.GetService().SatrtChekUpate();
         }
     }
 }

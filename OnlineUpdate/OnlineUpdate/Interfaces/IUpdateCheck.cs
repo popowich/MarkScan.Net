@@ -9,8 +9,6 @@ namespace OnlineUpdate
 {
     public interface IUpdateCheck : IDisposable
     {
-        Version CurrentVersion { get; set; }
-
         Version UpgradeToVersion { get; set; }
 
         DateTime PublicationDate { get; set; }

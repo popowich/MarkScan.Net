@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<head>
+  <UpgradeToVersion>1.0.3.0</UpgradeToVersion>
+  <PublicationDate>22.08.2017</PublicationDate>
+  <UpdateDescriptiones>khgkghkghkghkghkghk</UpdateDescriptiones>
+  <UpdateFiles>
+    <File PathInstall="\ICSharpCode.SharpZipLib.dll" PathDownload="/ICSharpCode.SharpZipLib.dll" MD5="70ECB43C490ED5B16DAFAFF662BF7653" />
+    <File PathInstall="\MarkScan.exe" PathDownload="/MarkScan.exe" MD5="3CD08D43689294E31A8AE662A439ECA5" />
+    <File PathInstall="\OnlineUpdate.dll" PathDownload="/OnlineUpdate.dll" MD5="AD2659D1415B8B267A65E82B66448304" />
+  </UpdateFiles>
+</head>

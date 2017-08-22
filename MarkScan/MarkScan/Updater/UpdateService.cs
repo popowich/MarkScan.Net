@@ -26,6 +26,7 @@ namespace MarkScan.Updater
 
             UpdateOptiones opUpdate = new UpdateOptiones("http://localhost/MainlUpdate", AppSettings.UpdateDir, AppSettings.CurrDir, appLocation, true);
             opUpdate.PatchFileInstallog = AppSettings.CurrDir + "\\" + UpdateOptiones.nameFileUpdateLog;
+            opUpdate.RootDirBackUp = AppSettings.UpdateDir + "\\BackUp";
             opUpdate.UseFileCompression = false;
             opUpdate.UseBakcUpFiles = true;
 
@@ -38,6 +39,8 @@ namespace MarkScan.Updater
             upManager.ErrorEvent += UpManager_ErrorEvent;
             upManager.EndDownloadFilesEvent += UpManager_EndDownloadFilesEvent;
             upManager.EndCheckUpdateEvent += UpManager_EndCheckUpdateEvent;
+
+            updateFileInstall();
         }
         /// <summary>
         /// Проверить наличие обновлений
@@ -61,11 +64,26 @@ namespace MarkScan.Updater
 
         }
 
+        private void updateFileInstall()
+        {
+            try
+            {
+                if (File.Exists(AppSettings.CurrDir + "\\" + UpdateOptiones.appInstallFiles))
+                    File.Delete(AppSettings.CurrDir + "\\" + UpdateOptiones.appInstallFiles);
+
+                File.WriteAllBytes(AppSettings.UpdateDir + "\\" + UpdateOptiones.appInstallFiles, Properties.Resources.UpdateInstaller);
+            }
+            catch (Exception ex)
+            {
+                AppSettings.HandlerException(new Exception("Error copy file installer", ex));
+            }
+        }
+
         #region Handlers events update
 
         private void UpManager_EndCheckUpdateEvent(object sender, OnlineUpdate.UpdaterEventArgs.EndChekUpdateEventArgs e)
         {
-            if (e.Description == null)
+            if (e.Description == null || e.Description.AllowUpdate == false)
                 return;
 
             App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate

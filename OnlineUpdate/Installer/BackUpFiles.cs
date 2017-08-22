@@ -11,24 +11,30 @@ namespace Installer
         private string _rootDirBackUp;
         private string _rootDirSource;
 
-   
+
         internal BackUManager(string rootDirBackUp, string rootDirSource)
         {
             _rootDirBackUp = rootDirBackUp;
             _rootDirSource = rootDirSource;
+
+            if (!Directory.Exists(rootDirBackUp))
+                Directory.CreateDirectory(rootDirBackUp);
         }
 
 
         internal void BackUpFiles(string backUpVersion, List<FileInstall> filesFileInstalls)
         {
-            string dir = _rootDirBackUp + "\\" + backUpVersion;
+            string rootDirBackUp = _rootDirBackUp + "\\" + backUpVersion;
 
-            if (!Directory.Exists(dir))
-                Directory.CreateDirectory(dir);
+            if (!Directory.Exists(rootDirBackUp))
+                Directory.CreateDirectory(rootDirBackUp);
 
             foreach (var file in filesFileInstalls)
             {
-                string pathDest = file.SourceFile.Replace(_rootDirSource, _rootDirBackUp);
+                if(!File.Exists(file.DestFile))
+                    continue;
+
+                string pathDest = file.DestFile.Replace(_rootDirSource, rootDirBackUp);
 
                 file.CopyFile(pathDest);
             }
@@ -36,16 +42,16 @@ namespace Installer
 
         internal void RecoveryFiles(string recoveryVersion)
         {
-            string dir = _rootDirBackUp + "\\" + recoveryVersion;
+            string rootDirBackUp = _rootDirBackUp + "\\" + recoveryVersion;
 
-            if (!Directory.Exists(dir))
-                throw  new Exception($"Каталог восстановления версии {recoveryVersion} приложения не обнаружен");
+            if (!Directory.Exists(rootDirBackUp))
+                throw new Exception($"Каталог восстановления версии {recoveryVersion} приложения не обнаружен");
 
-            var files = Directory.GetFiles(dir, null, SearchOption.AllDirectories);
+            var files = Directory.GetFiles(rootDirBackUp);
 
             foreach (var file in files)
             {
-                string pathDest = file.Replace(_rootDirBackUp, _rootDirSource);
+                string pathDest = file.Replace(rootDirBackUp, _rootDirSource);
 
                 if (File.Exists(pathDest))
                 {

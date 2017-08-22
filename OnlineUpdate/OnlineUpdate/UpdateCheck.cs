@@ -24,10 +24,6 @@ namespace OnlineUpdate
         /// <summary>
         /// Обновление будет выполено до версии
         /// </summary>
-        public Version CurrentVersion { get; set; }
-        /// <summary>
-        /// Обновление будет выполено до версии
-        /// </summary>
         public Version UpgradeToVersion { get; set; }
         /// <summary>
         /// Дата публикации обновления
@@ -80,7 +76,6 @@ namespace OnlineUpdate
 
         public UpdateCheck(IDownloadFile downloader)
         {
-            CurrentVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             _cancaleTokenSource = new CancellationTokenSource();
             _downloader = downloader;
         }
