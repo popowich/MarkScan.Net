@@ -45,6 +45,10 @@ namespace OnlineUpdate
         /// Каталог хранения резервной копии
         /// </summary>
         public string RootDirBackUp { get; set; }
+        /// <summary>
+        /// Показывать окно процесса установки
+        /// </summary>
+        public bool ShowWindowProcessInstall { get; set; } = true;
 
         #region Описание обновляемого приложения
 

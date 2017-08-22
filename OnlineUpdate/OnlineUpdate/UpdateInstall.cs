@@ -135,6 +135,11 @@ namespace OnlineUpdate
                 element.InnerText = UpdateManager.Options.PatchFileInstallog;
                 document.DocumentElement.AppendChild(element);
 
+                            
+                element = document.CreateElement("ShowWindowProcessInstall");
+                element.InnerText = UpdateManager.Options.ShowWindowProcessInstall.ToString();
+                document.DocumentElement.AppendChild(element);
+
                 element = document.CreateElement("RunApplicationes");
                 document.DocumentElement.AppendChild(element);
 

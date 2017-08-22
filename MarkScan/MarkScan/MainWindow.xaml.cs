@@ -31,5 +31,10 @@ namespace MarkScan
 
             App._mainWindowsVm.SetVersion();
         }
+
+        private void image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            App._mainWindowsVm.ChekUpdate();
+        }
     }
 }

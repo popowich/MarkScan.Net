@@ -48,6 +48,10 @@ namespace Installer
         /// Испошльзовать бэкап фалйлов перед установкой новой версии
         /// </summary>
         public bool UseBakcUpFiles { get; set; }
+        /// <summary>
+        /// Показывать окно инсталятора 
+        /// </summary>
+        public bool ShowWindowProcessInstall { get; set; } = true;
 
         /// <summary>
         /// Список устанавливаемых файлов
@@ -236,6 +240,10 @@ namespace Installer
                 bool useBakcUpFiles = false;
                 bool.TryParse(GetInnerTextXML(document, "UseBakcUpFiles"), out useBakcUpFiles);
                 UseBakcUpFiles = useBakcUpFiles;
+
+                bool showWindowProcessInstall = false;
+                bool.TryParse(GetInnerTextXML(document, "ShowWindowProcessInstall"), out showWindowProcessInstall);
+                ShowWindowProcessInstall = showWindowProcessInstall;
 
                 var runApplicationes = GetNodeXML(document, "RunApplicationes");
                 if (runApplicationes != null)

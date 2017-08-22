@@ -209,22 +209,19 @@
     <Resource Include="Imgs\CVC2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imgs\mark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imgs\mark2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imgs\marka3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CVC.ico" />
+    <Resource Include="Resources\CVC.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OnlineUpdate\OnlineUpdate\OnlineUpdate.csproj">
       <Project>{04ea8109-285c-4bb3-a454-8365e91d0ef0}</Project>
       <Name>OnlineUpdate</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\CheckUpdate32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

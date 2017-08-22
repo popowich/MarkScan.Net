@@ -26,5 +26,9 @@ namespace MarkScan.ViewModels
             _MainWindow.loginLb.Content = AppSettings.settings.Login;
         }
 
+        internal void ChekUpdate()
+        {
+            Updater.UpdateService.GetService().SatrtUpate();
+        }
     }
 }

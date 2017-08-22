@@ -33,9 +33,12 @@ namespace Installer
 
             installer.LoadInstructiones(AppSettings.CurrDir + "\\" + AppSettings.FileInstrunctiones);
 
-            mainForm = new ProcessInstallForm(installer);
-            mainForm.FormClosed += mainForm_FormClosed;
-            mainForm.Show();
+            if (installer.ShowWindowProcessInstall)
+            {
+                mainForm = new ProcessInstallForm(installer);
+                mainForm.FormClosed += mainForm_FormClosed;
+                mainForm.Show();
+            }
 
             installer.BeginInstall();
 
@@ -86,7 +89,7 @@ namespace Installer
             AppSettings.WriteLogDebug("Установка окончена");
             ((Installer)sender).Dispose();
 
-            if (this.mainForm == null)
+            if (this.mainForm == null || installer.ShowWindowProcessInstall == false)
                 this.ExitThread();
         }
         /// <summary>

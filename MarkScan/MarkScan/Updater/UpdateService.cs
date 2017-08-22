@@ -6,6 +6,9 @@ using MarkScan.ViewModels;
 
 namespace MarkScan.Updater
 {
+    /// <summary>
+    /// Сервис обновлений
+    /// </summary>
     internal class UpdateService
     {
         private static UpdateService Instance;
@@ -26,6 +29,9 @@ namespace MarkScan.Updater
             opUpdate.UseFileCompression = false;
             opUpdate.UseBakcUpFiles = true;
 
+            opUpdate.RunApplicationes.Clear();
+            opUpdate.RunApplicationes.Add(new RunApplication(appLocation, "-postUpdate", null, false));
+
             UpdateManager.InitUpdateManager(opUpdate);
 
             upManager = new UpdateManager();
@@ -33,12 +39,16 @@ namespace MarkScan.Updater
             upManager.EndDownloadFilesEvent += UpManager_EndDownloadFilesEvent;
             upManager.EndCheckUpdateEvent += UpManager_EndCheckUpdateEvent;
         }
-
+        /// <summary>
+        /// Проверить наличие обновлений
+        /// </summary>
         internal void SatrtChekUpate()
         {
             upManager.BeginCheckUpdates();
         }
-
+        /// <summary>
+        /// Выполинть обновление
+        /// </summary>
         internal void SatrtUpate()
         {
             upManager.BeginUpdate();
@@ -51,10 +61,13 @@ namespace MarkScan.Updater
 
         }
 
-        #region Internal handler
+        #region Handlers events update
 
         private void UpManager_EndCheckUpdateEvent(object sender, OnlineUpdate.UpdaterEventArgs.EndChekUpdateEventArgs e)
         {
+            if (e.Description == null)
+                return;
+
             App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate
             {
                 App._mainWindowsVm._generalFrame.Navigate(
@@ -64,15 +77,7 @@ namespace MarkScan.Updater
 
         private void UpManager_EndDownloadFilesEvent(object sender, OnlineUpdate.UpdaterEventArgs.EndLoadUpdateFilesEventArgs e)
         {
-            //if (e.Description != null && e.Description.AllowUpdate)
-            //{
-            //    App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate
-            //    {
-            //        UpdateDescriptionForm formUpdate = new UpdateDescriptionForm(e.Description, $"\"{App._mainWindowsVm._MainWindow.Title}\" - обновление", Properties.Resources.CVC);
-            //        if (formUpdate.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-            //            e.Cancel = true;
-            //    });
-            //}
+
         }
 
         private void UpManager_ErrorEvent(object sender, ErrorEventArgs e)
