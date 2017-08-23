@@ -20,7 +20,7 @@
             <RowDefinition Height="97*"/>
         </Grid.RowDefinitions>
         <Label x:Name="titleUpdateLb" Content="Обнаружена новая версия приложения" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26.667" Foreground="#FF1706BD"/>
-        <Label x:Name="decriptUpdateLb" Content="Новое в версии..." Grid.Row="3" FontSize="16" Margin="47,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderBrush="#FF4FB6DC" RenderTransformOrigin="0,0" BorderThickness="1">
+        <Label x:Name="decriptUpdateLb" Content="Новое в версии..." Grid.Row="3" FontSize="16" Margin="47,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  BorderBrush="#FF4FB6DC" RenderTransformOrigin="0,0" BorderThickness="0">
         </Label>
         <Label x:Name="quaereLb" Content="Обновить сейчас ?" Margin="0,1,0,0" Grid.Row="5" FontSize="21.333" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <Button x:Name="yesBt" Content="Да" HorizontalAlignment="Center" Margin="102,0,370,1" Grid.Row="6" Width="168" FontSize="20" Background="#FF0F6FC6" Foreground="White" Click="yesBt_Click" />

@@ -24,7 +24,7 @@ namespace MarkScan.Updater
         {
             string appLocation = System.Reflection.Assembly.GetEntryAssembly().Location;
 
-            UpdateOptiones opUpdate = new UpdateOptiones("http://localhost/MainlUpdate", AppSettings.UpdateDir, AppSettings.CurrDir, appLocation, true);
+            UpdateOptiones opUpdate = new UpdateOptiones("http://localhost:8082/MainlUpdate", AppSettings.UpdateDir, AppSettings.CurrDir, appLocation, true);
             opUpdate.PatchFileInstallog = AppSettings.CurrDir + "\\" + UpdateOptiones.nameFileUpdateLog;
             opUpdate.RootDirBackUp = AppSettings.UpdateDir + "\\BackUp";
             opUpdate.UseFileCompression = false;

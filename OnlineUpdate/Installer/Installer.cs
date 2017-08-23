@@ -335,8 +335,6 @@ namespace Installer
                          this.OnInstalledFileEvent(this, new InstallFileEventArgs(file));
                      }
 
-                     throw  new Exception();
-
                      //Удаление файлов источников
                      foreach (FileInstall file in this.InstallFiles)
                      {

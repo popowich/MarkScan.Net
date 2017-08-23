@@ -105,6 +105,11 @@
     </Compile>
     <Compile Include="Network\JsonWrapers\ResultScan.cs" />
     <Compile Include="Network\JsonWrapers\ResultScanPosititon.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RetailEquipment\HIDBarcodeReader.cs" />
     <Compile Include="RetailEquipment\HIDBarcodeReaderEventArgs.cs" />
     <Compile Include="Tools\Base64.cs" />
@@ -183,11 +188,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

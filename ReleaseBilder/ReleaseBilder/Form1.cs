@@ -31,10 +31,15 @@ namespace ReleaseBilder
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string realeaseDir = Directory.GetCurrentDirectory() + "\\" + textBox2.Text;
+
+            if (!Directory.Exists(realeaseDir))
+                Directory.CreateDirectory(realeaseDir);
+
             string[] files = Directory.GetFiles(textBox1.Text);
             foreach (var file in files)
             {
-                if(!file.EndsWith(".exe") && !file.EndsWith(".dll"))
+                if((!file.EndsWith(".exe") && !file.EndsWith(".dll")) || file.EndsWith(".vshost.exe"))
                     continue;
 
                 string currentMD5 = GetFilesMD5(file);
@@ -43,6 +48,10 @@ namespace ReleaseBilder
                     Path = file,
                     MD5 = currentMD5
                 });
+
+                var nameFile = new FileInfo(file).Name;
+
+                File.Copy(file, realeaseDir + "\\" + nameFile, true);
             }
 
             System.Xml.XmlDocument document = new System.Xml.XmlDocument();
@@ -77,7 +86,7 @@ namespace ReleaseBilder
             }
 
             //Сохраняем xml файл
-            document.Save("UpdateDescription.xml");
+            document.Save(realeaseDir + "\\UpdateDescription.xml");
         }
 
         public static string GetFilesMD5(string path)
