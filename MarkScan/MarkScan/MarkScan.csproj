@@ -57,6 +57,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\..\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
@@ -79,6 +82,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Data\BaseIO.cs" />
+    <Compile Include="Data\SQLiteDataSource.cs" />
     <Compile Include="Models\IMarkScanModel.cs" />
     <Compile Include="Models\MarkScanModelBase.cs" />
     <Compile Include="Models\MarkScanWriteOffModel.cs" />
@@ -222,9 +227,7 @@
   <ItemGroup>
     <Resource Include="Imgs\CheckUpdate32.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\x86\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\UpdateInstaller.exe" />
   </ItemGroup>

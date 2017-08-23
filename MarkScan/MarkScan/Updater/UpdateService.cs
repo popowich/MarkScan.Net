@@ -24,7 +24,7 @@ namespace MarkScan.Updater
         {
             string appLocation = System.Reflection.Assembly.GetEntryAssembly().Location;
 
-            UpdateOptiones opUpdate = new UpdateOptiones("http://localhost:8082/MainlUpdate", AppSettings.UpdateDir, AppSettings.CurrDir, appLocation, true);
+            UpdateOptiones opUpdate = new UpdateOptiones("http://188.227.19.100/WinCVC/MainUpdate", AppSettings.UpdateDir, AppSettings.CurrDir, appLocation, true);
             opUpdate.PatchFileInstallog = AppSettings.CurrDir + "\\" + UpdateOptiones.nameFileUpdateLog;
             opUpdate.RootDirBackUp = AppSettings.UpdateDir + "\\BackUp";
             opUpdate.UseFileCompression = false;
@@ -37,7 +37,6 @@ namespace MarkScan.Updater
 
             upManager = new UpdateManager();
             upManager.ErrorEvent += UpManager_ErrorEvent;
-            upManager.EndDownloadFilesEvent += UpManager_EndDownloadFilesEvent;
             upManager.EndCheckUpdateEvent += UpManager_EndCheckUpdateEvent;
 
             updateFileInstall();
@@ -91,11 +90,6 @@ namespace MarkScan.Updater
                 App._mainWindowsVm._generalFrame.Navigate(
                     new Pages.AppUpdateDescriptionPage(new AppUpdateDescriptopnVm(e.Description)));
             });
-        }
-
-        private void UpManager_EndDownloadFilesEvent(object sender, OnlineUpdate.UpdaterEventArgs.EndLoadUpdateFilesEventArgs e)
-        {
-
         }
 
         private void UpManager_ErrorEvent(object sender, ErrorEventArgs e)

@@ -69,3 +69,6 @@ D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Installer.csproj.Ge
 D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\UpdateInstaller.exe
 D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\UpdateInstaller.pdb
 D:\Projects\MarkScanNet\OnlineUpdate\Installer\obj\x86\Debug\Installer.csprojResolveAssemblyReference.cache
+D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\Installer\bin\x86\Debug\UpdateInstaller.exe.config
+D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\Installer\bin\x86\Debug\UpdateInstaller.exe
+D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\Installer\bin\x86\Debug\UpdateInstaller.pdb
