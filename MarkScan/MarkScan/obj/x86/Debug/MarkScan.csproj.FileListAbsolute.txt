@@ -59,3 +59,4 @@ D:\Projects\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\Pages\AppUpdateDescripti
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\Pages\AppUpdateDescriptionPage.g.cs
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\obj\x86\Debug\Pages\AppUpdateDescriptionPage.baml
 D:\MyProjekt\Free-lance\MarkScanNet\MarkScan\MarkScan\bin\x86\Debug\System.Data.SQLite.dll
+D:\Projects\MarkScanNet\MarkScan\MarkScan\bin\x86\Debug\System.Data.SQLite.dll

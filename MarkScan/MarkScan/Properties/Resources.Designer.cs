@@ -73,6 +73,16 @@ namespace MarkScan.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
+        internal static byte[] database {
+            get {
+                object obj = ResourceManager.GetObject("database", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
         internal static byte[] UpdateInstaller {
             get {
                 object obj = ResourceManager.GetObject("UpdateInstaller", resourceCulture);

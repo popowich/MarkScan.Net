@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MarkScan.Data;
 
 namespace MarkScan.Models
 {
@@ -19,9 +20,9 @@ namespace MarkScan.Models
         public MarkScanModelBase(bool newDatay)
         {
             if (newDatay)
-                ClearData();
+                ClearScanData();
             else
-                _readData();
+                ReadScanData();
         }
 
 
@@ -40,7 +41,7 @@ namespace MarkScan.Models
                 }
 
                 ScanResults.Add(new ScanResult() { ExciseStamp = exciseStamp, AlcCode = alkCode10 });
-                _saveNewData(exciseStamp, alkCode10);
+                SaveScanData(exciseStamp, alkCode10);
             }
             catch (Exception e)
             {
@@ -60,63 +61,11 @@ namespace MarkScan.Models
             return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68;
         }
 
-        protected void _saveNewData(string exciseStamp, string alkCode)
-        {
-            try
-            {
-                using (var stream = new StreamWriter(FileDataPath, true))
-                {
-                    stream.WriteLine(exciseStamp + ";" + alkCode);
-                }
-            }
-            catch (Exception e)
-            {
-                AppSettings.HandlerException(e);
-            }
-        }
+        protected abstract void SaveScanData(string exciseStamp, string alkCode);
 
-        protected void _readData()
-        {
-            try
-            {
-                if (!File.Exists(FileDataPath))
-                    return;
+        protected abstract void ReadScanData();
 
-                using (var stream = new StreamReader(FileDataPath))
-                {
-                    while (stream.EndOfStream == false)
-                    {
-                        string str = stream.ReadLine();
-                        string[] mas = str.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-                        if (mas.Length == 2)
-                            ScanResults.Add(new ScanResult() { ExciseStamp = mas[0], AlcCode = mas[1] });
-
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                AppSettings.HandlerException(e);
-            }
-        }
-
-        public void ClearData()
-        {
-            try
-            {
-                if (!File.Exists(FileDataPath))
-                    return;
-
-                using (var stream = new StreamWriter(FileDataPath, false))
-                {
-
-                }
-            }
-            catch (Exception e)
-            {
-                AppSettings.HandlerException(e);
-            }
-        }
+        public abstract void ClearScanData();
 
         public bool SendToCvC()
         {

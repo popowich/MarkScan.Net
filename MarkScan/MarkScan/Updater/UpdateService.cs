@@ -11,13 +11,13 @@ namespace MarkScan.Updater
     /// </summary>
     internal class UpdateService
     {
-        private static UpdateService Instance;
+        private static UpdateService _instance;
 
         private UpdateManager upManager;
 
         internal static UpdateService GetService()
         {
-            return Instance ?? (Instance = new UpdateService());
+            return _instance ?? (_instance = new UpdateService());
         }
 
         internal UpdateService()
@@ -67,8 +67,8 @@ namespace MarkScan.Updater
         {
             try
             {
-                if (File.Exists(AppSettings.CurrDir + "\\" + UpdateOptiones.appInstallFiles))
-                    File.Delete(AppSettings.CurrDir + "\\" + UpdateOptiones.appInstallFiles);
+                if (File.Exists(AppSettings.UpdateDir + "\\" + UpdateOptiones.appInstallFiles))
+                    File.Delete(AppSettings.UpdateDir + "\\" + UpdateOptiones.appInstallFiles);
 
                 File.WriteAllBytes(AppSettings.UpdateDir + "\\" + UpdateOptiones.appInstallFiles, Properties.Resources.UpdateInstaller);
             }

@@ -14,6 +14,6 @@ namespace MarkScan.Models
         bool ValidExciseStampForLength(string exciseStamp);
         bool SendToCvC();
 
-        void ClearData();
+        void ClearScanData();
     }
 }
