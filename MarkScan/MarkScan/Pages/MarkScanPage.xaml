@@ -10,9 +10,9 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="173*"/>
-            <ColumnDefinition Width="338"/>
-            <ColumnDefinition Width="112*"/>
+            <ColumnDefinition Width="183*"/>
+            <ColumnDefinition Width="273" MaxWidth="273"/>
+            <ColumnDefinition Width="183*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
@@ -29,27 +29,28 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <Label x:Name="nameOperation" Content="[Операция]" Margin="90,0,90,0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="4"/>
-        <TextBox x:Name="barcodeTx" Margin="10,13,10,5" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14.667" CharacterCasing="Upper" Grid.ColumnSpan="4"/>
-        <Image x:Name="image" Margin="114,1,105,1" Grid.Row="3" Source="/MarkScan;component/Imgs/marka3.png" Stretch="Fill" HorizontalAlignment="Center" Width="421" Grid.ColumnSpan="4"/>
-        <Label x:Name="label" Content="Поднесите акцизную марку" Grid.Row="2" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="16" Grid.ColumnSpan="4"/>
-        <Button x:Name="backBt" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="11" Click="backBt_Click" Grid.ColumnSpan="4" />
-        <Label x:Name="label1_Copy" Content="Ранее отсканированные марки" Grid.Row="6" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="16" Grid.ColumnSpan="4"/>
+        <Label x:Name="nameOperation" Content="[Операция]" Margin="90,0,90,0" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,0" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="barcodeTx" Margin="10,13,10,5" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14.667" CharacterCasing="Upper" Grid.ColumnSpan="3"/>
+        <Image x:Name="image" Margin="114,1,105,1" Grid.Row="3" Source="/MarkScan;component/Imgs/marka3.png" Stretch="Fill" HorizontalAlignment="Center" Width="421" Grid.ColumnSpan="3"/>
+        <Label x:Name="label" Content="Поднесите акцизную марку" Grid.Row="2" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="16" Grid.ColumnSpan="3"/>
+        <Button x:Name="backBt" Content="Назад" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="11" Click="backBt_Click" Grid.ColumnSpan="3" />
+        <Label x:Name="label1_Copy" Content="Ранее отсканированные марки" Grid.Row="6" HorizontalContentAlignment="Center" Padding="5,2,5,5" FontSize="16" Grid.ColumnSpan="3"/>
 
         <Label x:Name="label1" Content="1" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="7" Width="20" HorizontalAlignment="Left"/>
-        <Label x:Name="label2" Content="" Background="#FF55A839" FontSize="14.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="7" Margin="20,5,10,5" Grid.ColumnSpan="4"/>
+        <Label x:Name="label2" Content="" Background="#FF55A839" FontSize="14.667" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="7" Margin="20,5,10,5" Grid.ColumnSpan="3"/>
 
         <Label x:Name="label3" Content="2" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="8" HorizontalAlignment="Left" Width="19"/>
-        <Label x:Name="label4" Content="" Background="#FF55A839" FontSize="14.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="8" Margin="20,5,10,5" Grid.ColumnSpan="4"/>
+        <Label x:Name="label4" Content="" Background="#FF55A839" FontSize="14.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="8" Margin="20,5,10,5" Grid.ColumnSpan="3"/>
 
 
         <Label x:Name="label5" Content="3" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="9" HorizontalAlignment="Left" Width="19"/>
-        <Label x:Name="label6" Content="" Background="#FF55A839" FontSize="14.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="9" Margin="20,5,10,5" Grid.ColumnSpan="4"/>
-        <Label x:Name="label7" Content="Отсканировано бутылок" Grid.Row="5" FontSize="16" VerticalContentAlignment="Bottom" Padding="5,5,0,2" Height="34" VerticalAlignment="Top" HorizontalContentAlignment="Right" Grid.Column="1" Margin="0,0,136,0"/>
-        <WrapPanel Grid.Row="5" Height="34" VerticalAlignment="Top" Margin="207,0,0,0" Grid.Column="1">
+        <Label x:Name="label6" Content="" Background="#FF55A839" FontSize="14.667" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="9" Margin="20,5,10,5" Grid.ColumnSpan="3"/>
+        <WrapPanel Grid.Row="5" Height="34" VerticalAlignment="Top" Grid.Column="1" Margin="0.5,0">
+            <Label x:Name="label7" Content="Отсканировано бутылок"  FontSize="16" VerticalContentAlignment="Bottom" Padding="23,5,0,2" Height="34" VerticalAlignment="Top" HorizontalContentAlignment="Right"  />
             <Label x:Name="countScan" Content="0" FontSize="22" FontWeight="Bold"/>
             <Label x:Name="label9" Content="шт" FontSize="16" VerticalContentAlignment="Bottom" Padding="2,5,5,2"/>
         </WrapPanel>
+        <Button x:Name="button" Content="Удалить позицию" Grid.Column="2" Margin="0,3,10,0" Grid.Row="5" VerticalAlignment="Top" Height="38" Background="#FF7E7E7E" Foreground="White" FontSize="16" HorizontalAlignment="Right" Width="168" Grid.RowSpan="2"/>
 
     </Grid>
 </Page>

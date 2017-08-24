@@ -12,9 +12,18 @@ namespace MarkScan.ViewModels
 
         public void GoToMarkScanNew()
         {
-            var model = new Models.MarkScanWriteOffModel(false);
+            bool res = false;
 
-            if (model.ScanResults.Count > 0)
+            try
+            {
+                res = Data.DataBaseManager.GetManager().ExistWriteOffData();
+            }
+            catch (Exception e)
+            {
+                AppSettings.HandlerException(e);
+            }
+
+            if (res)
             {
                 App._mainWindowsVm._generalFrame.Navigate( new Pages.QuaerePage(new ViewModels.QuaereWriteOffMenuVm(), "Имеются неотправленные данные списания. Они будут потеряны, продолжить ?"));
             }

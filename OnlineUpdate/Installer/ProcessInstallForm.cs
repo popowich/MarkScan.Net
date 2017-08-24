@@ -34,8 +34,8 @@ namespace Installer
         {
             InitializeComponent();
 
-            this.Text = "Установка обновлений " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version
-                            .ToString();
+            //this.Text = "Установка обновлений " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version
+            //                .ToString();
 
             this.Location = new Point(0, 0);
 

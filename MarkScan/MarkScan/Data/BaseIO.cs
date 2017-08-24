@@ -248,7 +248,7 @@ namespace MarkScan.Data
         /// <returns></returns>
         public virtual bool Delete(string _where, string _table)
         {
-            string sql = "DELETE from " + _table + " where " + _where;
+            string sql = "DELETE from " + _table + (!string.IsNullOrEmpty(_where) ? " where " + _where : "");
             return ExeSQLCommand(sql);
         }
     }

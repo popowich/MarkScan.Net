@@ -4,17 +4,12 @@ using MarkScan.Data;
 
 namespace MarkScan.Models
 {
-    public class MarkScanInventoryModel: MarkScanModelBase, IMarkScanModel
+    public class MarkScanInventoryModel : MarkScanModelBase, IMarkScanModel
     {
-        public override string FileDataPath
-        {
-            get { return AppSettings.CurrDir + "\\InventoryData.txt"; }
-        }
-
         public MarkScanInventoryModel(bool newDatay) :
             base(newDatay)
         {
-  
+
         }
 
         protected override bool _sendToCvC(ResultScanPosititon resultPositiones)
@@ -33,7 +28,7 @@ namespace MarkScan.Models
 
             foreach (var mas in datalist)
             {
-                ScanResults.Add(new ScanResult() { ExciseStamp = mas[0], AlcCode = mas[1] });
+                ScanResults.Add(new ScanResult() { ExciseStamp = mas[1].ToString(), AlcCode = mas[2].ToString() });
             }
         }
 

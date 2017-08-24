@@ -18,7 +18,9 @@ namespace MarkScan.Data
         {
             _createDataBase();
 
-            _dataSource = new SQLiteDataSource();
+            _dataSource = new SQLiteDataSource(AppSettings.UserWorkDir + "\\database.sqlite");
+            if (_dataSource.OpenConnect() == false)
+                throw new Exception("Не удалось подулючиться к базе данных");
         }
 
         internal static DataBaseManager GetManager()
@@ -30,10 +32,8 @@ namespace MarkScan.Data
         {
             try
             {
-                if (File.Exists(AppSettings.UserWorkDir + "\\database.sqlite"))
-                    File.Delete(AppSettings.UserWorkDir + "\\database.sqlite");
-
-                File.WriteAllBytes(AppSettings.UserWorkDir + "\\database.sqlite", Properties.Resources.database);
+                if (!File.Exists(AppSettings.UserWorkDir + "\\database.sqlite"))
+                    File.WriteAllBytes(AppSettings.UserWorkDir + "\\database.sqlite", Properties.Resources.database);
             }
             catch (Exception ex)
             {
@@ -43,32 +43,51 @@ namespace MarkScan.Data
 
         internal void SaveInventoryData(string mark, string alccode)
         {
-            
+            var res = _dataSource.InsertInto("'" + mark + "'," +
+                                          "'" + alccode + "'," +
+                                          "'" + Tools.ConvertUnixDate.ConvertInUnixTimestamp(DateTime.Now) + "'", "`Inventory` (`mark`,`alccode`,`dateCreate`)");
+
         }
 
         internal void SaveWriteOffData(string mark, string alccode)
         {
-
+            var res = _dataSource.InsertInto("'" + mark + "'," +
+                                          "'" + alccode + "'," +
+                                          "'" + Tools.ConvertUnixDate.ConvertInUnixTimestamp(DateTime.Now) + "'", "`WriteOff` (`mark`,`alccode`,`dateCreate`)");
         }
 
-        internal List<string[]> ReadInventoryData()
+        internal List<object[]> ReadInventoryData()
         {
-            throw new Exception();
+            List<object[]> res = _dataSource.Select("SELECT * FROM `Inventory`");
+
+            return res;
         }
 
-        internal List<string[]> ReadWriteOffData()
+        internal List<object[]> ReadWriteOffData()
         {
-            throw new Exception();
+            List<object[]> res = _dataSource.Select("SELECT * FROM `WriteOff`");
+
+            return res;
         }
 
         internal void ClearInventoryData()
         {
-            
+            _dataSource.Delete("", "`Inventory`");
         }
 
         internal void ClearWriteOffData()
         {
+            _dataSource.Delete("", "`WriteOff`");
+        }
 
+        internal bool ExistInventoryData()
+        {
+            return _dataSource.Select("SELECT id FROM `Inventory`").Count > 0;
+        }
+
+        internal bool ExistWriteOffData()
+        {
+            return _dataSource.Select("SELECT id FROM `WriteOff`").Count > 0;
         }
     }
 }

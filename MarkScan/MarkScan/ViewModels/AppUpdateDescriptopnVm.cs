@@ -25,7 +25,15 @@ namespace MarkScan.ViewModels
 
         public void GoToUpdate()
         {
-            MarkScan.Updater.UpdateService.GetService().SatrtUpate();
+            _myPage.noBt.IsEnabled = false;
+            try
+            {
+                MarkScan.Updater.UpdateService.GetService().SatrtUpate();
+            }
+            catch (Exception ex)
+            {
+                AppSettings.HandlerException(ex);
+            }
         }
 
         public void CancelUpdate()

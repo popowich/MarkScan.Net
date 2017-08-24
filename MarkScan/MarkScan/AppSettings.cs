@@ -83,7 +83,18 @@ namespace MarkScan
                     document.Load(CurrDir + "\\settings.conf");
 
                     Login = GetInnerTextXML(document, "Login");
+
+                    string temp = "";
+                    Tools.Base64.TryParseBase64(Encoding.ASCII, Login,out temp);
+                    Tools.Base64.TryParseBase64(Encoding.ASCII, temp, out temp);
+                    Login = temp;
+
                     Pass = GetInnerTextXML(document, "Password");
+
+                    temp = "";
+                    Tools.Base64.TryParseBase64(Encoding.ASCII, Pass, out temp);
+                    Tools.Base64.TryParseBase64(Encoding.ASCII, temp, out temp);
+                    Pass = temp;
 
                     return true;
                 }
@@ -105,11 +116,11 @@ namespace MarkScan
                 document.LoadXml("<?xml version=\"1.0\" encoding=\"utf-8\"?><head></head>");
 
                 XmlNode element = document.CreateElement("Login");
-                element.InnerText = this.Login;
+                element.InnerText = Tools.Base64.ToBase64(Encoding.ASCII, Tools.Base64.ToBase64(Encoding.ASCII, this.Login));
                 document.DocumentElement.AppendChild(element);
 
                 element = document.CreateElement("Password");
-                element.InnerText = this.Pass;
+                element.InnerText = Tools.Base64.ToBase64(Encoding.ASCII, Tools.Base64.ToBase64(Encoding.ASCII, this.Pass));
                 document.DocumentElement.AppendChild(element);
 
                 document.Save(CurrDir + "\\settings.conf");

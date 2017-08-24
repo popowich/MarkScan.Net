@@ -120,6 +120,7 @@
     <Compile Include="RetailEquipment\HIDBarcodeReaderEventArgs.cs" />
     <Compile Include="Tools\Base64.cs" />
     <Compile Include="Tools\Convertor36To10.cs" />
+    <Compile Include="Tools\ConvertUnixDate.cs" />
     <Compile Include="Tools\KeyboardMapper.cs" />
     <Compile Include="Updater\UpdateService.cs" />
     <Compile Include="ViewModels\AppUpdateDescriptopnVm.cs" />
@@ -203,6 +204,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

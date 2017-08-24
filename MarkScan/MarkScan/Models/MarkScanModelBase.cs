@@ -12,17 +12,20 @@ namespace MarkScan.Models
         /// Коллеция отсканированных данных
         /// </summary>
         public List<ScanResult> ScanResults { get; } = new List<ScanResult>();
-        /// <summary>
-        /// Путь к файлу данных
-        /// </summary>
-        public abstract string FileDataPath { get;}
 
         public MarkScanModelBase(bool newDatay)
         {
-            if (newDatay)
-                ClearScanData();
-            else
-                ReadScanData();
+            try
+            {
+                if (newDatay)
+                    ClearScanData();
+                else
+                    ReadScanData();
+            }
+            catch (Exception e)
+            {
+               AppSettings.HandlerException(e);
+            }
         }
 
 

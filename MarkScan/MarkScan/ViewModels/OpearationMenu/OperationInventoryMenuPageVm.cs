@@ -12,9 +12,18 @@ namespace MarkScan.ViewModels
 
         public void GoToMarkScanNew()
         {
-            var model = new Models.MarkScanInventoryModel(false);
+            bool res = false;
 
-            if (model.ScanResults.Count > 0)
+            try
+            {
+                res = Data.DataBaseManager.GetManager().ExistInventoryData();
+            }
+            catch (Exception e)
+            {
+                AppSettings.HandlerException(e);
+            }
+
+            if (res)
             {
                 App._mainWindowsVm._generalFrame.Navigate( new Pages.QuaerePage(new ViewModels.QuaereInventiryMenuVm(), "Имеются неотправленные данные инвентаризации. Они будут потеряны, продолжить ?"));
             }
