@@ -111,6 +111,9 @@
     </Compile>
     <Compile Include="Network\JsonWrapers\ResultScan.cs" />
     <Compile Include="Network\JsonWrapers\ResultScanPosititon.cs" />
+    <Compile Include="Pages\WriteOffBeerPage.xaml.cs">
+      <DependentUpon>WriteOffBeerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SendDataToCvCPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WriteOffBeerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

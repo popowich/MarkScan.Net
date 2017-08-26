@@ -54,6 +54,9 @@ namespace MarkScan.Pages
             _mainMenuVm.Exit();
         }
 
-
+        private void writeOffBerrBt_Click(object sender, RoutedEventArgs e)
+        {
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.WriteOffBeerPage());
+        }
     }
 }

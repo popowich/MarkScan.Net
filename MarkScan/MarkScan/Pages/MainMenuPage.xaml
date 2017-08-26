@@ -13,7 +13,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="60*"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="61"/>
             <RowDefinition Height="59*"/>
             <RowDefinition Height="60"/>
@@ -21,11 +21,12 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <Button x:Name="inventoryBt" Content="Инвентаризация" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="1" Click="inventoryBt_Click"/>
-        <Button x:Name="testConnectBt" Content="Связь с сервером" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="3" Click="testConnectBt_Click"/>
+        <Button x:Name="testConnectBt" Content="Связь с сервером" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="4" Click="testConnectBt_Click"/>
         <Button x:Name="writeOffBt" Content="Списание" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="2" Click="writeOffBt_Click"/>
         <Button x:Name="appWxitBt" Content="Выход из программы" Margin="10,5,10,5" Background="#FF7E7E7E" Foreground="White" FontSize="16" Grid.Row="8" Click="appWxitBt_Click"/>
         <Button x:Name="changeUserBt" Content="Смена пользователя" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="7" Click="changeUserBt_Click"/>
         <TextBox x:Name="messageTxb" Grid.Row="5" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" TextAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="24" SelectionBrush="{x:Null}" BorderThickness="0" IsReadOnly="True" Cursor="Arrow"/>
+        <Button x:Name="writeOffBerrBt" Content="Списание пива" Margin="10,5,10,5" Background="#FF0F6FC6" Foreground="White" FontSize="16" Grid.Row="3" Click="writeOffBerrBt_Click"/>
 
     </Grid>
 </Page>
