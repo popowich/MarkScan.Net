@@ -22,7 +22,7 @@ namespace KeyEmul
             System.Threading.Thread.Sleep(3000);
 
             //Эмулируем ввод штрих-кода товара
-           // BaseIO.UtilitesWinAPI.EmulatePressKey(Keys.F11);
+            BaseIO.UtilitesWinAPI.EmulatePressKey(Keys.F7);
             foreach(char ch in textBox1.Text)
             {
                 BaseIO.UtilitesWinAPI.EmulatePressKey(BaseIO.UtilitesWinAPI.ConvertCharToKey(ch));
@@ -30,7 +30,7 @@ namespace KeyEmul
                 System.Threading.Thread.Sleep(1);
             }
 
-           // BaseIO.UtilitesWinAPI.EmulatePressKey(Keys.Enter);
+            BaseIO.UtilitesWinAPI.EmulatePressKey(Keys.Enter);
             //System.Threading.Thread.Sleep(10);
            // BaseIO.UtilitesWinAPI.EmulatePressKey(System.Windows.Forms.Keys.Down);
         }

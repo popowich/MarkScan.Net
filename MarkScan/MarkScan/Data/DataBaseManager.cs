@@ -41,7 +41,7 @@ namespace MarkScan.Data
             }
         }
 
-        internal void SaveInventoryData(string mark, string alccode)
+        internal void SaveInventoryMark(string mark, string alccode)
         {
             var res = _dataSource.InsertInto("'" + mark + "'," +
                                           "'" + alccode + "'," +
@@ -49,43 +49,53 @@ namespace MarkScan.Data
 
         }
 
-        internal void SaveWriteOffData(string mark, string alccode)
+        internal void SaveWriteOffMark(string mark, string alccode)
         {
             var res = _dataSource.InsertInto("'" + mark + "'," +
                                           "'" + alccode + "'," +
                                           "'" + Tools.ConvertUnixDate.ConvertInUnixTimestamp(DateTime.Now) + "'", "`WriteOff` (`mark`,`alccode`,`dateCreate`)");
         }
 
-        internal List<object[]> ReadInventoryData()
+        internal List<object[]> ReadInventoryMark()
         {
             List<object[]> res = _dataSource.Select("SELECT * FROM `Inventory`");
 
             return res;
         }
 
-        internal List<object[]> ReadWriteOffData()
+        internal List<object[]> ReadWriteOffMark()
         {
             List<object[]> res = _dataSource.Select("SELECT * FROM `WriteOff`");
 
             return res;
         }
 
-        internal void ClearInventoryData()
+        internal void DeleteInventoryMark(string mark)
+        {
+            _dataSource.Delete("`mark`='" + mark + "'", "`Inventory`");
+        }
+
+        internal void DeleteWriteOffMark(string mark)
+        {
+            _dataSource.Delete("`mark`='" + mark + "'", "`WriteOff`");
+        }
+
+        internal void ClearInventoryMark()
         {
             _dataSource.Delete("", "`Inventory`");
         }
 
-        internal void ClearWriteOffData()
+        internal void ClearWriteOffMark()
         {
             _dataSource.Delete("", "`WriteOff`");
         }
 
-        internal bool ExistInventoryData()
+        internal bool ExistInventoryMark()
         {
             return _dataSource.Select("SELECT id FROM `Inventory`").Count > 0;
         }
 
-        internal bool ExistWriteOffData()
+        internal bool ExistWriteOffMark()
         {
             return _dataSource.Select("SELECT id FROM `WriteOff`").Count > 0;
         }

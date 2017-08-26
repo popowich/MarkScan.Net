@@ -25,7 +25,7 @@ namespace MarkScan.ViewModels
                 {
                     _page.messageTxb.Text = "Инвентаризация отправлена успешно!";
                     _page.messageTxb.Foreground = Brushes.Green;
-                    model.ClearScanData();
+                    model.ClearScanDataFormBase();
                 }
                 else
                 {

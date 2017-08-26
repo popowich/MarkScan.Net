@@ -16,7 +16,7 @@ namespace MarkScan.ViewModels
 
             try
             {
-                res = Data.DataBaseManager.GetManager().ExistInventoryData();
+                res = Data.DataBaseManager.GetManager().ExistInventoryMark();
             }
             catch (Exception e)
             {

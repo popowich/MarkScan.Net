@@ -47,5 +47,9 @@ namespace MarkScan.Pages
             _markScanPageVm.GoToOpearationMenuPage();
         }
 
+        private void deleteMarkbutton_Click(object sender, RoutedEventArgs e)
+        {
+            _markScanPageVm.SetModeDeleteMark();
+        }
     }
 }

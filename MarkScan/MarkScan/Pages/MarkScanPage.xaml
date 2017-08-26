@@ -50,7 +50,8 @@
             <Label x:Name="countScan" Content="0" FontSize="22" FontWeight="Bold"/>
             <Label x:Name="label9" Content="шт" FontSize="16" VerticalContentAlignment="Bottom" Padding="2,5,5,2"/>
         </WrapPanel>
-        <Button x:Name="button" Content="Удалить позицию" Grid.Column="2" Margin="0,3,10,0" Grid.Row="5" VerticalAlignment="Top" Height="38" Background="#FF7E7E7E" Foreground="White" FontSize="16" HorizontalAlignment="Right" Width="168" Grid.RowSpan="2"/>
+        <Button x:Name="deleteMark" Content="Удалить позицию" Grid.Column="2" Margin="0,3,10,0" Grid.Row="5" VerticalAlignment="Top" Height="38" Background="#FF7E7E7E" Foreground="White" FontSize="16" HorizontalAlignment="Right" Width="168" Grid.RowSpan="2" Click="deleteMarkbutton_Click"/>
+        <Label x:Name="serviceMessageLb" Content="Сервисное сообщение" Grid.Row="10" FontSize="20" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
 
     </Grid>
 </Page>

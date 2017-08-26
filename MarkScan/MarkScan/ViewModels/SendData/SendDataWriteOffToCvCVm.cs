@@ -28,7 +28,7 @@ namespace MarkScan.ViewModels
                 {
                     _page.messageTxb.Text = "Списание отправлено успешно!";
                     _page.messageTxb.Foreground = Brushes.Green;
-                    model.ClearScanData();
+                    model.ClearScanDataFormBase();
                 }
                 else
                 {

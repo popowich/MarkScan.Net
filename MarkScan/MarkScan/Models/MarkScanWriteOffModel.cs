@@ -17,14 +17,14 @@ namespace MarkScan.Models
             return Network.CvcOpenApi.GetClientApi().Writeoff(resultPositiones);
         }
 
-        protected override void SaveScanData(string mark, string alkCode)
+        protected override void SaveExciseMarkFormBase(string mark, string alkCode)
         {
-            DataBaseManager.GetManager().SaveWriteOffData(mark, alkCode);
+            DataBaseManager.GetManager().SaveWriteOffMark(mark, alkCode);
         }
 
-        protected override void ReadScanData()
+        protected override void ReadExciseMarkFormBase()
         {
-            var datalist = DataBaseManager.GetManager().ReadWriteOffData();
+            var datalist = DataBaseManager.GetManager().ReadWriteOffMark();
 
             foreach (var mas in datalist)
             {
@@ -32,9 +32,14 @@ namespace MarkScan.Models
             }
         }
 
-        public override void ClearScanData()
+        protected override void DeleteExciseMarkFormBase(string exciseStamp)
         {
-            DataBaseManager.GetManager().ClearWriteOffData();
+            DataBaseManager.GetManager().DeleteWriteOffMark(exciseStamp);
+        }
+
+        public override void ClearScanDataFormBase()
+        {
+            DataBaseManager.GetManager().ClearWriteOffMark();
         }
     }
 

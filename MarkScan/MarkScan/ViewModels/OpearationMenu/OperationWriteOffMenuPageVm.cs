@@ -16,7 +16,7 @@ namespace MarkScan.ViewModels
 
             try
             {
-                res = Data.DataBaseManager.GetManager().ExistWriteOffData();
+                res = Data.DataBaseManager.GetManager().ExistWriteOffMark();
             }
             catch (Exception e)
             {

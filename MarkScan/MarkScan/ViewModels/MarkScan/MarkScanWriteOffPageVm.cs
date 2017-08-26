@@ -15,7 +15,7 @@ namespace MarkScan.ViewModels
 
         public void SetOwnerPage(Pages.MarkScanPage markScanPage)
         {
-            base.SetOwnerPage(markScanPage);
+            base.SetMyPage(markScanPage);
 
             _markScanPage.nameOperation.Content = "Списание";
         }

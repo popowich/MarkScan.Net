@@ -118,6 +118,7 @@
     </Compile>
     <Compile Include="RetailEquipment\HIDBarcodeReader.cs" />
     <Compile Include="RetailEquipment\HIDBarcodeReaderEventArgs.cs" />
+    <Compile Include="RetailEquipment\HidSacnerManager.cs" />
     <Compile Include="Tools\Base64.cs" />
     <Compile Include="Tools\Convertor36To10.cs" />
     <Compile Include="Tools\ConvertUnixDate.cs" />

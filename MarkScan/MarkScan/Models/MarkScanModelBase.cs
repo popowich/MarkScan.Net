@@ -18,22 +18,25 @@ namespace MarkScan.Models
             try
             {
                 if (newDatay)
-                    ClearScanData();
+                    ClearScanDataFormBase();
                 else
-                    ReadScanData();
+                    ReadExciseMarkFormBase();
             }
             catch (Exception e)
             {
-               AppSettings.HandlerException(e);
+                AppSettings.HandlerException(e);
             }
         }
 
-
-        public void HandleExciseStamp(string exciseStamp)
+        /// <summary>
+        /// Обработать поступление марки
+        /// </summary>
+        /// <param name="exciseMark"></param>
+        public void HandleExciseMark(string exciseMark)
         {
             try
             {
-                string alkCode36 = exciseStamp.Substring(3, 16);
+                string alkCode36 = exciseMark.Substring(3, 16);
                 string alkCode10 = Tools.Convertor36To10String.Convert(alkCode36);
 
                 if (alkCode10.Length < 19)
@@ -43,32 +46,59 @@ namespace MarkScan.Models
                         alkCode10 = "0" + alkCode10;
                 }
 
-                ScanResults.Add(new ScanResult() { ExciseStamp = exciseStamp, AlcCode = alkCode10 });
-                SaveScanData(exciseStamp, alkCode10);
+                ScanResults.Add(new ScanResult() { ExciseStamp = exciseMark, AlcCode = alkCode10 });
+                SaveExciseMarkFormBase(exciseMark, alkCode10);
             }
             catch (Exception e)
             {
-              AppSettings.SaveDebug("Ошибка обработки марки: " + exciseStamp);
-              AppSettings.HandlerException(e);
+                AppSettings.SaveDebug("Ошибка обработки марки: " + exciseMark);
+                AppSettings.HandlerException(e);
             }
-   
         }
-
-        public bool ValidExciseStamp(string exciseStamp)
+        /// <summary>
+        /// Удалить поступившую марку
+        /// </summary>
+        /// <param name="exciseMark"></param>
+        /// <returns></returns>
+        public bool DeleteExciseMark(string exciseMark)
         {
-            return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68 && ScanResults.FirstOrDefault(x=>x.ExciseStamp == exciseStamp) == null;
-        }
+            var scanData = ScanResults.FirstOrDefault(x => x.ExciseStamp == exciseMark);
+            if (scanData != null)
+            {
+                ScanResults.Remove(scanData);
+                DeleteExciseMarkFormBase(exciseMark);
 
-        public bool ValidExciseStampForLength(string exciseStamp)
+                return true;
+            }
+
+            return false;
+        }
+        /// <summary>
+        /// Проверить валидность марки
+        /// </summary>
+        /// <param name="exciseStamp"></param>
+        /// <returns></returns>
+        public bool ValidExciseMark(string exciseStamp)
+        {
+            return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68 && ScanResults.FirstOrDefault(x => x.ExciseStamp == exciseStamp) == null;
+        }
+        /// <summary>
+        /// Проверить валидность марки по динне
+        /// </summary>
+        /// <param name="exciseStamp"></param>
+        /// <returns></returns>
+        public bool ValidExciseMarkForLength(string exciseStamp)
         {
             return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68;
         }
 
-        protected abstract void SaveScanData(string exciseStamp, string alkCode);
+        protected abstract void SaveExciseMarkFormBase(string exciseStamp, string alkCode);
 
-        protected abstract void ReadScanData();
+        protected abstract void DeleteExciseMarkFormBase(string exciseStamp);
 
-        public abstract void ClearScanData();
+        protected abstract void ReadExciseMarkFormBase();
+
+        public abstract void ClearScanDataFormBase();
 
         public bool SendToCvC()
         {
