@@ -39,6 +39,8 @@ namespace MarkScan
             if (HidSacnerManager.IsReady)
                 HidSacnerManager.hidScaner.StartRead();
 
+            RetailEquipment.HidSacnerManager.hidScaner.ReadDataEvent += hidScaner_ReadDataEvent;
+
             Network.CvcOpenApi.GetClientApi().SetTokenAuth(AppSettings.settings.Login, AppSettings.settings.Pass);
 
             Updater.UpdateService.GetService().SatrtChekUpate();
@@ -46,11 +48,27 @@ namespace MarkScan
             base.OnStartup(e);
         }
 
+        private void hidScaner_ReadDataEvent(object sender, RetailEquipment.HIDBarcodeReaderEventArgs e)
+        {
+            App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate
+            {
+                bool res = _mainWindowsVm._generalFrame == null || _mainWindowsVm._generalFrame.Content is Pages.MarkScanPage == false;
+                if (res)
+                {
+                    App._mainWindowsVm.SetWindowState();
+                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Откройте страницу ввода", "Ввод откланен", System.Windows.Forms.ToolTipIcon.Info);
+                }
+
+            });
+        }
+
         protected override void OnExit(ExitEventArgs e)
         {
             HidSacnerManager.hidScaner.Dispose();
 
             Updater.UpdateService.GetService().Dispose();
+
+            AppSettings.settings.SaveSetting();
 
             base.OnExit(e);
         }

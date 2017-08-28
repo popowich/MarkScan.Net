@@ -50,9 +50,11 @@
             <Label x:Name="countScan" Content="0" FontSize="22" FontWeight="Bold"/>
             <Label x:Name="label9" Content="шт" FontSize="16" VerticalContentAlignment="Bottom" Padding="2,5,5,2"/>
         </WrapPanel>
-        <Button x:Name="deleteMark" Content="Удалить позицию" Grid.Column="2" Margin="0,3,10,0" Grid.Row="5" VerticalAlignment="Top" Height="38" Background="#FF7E7E7E" Foreground="White" FontSize="16" HorizontalAlignment="Right" Width="168" Grid.RowSpan="2" Click="deleteMarkbutton_Click"/>
+        <Button x:Name="deleteMark" Content="Удалить позицию" Grid.Column="2" Margin="0,3,10,0" Grid.Row="5" VerticalAlignment="Top" Height="38" Background="#FF7E7E7E" Foreground="White" FontSize="16" HorizontalAlignment="Right" Width="164" Grid.RowSpan="2" Click="deleteMarkbutton_Click"/>
         <Label x:Name="serviceMessageLb" Content="Сервисное сообщение" Grid.Row="10" FontSize="20" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
-        <Button x:Name="setModeShowWindowForScan"  Content="Открывать окно при скане" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Height="27" HorizontalAlignment="Right" Width="159" Margin="0,0,10,0" Click="setModeShowWindowForScan_Click" Background="#FF7E7E7E" Foreground="White"/>
+        <Border x:Name="showWindowForScanGrid" Grid.Column="2" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30" HorizontalAlignment="Right" Width="40" Grid.RowSpan="3" Margin="0,7,9,25" Background="#FF7E7E7E" >
+            <Image x:Name="showWindowForScan" Height="27" VerticalAlignment="Top" ToolTip="Открывать окно при фоновом сканировании" Source="/MarkScan;component/Imgs/open_window32.png" MouseDown="showWindowForScan_MouseDown" Cursor="Hand" HorizontalAlignment="Right" Width="27" Margin="0,3,5,0" />
+        </Border>
 
     </Grid>
 </Page>

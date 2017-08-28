@@ -10,6 +10,13 @@ namespace MarkScan.ViewModels
         internal System.Windows.Controls.Frame _generalFrame;
         internal MainWindow _MainWindow;
 
+        public MainWindowsVm()
+        {
+
+        }
+
+
+
         internal void GoToAuthPage()
         {
             _generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/AuthPage.xaml", UriKind.Absolute));

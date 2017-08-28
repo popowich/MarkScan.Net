@@ -3,10 +3,16 @@ using MarkScan.Pages;
 
 namespace MarkScan.ViewModels
 {
-    public class OperationInventoryMenuPageVm: OperationInventoryMenuBase, IOperationMenuVm
+    public class OperationInventoryMenuPageVm : OperationInventoryMenuBase, IOperationMenuVm
     {
+        public OperationInventoryMenuPageVm()
+        {
+            App._mainWindowsVm._MainWindow.Title = "Mark Scan.Net - инвентаризация";
+        }
+
         public void GoToMainMenuPage()
         {
+            App._mainWindowsVm._MainWindow.Title = "Mark Scan.Net";
             App._mainWindowsVm._generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MainMenuPage.xaml", UriKind.Absolute));
         }
 
@@ -25,7 +31,7 @@ namespace MarkScan.ViewModels
 
             if (res)
             {
-                App._mainWindowsVm._generalFrame.Navigate( new Pages.QuaerePage(new ViewModels.QuaereInventiryMenuVm(), "Имеются неотправленные данные инвентаризации. Они будут потеряны, продолжить ?"));
+                App._mainWindowsVm._generalFrame.Navigate(new Pages.QuaerePage(new ViewModels.QuaereInventiryMenuVm(), "Имеются неотправленные данные инвентаризации. Они будут потеряны, продолжить ?"));
             }
             else
             {

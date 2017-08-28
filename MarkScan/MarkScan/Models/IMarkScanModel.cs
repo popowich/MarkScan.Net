@@ -9,7 +9,7 @@ namespace MarkScan.Models
     {
         List<ScanResult> ScanResults { get; }
 
-        void HandleExciseMark(string exciseStamp);
+        string HandleExciseMark(string exciseStamp);
         bool DeleteExciseMark(string exciseMark);
         bool ValidExciseMark(string exciseStamp);
         bool ValidExciseMarkForLength(string exciseStamp);

@@ -19,7 +19,7 @@ namespace MarkScan.ViewModels
         protected System.Windows.Forms.Timer _serviceMassegTimer;
 
         private bool _modeDeleteMark = false;
-        private bool showWindowForScan = true;
+        private bool showWindowForScan = false;
 
         public MarkScanPageBaseVm(IMarkScanModel markScanPageModel)
         {
@@ -137,7 +137,13 @@ namespace MarkScan.ViewModels
                     }
                     else
                     {
-                        _markScanPageModel.HandleExciseMark(_markScanPage.barcodeTx.Text);
+                        var alkod = _markScanPageModel.HandleExciseMark(_markScanPage.barcodeTx.Text);
+                        if (!string.IsNullOrEmpty(alkod))
+                            _setTextNotification(true, alkod);
+                        else
+                        {
+                            _setTextNotification(false, null);
+                        }
                     }
 
                     _markScanPage.barcodeTx.IsEnabled = false;
@@ -152,6 +158,7 @@ namespace MarkScan.ViewModels
                 else
                 {
                     _blincTextBox();
+                    _setTextNotification(false, null);
                 }
 
                 _markScanPage.barcodeTx.TextChanged += barcodeTx_TextChanged;
@@ -232,6 +239,15 @@ namespace MarkScan.ViewModels
             };
         }
 
+        private void _setTextNotification(bool isGood, string alcod)
+        {
+            if (App._mainWindowsVm._MainWindow.IsVisible == false)
+                if (isGood)
+                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, alcod, "Принято", System.Windows.Forms.ToolTipIcon.Info);
+                else
+                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Ввод откланен", "Марка", System.Windows.Forms.ToolTipIcon.Info);
+        }
+
         #region Operations
 
         /// <summary>
@@ -268,17 +284,19 @@ namespace MarkScan.ViewModels
 
             _modeDeleteMark = false;
         }
-
+        /// <summary>
+        /// Установить режим отображения формы при сканировании
+        /// </summary>
         public void SetModeShowWindowForScan()
         {
             showWindowForScan = !showWindowForScan;
             if (showWindowForScan)
             {
-                _markScanPage.setModeShowWindowForScan.Background = new SolidColorBrush(Color.FromRgb(15, 111, 198));
+                _markScanPage.showWindowForScanGrid.Background = new SolidColorBrush(Color.FromRgb(15, 111, 198));
             }
             else
             {
-                _markScanPage.setModeShowWindowForScan.Background = new SolidColorBrush(Color.FromRgb(126, 126, 126));
+                _markScanPage.showWindowForScanGrid.Background = new SolidColorBrush(Color.FromRgb(126, 126, 126));
             }
         }
 

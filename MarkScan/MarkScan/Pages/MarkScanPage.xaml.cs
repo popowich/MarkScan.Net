@@ -52,7 +52,7 @@ namespace MarkScan.Pages
             _markScanPageVm.SetModeDeleteMark();
         }
 
-        private void setModeShowWindowForScan_Click(object sender, RoutedEventArgs e)
+        private void showWindowForScan_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             _markScanPageVm.SetModeShowWindowForScan();
         }

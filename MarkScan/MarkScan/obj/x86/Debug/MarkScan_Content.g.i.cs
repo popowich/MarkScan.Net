@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/updateinstaller.exe")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imgs/open_window32.png")]
 
 

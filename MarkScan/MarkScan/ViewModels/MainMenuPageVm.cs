@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Media;
 using MarkScan.Pages;
+using MarkScan.ViewModels.OpearationMenu;
 
 namespace MarkScan.ViewModels
 {
@@ -23,6 +24,11 @@ namespace MarkScan.ViewModels
         internal void GoToWriteOffOperationMenuPage()
         {
             App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new ViewModels.OperationWriteOffMenuPageVm()));
+        }
+
+        internal void GoToWriteOffBeerOperationMenuPage()
+        {
+            App._mainWindowsVm._generalFrame.Navigate(new Pages.OperationMenuPage(new OperationWriteOffBeerMenuPageVm()));
         }
 
         internal void TestConnect()

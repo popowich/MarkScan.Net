@@ -133,6 +133,7 @@
     <Compile Include="ViewModels\MarkScan\IMarkScanPageVm.cs" />
     <Compile Include="ViewModels\MarkScan\MarkScanWriteOffPageVm.cs" />
     <Compile Include="ViewModels\OpearationMenu\OperationInventoryMenuBase.cs" />
+    <Compile Include="ViewModels\OpearationMenu\OperationWriteOffBeerMenuPageVm.cs" />
     <Compile Include="ViewModels\OpearationMenu\OperationWriteOffMenuPageVm.cs" />
     <Compile Include="ViewModels\OpearationMenu\OperationInventoryMenuPageVm.cs" />
     <Compile Include="ViewModels\OpearationMenu\IOperationMenuVm.cs" />
@@ -238,10 +239,12 @@
   <ItemGroup>
     <Resource Include="Imgs\CheckUpdate32.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\database.sqlite" />
     <None Include="Resources\UpdateInstaller.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\open_window32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

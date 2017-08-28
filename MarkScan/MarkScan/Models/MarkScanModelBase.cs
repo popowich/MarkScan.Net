@@ -32,7 +32,7 @@ namespace MarkScan.Models
         /// Обработать поступление марки
         /// </summary>
         /// <param name="exciseMark"></param>
-        public void HandleExciseMark(string exciseMark)
+        public string HandleExciseMark(string exciseMark)
         {
             try
             {
@@ -48,12 +48,16 @@ namespace MarkScan.Models
 
                 ScanResults.Add(new ScanResult() { ExciseStamp = exciseMark, AlcCode = alkCode10 });
                 SaveExciseMarkFormBase(exciseMark, alkCode10);
+
+                return alkCode10;
             }
             catch (Exception e)
             {
                 AppSettings.SaveDebug("Ошибка обработки марки: " + exciseMark);
                 AppSettings.HandlerException(e);
             }
+
+            return null;
         }
         /// <summary>
         /// Удалить поступившую марку
