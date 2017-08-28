@@ -51,5 +51,10 @@ namespace MarkScan.Pages
         {
             _markScanPageVm.SetModeDeleteMark();
         }
+
+        private void setModeShowWindowForScan_Click(object sender, RoutedEventArgs e)
+        {
+            _markScanPageVm.SetModeShowWindowForScan();
+        }
     }
 }

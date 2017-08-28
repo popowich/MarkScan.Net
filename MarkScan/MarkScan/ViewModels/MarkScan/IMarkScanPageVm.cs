@@ -10,5 +10,6 @@ namespace MarkScan.ViewModels
         void SetOwnerPage(Pages.MarkScanPage markScanPage);
         void GoToOpearationMenuPage();
         void SetModeDeleteMark();
+        void SetModeShowWindowForScan();
     }
 }

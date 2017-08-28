@@ -30,5 +30,15 @@ namespace MarkScan.ViewModels
         {
             Updater.UpdateService.GetService().SatrtChekUpate();
         }
+
+        internal void SetWindowState()
+        {
+            if (!_MainWindow.IsVisible)
+                _MainWindow.Show();
+
+            _MainWindow.WindowState = System.Windows.WindowState.Normal;
+            _MainWindow.Activate();
+            _MainWindow.Focus();
+        }
     }
 }

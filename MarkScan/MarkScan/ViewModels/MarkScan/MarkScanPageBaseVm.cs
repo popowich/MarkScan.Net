@@ -19,6 +19,7 @@ namespace MarkScan.ViewModels
         protected System.Windows.Forms.Timer _serviceMassegTimer;
 
         private bool _modeDeleteMark = false;
+        private bool showWindowForScan = true;
 
         public MarkScanPageBaseVm(IMarkScanModel markScanPageModel)
         {
@@ -33,10 +34,13 @@ namespace MarkScan.ViewModels
 
         private void hidScaner_ReadDataEvent(object sender, RetailEquipment.HIDBarcodeReaderEventArgs e)
         {
-            App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action) delegate
-            {
-                _markScanPage.barcodeTx.Text = e.Barcode.ToUpper();
-            });
+            App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate
+           {
+               if (showWindowForScan)
+                   App._mainWindowsVm.SetWindowState();
+
+               _markScanPage.barcodeTx.Text = e.Barcode.ToUpper();
+           });
         }
 
 
@@ -50,7 +54,6 @@ namespace MarkScan.ViewModels
             _updateLables();
             _updateCountScan();
         }
-
 
         private void _timer_Tick(object sender, EventArgs e)
         {
@@ -170,7 +173,7 @@ namespace MarkScan.ViewModels
                 _markScanPage.label6.Visibility = Visibility.Hidden;
             }
 
-                int i = 0;
+            int i = 0;
             for (int x = _markScanPageModel.ScanResults.Count - 1; x >= 0; x--)
             {
                 if (i == 0)
@@ -229,7 +232,6 @@ namespace MarkScan.ViewModels
             };
         }
 
-
         #region Operations
 
         /// <summary>
@@ -265,6 +267,19 @@ namespace MarkScan.ViewModels
             _markScanPage.deleteMark.Background = new SolidColorBrush(Color.FromRgb(126, 126, 126));
 
             _modeDeleteMark = false;
+        }
+
+        public void SetModeShowWindowForScan()
+        {
+            showWindowForScan = !showWindowForScan;
+            if (showWindowForScan)
+            {
+                _markScanPage.setModeShowWindowForScan.Background = new SolidColorBrush(Color.FromRgb(15, 111, 198));
+            }
+            else
+            {
+                _markScanPage.setModeShowWindowForScan.Background = new SolidColorBrush(Color.FromRgb(126, 126, 126));
+            }
         }
 
         #endregion

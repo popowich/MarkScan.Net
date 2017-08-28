@@ -7,15 +7,6 @@ D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\OnlineUpdate\obj\
 D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.dll
 D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.pdb
 D:\MyProjekt\Личный проекты\MyUpdate\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.csprojResolveAssemblyReference.cache
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\OnlineUpdate.dll
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\OnlineUpdate.pdb
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\ICSharpCode.SharpZipLib.dll
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.csprojResolveAssemblyReference.cache
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.UpdateDescriptionForm.resources
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.Properties.Resources.resources
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.csproj.GenerateResource.Cache
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.dll
-D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.pdb
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\OnlineUpdate.dll
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\OnlineUpdate.pdb
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\ICSharpCode.SharpZipLib.dll
@@ -25,3 +16,12 @@ D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\Onli
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.csproj.GenerateResource.Cache
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.dll
 D:\MyProjekt\Free-lance\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.pdb
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\OnlineUpdate.dll
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\OnlineUpdate.pdb
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\bin\x86\Debug\ICSharpCode.SharpZipLib.dll
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.csprojResolveAssemblyReference.cache
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.UpdateDescriptionForm.resources
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.Properties.Resources.resources
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.csproj.GenerateResource.Cache
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.dll
+D:\Projects\MarkScanNet\OnlineUpdate\OnlineUpdate\obj\x86\Debug\OnlineUpdate.pdb

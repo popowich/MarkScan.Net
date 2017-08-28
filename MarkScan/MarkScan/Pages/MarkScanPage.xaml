@@ -52,6 +52,7 @@
         </WrapPanel>
         <Button x:Name="deleteMark" Content="Удалить позицию" Grid.Column="2" Margin="0,3,10,0" Grid.Row="5" VerticalAlignment="Top" Height="38" Background="#FF7E7E7E" Foreground="White" FontSize="16" HorizontalAlignment="Right" Width="168" Grid.RowSpan="2" Click="deleteMarkbutton_Click"/>
         <Label x:Name="serviceMessageLb" Content="Сервисное сообщение" Grid.Row="10" FontSize="20" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Grid.ColumnSpan="3"/>
+        <Button x:Name="setModeShowWindowForScan"  Content="Открывать окно при скане" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Height="27" HorizontalAlignment="Right" Width="159" Margin="0,0,10,0" Click="setModeShowWindowForScan_Click" Background="#FF7E7E7E" Foreground="White"/>
 
     </Grid>
 </Page>

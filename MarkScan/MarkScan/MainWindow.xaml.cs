@@ -67,12 +67,7 @@ namespace MarkScan
         /// <param name="e"></param>
         private void notify_icon_MouseDoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            if (!this.IsVisible)
-                this.Show();
-
-            this.WindowState = System.Windows.WindowState.Normal;
-            this.Activate();
-            this.Focus();
+            App._mainWindowsVm.SetWindowState();
         }
         /// <summary>
         /// Обработчик  меню трея открыть окно главной формы
@@ -81,12 +76,7 @@ namespace MarkScan
         /// <param name="e"></param>
         private void notify_icon_show_form(object sender, EventArgs e)
         {
-            if (!this.IsVisible)
-                this.Show();
-
-            this.WindowState = System.Windows.WindowState.Normal;
-            this.Activate();
-            this.Focus();
+            App._mainWindowsVm.SetWindowState();
         }
         /// <summary>
         /// Обработчик  меню трея закрыть программу
@@ -112,5 +102,7 @@ namespace MarkScan
             if (this.WindowState == WindowState.Minimized)
                 this.Hide();
         }
+
+
     }
 }

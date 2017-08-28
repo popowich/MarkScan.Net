@@ -34,9 +34,10 @@ namespace MarkScan
                 }
             }
 
-            HidSacnerManager.hidScaner.StartRead();
-
             AppSettings.settings.LoadSettings();
+
+            if (HidSacnerManager.IsReady)
+                HidSacnerManager.hidScaner.StartRead();
 
             Network.CvcOpenApi.GetClientApi().SetTokenAuth(AppSettings.settings.Login, AppSettings.settings.Pass);
 

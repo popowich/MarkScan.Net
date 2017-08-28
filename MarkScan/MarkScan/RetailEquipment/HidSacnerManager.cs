@@ -10,9 +10,12 @@ namespace MarkScan.RetailEquipment
     {
         internal static RetailEquipment.HIDBarcodeReader hidScaner;
 
+        internal static bool IsReady { get; private set; }
+
         static HidSacnerManager()
         {
-            hidScaner = new HIDBarcodeReader(Keys.F7, Keys.Enter, 68);
+            IsReady = AppSettings.settings.Prefix != Keys.None && AppSettings.settings.Suffix != Keys.None;
+            hidScaner = new HIDBarcodeReader(AppSettings.settings.Prefix, AppSettings.settings.Suffix, 68);
         }
 
     }

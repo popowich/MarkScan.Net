@@ -44,6 +44,19 @@ namespace MarkScan
 
         internal string Pass { get; set; }
 
+        #region Equipment settings
+
+        /// <summary>
+        /// Префикс штрих-кода
+        /// </summary>
+        public System.Windows.Forms.Keys Prefix { get; set; } = System.Windows.Forms.Keys.None;
+        /// <summary>
+        /// Суффикс штрих-кода
+        /// </summary>
+        public System.Windows.Forms.Keys Suffix { get; set; } = System.Windows.Forms.Keys.None;
+
+        #endregion
+
         static AppSettings()
         {
             CurrDir = System.Windows.Forms.Application.ExecutablePath.Remove(System.Windows.Forms.Application.ExecutablePath.LastIndexOf('\\'));
@@ -96,6 +109,19 @@ namespace MarkScan
                     Tools.Base64.TryParseBase64(Encoding.ASCII, temp, out temp);
                     Pass = temp;
 
+                    try
+                    {
+                        this.Prefix = (System.Windows.Forms.Keys)Enum.Parse(typeof(System.Windows.Forms.Keys), GetInnerTextXML(document, "Prefix"));
+                    }
+                    catch {}
+
+                    try
+                    {
+                        this.Suffix = (System.Windows.Forms.Keys)Enum.Parse(typeof(System.Windows.Forms.Keys), GetInnerTextXML(document, "Suffix"));
+                    }
+                    catch { }
+
+
                     return true;
                 }
 
@@ -121,6 +147,14 @@ namespace MarkScan
 
                 element = document.CreateElement("Password");
                 element.InnerText = Tools.Base64.ToBase64(Encoding.ASCII, Tools.Base64.ToBase64(Encoding.ASCII, this.Pass));
+                document.DocumentElement.AppendChild(element);
+
+                element = document.CreateElement("Prefix");
+                element.InnerText = this.Prefix.ToString();
+                document.DocumentElement.AppendChild(element);
+
+                element = document.CreateElement("Suffix");
+                element.InnerText = this.Suffix.ToString();
                 document.DocumentElement.AppendChild(element);
 
                 document.Save(CurrDir + "\\settings.conf");
