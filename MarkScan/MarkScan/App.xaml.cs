@@ -19,19 +19,20 @@ namespace MarkScan
     {
         private const string AppGuid = "47E770B3-E0B6-4BF9-8823-14E87D9BD5C0";
 
+        private Mutex _mutex;
+
         internal static ViewModels.MainWindowsVm _mainWindowsVm = new MainWindowsVm();
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            using (var mutex = new Mutex(false, AppGuid))
-            {
-                if (!mutex.WaitOne(0, false))
-                {
-                    BringWindowToFront();
+            _mutex = new Mutex(false, AppGuid);
 
-                    Shutdown();
-                    return;
-                }
+            if (!_mutex.WaitOne(0, false))
+            {
+                BringWindowToFront();
+
+                Shutdown();
+                return;
             }
 
             AppSettings.settings.LoadSettings();
@@ -43,9 +44,12 @@ namespace MarkScan
 
             Network.CvcOpenApi.GetClientApi().SetTokenAuth(AppSettings.settings.Login, AppSettings.settings.Pass);
 
+            Data.RemainingsManager.GetManager().UpdateRemainings();
+
             Updater.UpdateService.GetService().SatrtChekUpate();
 
             base.OnStartup(e);
+
         }
 
         private void hidScaner_ReadDataEvent(object sender, RetailEquipment.HIDBarcodeReaderEventArgs e)
@@ -69,6 +73,8 @@ namespace MarkScan
             Updater.UpdateService.GetService().Dispose();
 
             AppSettings.settings.SaveSetting();
+
+            _mutex.Dispose();
 
             base.OnExit(e);
         }
@@ -107,7 +113,7 @@ namespace MarkScan
             //get the process
             //            var bProcess = System.Diagnostics.Process.GetProcessesByName("Egaiska").FirstOrDefault();
 
-            foreach (var proc in System.Diagnostics.Process.GetProcessesByName("Egaiska"))
+            foreach (var proc in System.Diagnostics.Process.GetProcessesByName("MarkScan"))
             {
                 //get the (int) hWnd of the process
                 var hwnd = proc.MainWindowHandle;
@@ -133,6 +139,5 @@ namespace MarkScan
         }
 
         #endregion
-
     }
 }

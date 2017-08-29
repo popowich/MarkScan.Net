@@ -12,7 +12,7 @@ namespace MarkScan.Network
 {
     internal class CvcOpenApi
     {
-        private const string host = "https://c-v-c.ru";
+        private const string Host = "https://c-v-c.ru";
 
         /// <summary>
         /// Singleton
@@ -31,7 +31,11 @@ namespace MarkScan.Network
         {
             return _cvcOpenApi ?? (_cvcOpenApi = new CvcOpenApi());
         }
-
+        /// <summary>
+        /// Установить токен доступа
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="pass"></param>
         internal void SetTokenAuth(string login, string pass)
         {
             _tokenAuth = "Basic " + Tools.Base64.ToBase64(Encoding.ASCII, $"{login}:{pass}");
@@ -47,51 +51,38 @@ namespace MarkScan.Network
         {
             SetTokenAuth(login, pass);
 
-            HttpWebRequest request = getHttpWebRequestt("GET", "/openapi/status", false);
+            var request = getHttpWebRequestt("GET", "/openapi/status", false);
             request.Headers.Add("Authorization", _tokenAuth);
 
             using (var responseStream = request.GetResponse().GetResponseStream())
             {
-                //using (var stream = new StreamReader(responseStream))
-                //{
-                //    var str = stream.ReadToEnd();
-                //}
-
-                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(ResponseBase<AuthResult>));
-                if (responseStream != null)
-                {
-                    ResponseBase<AuthResult> result = (ResponseBase<AuthResult>)ser.ReadObject(responseStream);
-
-                    return result;
-                }
+                return (ResponseBase<AuthResult>)new DataContractJsonSerializer(typeof(ResponseBase<AuthResult>))
+                    .ReadObject(responseStream);
             }
-
-            return null;
         }
         /// <summary>
         /// Отправка данных инвентаризации
         /// </summary>
         internal bool Remainings(ResultScanPosititon positions)
         {
-            HttpWebRequest request = getHttpWebRequestt("PATCH", "/openapi/remainings", true);
+            var request = getHttpWebRequestt("PATCH", "/openapi/remainings", true);
 
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(ResultScanPosititon));
-
-            ser.WriteObject(request.GetRequestStream(), positions);
+            new DataContractJsonSerializer(typeof(ResultScanPosititon))
+                .WriteObject(request.GetRequestStream(), positions);
 
             var textResp = _getStringFromWebResponse(request.GetResponse());
 
             if (textResp.IndexOf("statusCode") > -1)
             {
-                ser = new DataContractJsonSerializer(typeof(ResponseBase<SendDataResult>));
-                ResponseBase<SendDataResult> result = (ResponseBase<SendDataResult>)ser.ReadObject(_getMemoryStreamFromWebResponse(textResp));
+                var result = (ResponseBase<SendDataResult>)new DataContractJsonSerializer(typeof(ResponseBase<SendDataResult>))
+                    .ReadObject(_getMemoryStreamFromWebResponse(textResp));
 
                 return result.Response.StatusCode == "200" || result.Response.StatusCode == "202";
             }
             else
             {
-                ser = new DataContractJsonSerializer(typeof(ResponseBase<AuthResult>));
-                ResponseBase<AuthResult> result = (ResponseBase<AuthResult>)ser.ReadObject(_getMemoryStreamFromWebResponse(textResp));
+                var result = (ResponseBase<AuthResult>)new DataContractJsonSerializer(typeof(ResponseBase<AuthResult>))
+                    .ReadObject(_getMemoryStreamFromWebResponse(textResp));
 
                 throw new Exception(result.Response.LocalizedMessage);
             }
@@ -101,38 +92,41 @@ namespace MarkScan.Network
         /// </summary>да 
         internal bool Writeoff(ResultScanPosititon positions)
         {
-            HttpWebRequest request = getHttpWebRequestt("POST", "/openapi/writeoff", true);
+            var request = getHttpWebRequestt("POST", "/openapi/writeoff", true);
 
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(ResultScanPosititon));
-
-            ser.WriteObject(request.GetRequestStream(), positions);
+            new DataContractJsonSerializer(typeof(ResultScanPosititon))
+                .WriteObject(request.GetRequestStream(), positions);
 
             var textResp = _getStringFromWebResponse(request.GetResponse());
 
             if (textResp.IndexOf("statusCode") > -1)
             {
-                ser = new DataContractJsonSerializer(typeof(ResponseBase<SendDataResult>));
-                ResponseBase<SendDataResult> result = (ResponseBase<SendDataResult>)ser.ReadObject(_getMemoryStreamFromWebResponse(textResp));
+                var result = (ResponseBase<SendDataResult>)new DataContractJsonSerializer(typeof(ResponseBase<SendDataResult>))
+                    .ReadObject(_getMemoryStreamFromWebResponse(textResp));
 
                 return result.Response.StatusCode == "200" || result.Response.StatusCode == "202";
             }
             else
             {
-                ser = new DataContractJsonSerializer(typeof(ResponseBase<AuthResult>));
-                ResponseBase<AuthResult> result = (ResponseBase<AuthResult>)ser.ReadObject(_getMemoryStreamFromWebResponse(textResp));
+                var result = (ResponseBase<AuthResult>)new DataContractJsonSerializer(typeof(ResponseBase<AuthResult>))
+                    .ReadObject(_getMemoryStreamFromWebResponse(textResp));
 
                 throw new Exception(result.Response.LocalizedMessage);
             }
-
-            //using (var responseStream = request.GetResponse().GetResponseStream())
-            //{
-            //    using (var stream = new StreamReader(responseStream))
-            //    {
-            //        var str = stream.ReadToEnd();
-            //    }
-            //}
-
         }
+        /// <summary>
+        /// Получить остатки по скалду
+        /// </summary>
+        internal ResultRemainings Remainings()
+        {
+            var request = getHttpWebRequestt("GET", "/openapi/remainings", true);
+
+            using (var responseStream = request.GetResponse().GetResponseStream())
+            {
+                return (ResultRemainings)new DataContractJsonSerializer(typeof(ResultRemainings)).ReadObject(responseStream);
+            }
+        }
+
         /// <summary>
         /// Тест соединения
         /// </summary>
@@ -164,7 +158,7 @@ namespace MarkScan.Network
 
         private Stream _getMemoryStreamFromWebResponse(string textResp)
         {
-             return new MemoryStream(Encoding.UTF8.GetBytes(textResp));
+            return new MemoryStream(Encoding.UTF8.GetBytes(textResp));
         }
 
         /// <summary>
@@ -176,7 +170,7 @@ namespace MarkScan.Network
         /// <returns></returns>
         private HttpWebRequest getHttpWebRequestt(string methods, string pathAndQuery, bool addAuthToken)
         {
-            var request = (HttpWebRequest)WebRequest.Create(host + pathAndQuery);
+            var request = (HttpWebRequest)WebRequest.Create(Host + pathAndQuery);
 
             request.Method = methods;
             //request.UserAgent = ".NET Framework Client";

@@ -27,7 +27,9 @@ namespace MarkScan.Data
         {
             return _instance ?? (_instance = new DataBaseManager());
         }
-
+        /// <summary>
+        /// Создать базу данных
+        /// </summary>
         private void _createDataBase()
         {
             try
@@ -41,63 +43,122 @@ namespace MarkScan.Data
             }
         }
 
+        #region Inventory
+
+        /// <summary>
+        /// Сохранить данные марки инвентаризации
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <param name="alccode"></param>
         internal void SaveInventoryMark(string mark, string alccode)
         {
             var res = _dataSource.InsertInto("'" + mark + "'," +
-                                          "'" + alccode + "'," +
-                                          "'" + Tools.ConvertUnixDate.ConvertInUnixTimestamp(DateTime.Now) + "'", "`Inventory` (`mark`,`alccode`,`dateCreate`)");
+                                             "'" + alccode + "'," +
+                                             "'" + Tools.ConvertUnixDate.ConvertInUnixTimestamp(DateTime.Now) + "'", "`Inventory` (`mark`,`alccode`,`dateCreate`)");
 
         }
-
-        internal void SaveWriteOffMark(string mark, string alccode)
-        {
-            var res = _dataSource.InsertInto("'" + mark + "'," +
-                                          "'" + alccode + "'," +
-                                          "'" + Tools.ConvertUnixDate.ConvertInUnixTimestamp(DateTime.Now) + "'", "`WriteOff` (`mark`,`alccode`,`dateCreate`)");
-        }
-
+        /// <summary>
+        /// Прочитать данные марок инвентаризации
+        /// </summary>
+        /// <returns></returns>
         internal List<object[]> ReadInventoryMark()
         {
             List<object[]> res = _dataSource.Select("SELECT * FROM `Inventory`");
 
             return res;
         }
+        /// <summary>
+        /// Удалить данные марки инвентаризации
+        /// </summary>
+        /// <param name="mark"></param>
+        internal void DeleteInventoryMark(string mark)
+        {
+            _dataSource.Delete("`mark`='" + mark + "'", "`Inventory`");
+        }
+        /// <summary>
+        /// Удалить все данные марок инвентаризации
+        /// </summary>
+        internal void DeleteAllInventoryMark()
+        {
+            _dataSource.Delete("", "`Inventory`");
+        }
+        /// <summary>
+        /// Существуют отсканированные марки инвентаризации
+        /// </summary>
+        /// <returns></returns>
+        internal bool ExistInventoryMark()
+        {
+            return _dataSource.Select("SELECT id FROM `Inventory`").Count > 0;
+        }
 
+        #endregion
+
+        #region WriteOff
+
+        /// <summary>
+        /// Сохранить данные марки списания
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <param name="alccode"></param>
+        internal void SaveWriteOffMark(string mark, string alccode)
+        {
+            var res = _dataSource.InsertInto("'" + mark + "'," +
+                                          "'" + alccode + "'," +
+                                          "'" + Tools.ConvertUnixDate.ConvertInUnixTimestamp(DateTime.Now) + "'", "`WriteOff` (`mark`,`alccode`,`dateCreate`)");
+        }
+        /// <summary>
+        /// Прочитать данные марок списания
+        /// </summary>
+        /// <returns></returns>
         internal List<object[]> ReadWriteOffMark()
         {
             List<object[]> res = _dataSource.Select("SELECT * FROM `WriteOff`");
 
             return res;
         }
-
-        internal void DeleteInventoryMark(string mark)
-        {
-            _dataSource.Delete("`mark`='" + mark + "'", "`Inventory`");
-        }
-
+        /// <summary>
+        ///  Удалить данные марки списания
+        /// </summary>
+        /// <param name="mark"></param>
         internal void DeleteWriteOffMark(string mark)
         {
             _dataSource.Delete("`mark`='" + mark + "'", "`WriteOff`");
         }
-
-        internal void ClearInventoryMark()
-        {
-            _dataSource.Delete("", "`Inventory`");
-        }
-
-        internal void ClearWriteOffMark()
+        /// <summary>
+        /// Удалить все данные марок списания
+        /// </summary>
+        internal void DeleteAllWriteOffMark()
         {
             _dataSource.Delete("", "`WriteOff`");
         }
-
-        internal bool ExistInventoryMark()
-        {
-            return _dataSource.Select("SELECT id FROM `Inventory`").Count > 0;
-        }
-
+        /// <summary>
+        /// Существуют отсканированные марки списания
+        /// </summary>
+        /// <returns></returns>
         internal bool ExistWriteOffMark()
         {
             return _dataSource.Select("SELECT id FROM `WriteOff`").Count > 0;
         }
+
+        #endregion
+
+        #region Remaining
+
+        internal void SaveRemainingProduct(Network.JsonWrapers.ProductionRemainings product)
+        {
+            var res = _dataSource.InsertInto("'" + product.Id + "'," +
+                                             "'" + product.Position + "'," +
+                                             "'" + product.FullName.Replace("'", "") + "'," +
+                                             "'" + product.ShortName + "'," +
+                                             "'" + product.AlcCode + "'," +
+                                             "'" + product.Capacity + "'," +
+                                             "'" + product.AlcVolume + "'," +
+                                             "'" + product.EgaisQuantity + "'," +
+                                             "'" + product.RealQuantity + "'," +
+                                             "'" + product.ProductVCode + "'"
+                                             , "`Remainings` (`id_service`,`position`,`fullName`,`shortName`,`alcCode`,`capacity`,`alcVolume`,`egaisQuantity`,`realQuantity`,`productVCode`)");
+        }
+
+        #endregion
     }
 }

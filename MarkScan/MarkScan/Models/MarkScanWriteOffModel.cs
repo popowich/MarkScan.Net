@@ -39,7 +39,7 @@ namespace MarkScan.Models
 
         public override void ClearScanDataFormBase()
         {
-            DataBaseManager.GetManager().ClearWriteOffMark();
+            DataBaseManager.GetManager().DeleteAllWriteOffMark();
         }
     }
 

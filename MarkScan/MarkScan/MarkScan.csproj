@@ -84,12 +84,14 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="Data\BaseIO.cs" />
     <Compile Include="Data\DataBaseManager.cs" />
+    <Compile Include="Data\RemainingsManager.cs" />
     <Compile Include="Data\SQLiteDataSource.cs" />
     <Compile Include="Models\IMarkScanModel.cs" />
     <Compile Include="Models\MarkScanModelBase.cs" />
     <Compile Include="Models\MarkScanWriteOffModel.cs" />
     <Compile Include="Models\MarkScanInventoryModel.cs" />
     <Compile Include="Models\ScanResult.cs" />
+    <Compile Include="Network\JsonWrapers\ResultRemainings.cs" />
     <Compile Include="Network\JsonWrapers\SendDataResult.cs" />
     <Compile Include="Pages\AppUpdateDescriptionPage.xaml.cs">
       <DependentUpon>AppUpdateDescriptionPage.xaml</DependentUpon>

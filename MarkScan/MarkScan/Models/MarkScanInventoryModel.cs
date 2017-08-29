@@ -39,7 +39,7 @@ namespace MarkScan.Models
 
         public override void ClearScanDataFormBase()
         {
-            DataBaseManager.GetManager().ClearInventoryMark();
+            DataBaseManager.GetManager().DeleteAllInventoryMark();
         }
     }
 

@@ -138,6 +138,7 @@ namespace MarkScan.ViewModels
                     else
                     {
                         var alkod = _markScanPageModel.HandleExciseMark(_markScanPage.barcodeTx.Text);
+
                         if (!string.IsNullOrEmpty(alkod))
                             _setTextNotification(true, alkod);
                         else
@@ -265,6 +266,8 @@ namespace MarkScan.ViewModels
             _markScanPage.deleteMark.Content = "Отменить удаление";
             _markScanPage.deleteMark.Background = Brushes.OrangeRed;
 
+            _markScanPage.barcodeTx.Focus();
+
             _modeDeleteMark = true;
         }
         /// <summary>
@@ -282,6 +285,8 @@ namespace MarkScan.ViewModels
             _markScanPage.deleteMark.Content = "Удалить позицию";
             _markScanPage.deleteMark.Background = new SolidColorBrush(Color.FromRgb(126, 126, 126));
 
+            _markScanPage.barcodeTx.Focus();
+
             _modeDeleteMark = false;
         }
         /// <summary>
@@ -298,6 +303,8 @@ namespace MarkScan.ViewModels
             {
                 _markScanPage.showWindowForScanGrid.Background = new SolidColorBrush(Color.FromRgb(126, 126, 126));
             }
+
+            _markScanPage.barcodeTx.Focus();
         }
 
         #endregion
