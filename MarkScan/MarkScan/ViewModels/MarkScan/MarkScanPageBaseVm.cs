@@ -50,6 +50,7 @@ namespace MarkScan.ViewModels
             _markScanPage.barcodeTx.TextChanged += barcodeTx_TextChanged;
             _markScanPage.barcodeTx.KeyDown += textBox_KeyDown;
             _markScanPage.serviceMessageLb.Content = "";
+            _markScanPage.serviceMessageLb.Visibility = Visibility.Hidden;
 
             _updateLables();
             _updateCountScan();
@@ -140,10 +141,10 @@ namespace MarkScan.ViewModels
                         var alkod = _markScanPageModel.HandleExciseMark(_markScanPage.barcodeTx.Text);
 
                         if (!string.IsNullOrEmpty(alkod))
-                            _setTextNotification(true, alkod);
+                            _setTextNotification(true, alkod, false);
                         else
                         {
-                            _setTextNotification(false, null);
+                            _setTextNotification(false, null, false);
                         }
                     }
 
@@ -159,7 +160,8 @@ namespace MarkScan.ViewModels
                 else
                 {
                     _blincTextBox();
-                    _setTextNotification(false, null);
+                    bool isDouble = _markScanPageModel.IsDuplicationMark(_markScanPage.barcodeTx.Text);
+                    _setTextNotification(false, null, isDouble);
                 }
 
                 _markScanPage.barcodeTx.TextChanged += barcodeTx_TextChanged;
@@ -174,11 +176,11 @@ namespace MarkScan.ViewModels
                 _markScanPage.label1.Visibility = Visibility.Hidden;
                 _markScanPage.label2.Visibility = Visibility.Hidden;
 
-                _markScanPage.label3.Visibility = Visibility.Hidden;
-                _markScanPage.label4.Visibility = Visibility.Hidden;
+                _markScanPage.mark1Lb.Visibility = Visibility.Hidden;
+                _markScanPage.mark1DestLb.Visibility = Visibility.Hidden;
 
-                _markScanPage.label5.Visibility = Visibility.Hidden;
-                _markScanPage.label6.Visibility = Visibility.Hidden;
+                _markScanPage.mark2Lb.Visibility = Visibility.Hidden;
+                _markScanPage.mark2DestLb.Visibility = Visibility.Hidden;
             }
 
             int i = 0;
@@ -186,21 +188,22 @@ namespace MarkScan.ViewModels
             {
                 if (i == 0)
                 {
-                    _markScanPage.label2.Content = _markScanPageModel.ScanResults[x].ExciseStamp;
-                    _markScanPage.label1.Visibility = Visibility.Visible;
-                    _markScanPage.label2.Visibility = Visibility.Visible;
+                    _markScanPage.mark1Lb.Content = _markScanPageModel.ScanResults[x].ExciseStamp;
+                    _markScanPage.mark1Lb.Visibility = Visibility.Visible;
+
+                    _markScanPage.mark1DestLb.Content =
+                        _markScanPageModel.GetDescriptionAlcCode(_markScanPageModel.ScanResults[x].AlcCode);
+                    _markScanPage.mark1DestLb.Visibility = Visibility.Visible;
                 }
                 if (i == 1)
                 {
-                    _markScanPage.label4.Content = _markScanPageModel.ScanResults[x].ExciseStamp;
-                    _markScanPage.label3.Visibility = Visibility.Visible;
-                    _markScanPage.label4.Visibility = Visibility.Visible;
-                }
-                if (i == 2)
-                {
-                    _markScanPage.label6.Content = _markScanPageModel.ScanResults[x].ExciseStamp;
-                    _markScanPage.label5.Visibility = Visibility.Visible;
-                    _markScanPage.label6.Visibility = Visibility.Visible;
+                    _markScanPage.mark2Lb.Content = _markScanPageModel.ScanResults[x].ExciseStamp;
+                    _markScanPage.mark2Lb.Visibility = Visibility.Visible;
+
+                    _markScanPage.mark2DestLb.Content =
+                        _markScanPageModel.GetDescriptionAlcCode(_markScanPageModel.ScanResults[x].AlcCode);
+                    _markScanPage.mark2DestLb.Visibility = Visibility.Visible;
+
                     break;
                 }
 
@@ -217,6 +220,7 @@ namespace MarkScan.ViewModels
         {
             _markScanPage.serviceMessageLb.Content = text;
             _markScanPage.serviceMessageLb.Foreground = color;
+            _markScanPage.serviceMessageLb.Visibility = Visibility.Visible;
 
             _delayedCleanServiceMassege();
         }
@@ -240,13 +244,17 @@ namespace MarkScan.ViewModels
             };
         }
 
-        private void _setTextNotification(bool isGood, string alcod)
+        private void _setTextNotification(bool isGood, string alcod, bool isDuble)
         {
             if (App._mainWindowsVm._MainWindow.IsVisible == false)
                 if (isGood)
                     App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, alcod, "Принято", System.Windows.Forms.ToolTipIcon.Info);
                 else
-                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Ввод откланен", "Марка", System.Windows.Forms.ToolTipIcon.Info);
+                    if (isDuble)
+                       App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Дублирование марки", "Марка", System.Windows.Forms.ToolTipIcon.Warning);
+                    else
+                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Ввод отклонен", "Марка", System.Windows.Forms.ToolTipIcon.Warning);
+
         }
 
         #region Operations
@@ -266,6 +274,8 @@ namespace MarkScan.ViewModels
             _markScanPage.deleteMark.Content = "Отменить удаление";
             _markScanPage.deleteMark.Background = Brushes.OrangeRed;
 
+            _markScanPage.serviceMessageLb.Visibility = Visibility.Visible;
+
             _markScanPage.barcodeTx.Focus();
 
             _modeDeleteMark = true;
@@ -280,6 +290,7 @@ namespace MarkScan.ViewModels
             {
                 _markScanPage.serviceMessageLb.Content = "";
                 _markScanPage.serviceMessageLb.Foreground = Brushes.Black;
+                _markScanPage.serviceMessageLb.Visibility = Visibility.Hidden;
             }
 
             _markScanPage.deleteMark.Content = "Удалить позицию";

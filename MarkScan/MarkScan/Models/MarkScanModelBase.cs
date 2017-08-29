@@ -46,7 +46,7 @@ namespace MarkScan.Models
                         alkCode10 = "0" + alkCode10;
                 }
 
-                ScanResults.Add(new ScanResult() { ExciseStamp = exciseMark, AlcCode = alkCode10 });
+                ScanResults.Add(new ScanResult { ExciseStamp = exciseMark, AlcCode = alkCode10 });
                 SaveExciseMarkFormBase(exciseMark, alkCode10);
 
                 return alkCode10;
@@ -62,15 +62,15 @@ namespace MarkScan.Models
         /// <summary>
         /// Удалить поступившую марку
         /// </summary>
-        /// <param name="exciseMark"></param>
+        /// <param name="mark"></param>
         /// <returns></returns>
-        public bool DeleteExciseMark(string exciseMark)
+        public bool DeleteExciseMark(string mark)
         {
-            var scanData = ScanResults.FirstOrDefault(x => x.ExciseStamp == exciseMark);
+            var scanData = ScanResults.FirstOrDefault(x => x.ExciseStamp == mark);
             if (scanData != null)
             {
                 ScanResults.Remove(scanData);
-                DeleteExciseMarkFormBase(exciseMark);
+                DeleteExciseMarkFormBase(mark);
 
                 return true;
             }
@@ -82,23 +82,59 @@ namespace MarkScan.Models
         /// </summary>
         /// <param name="exciseStamp"></param>
         /// <returns></returns>
-        public bool ValidExciseMark(string exciseStamp)
+        public bool ValidExciseMark(string mark)
         {
-            return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68 && ScanResults.FirstOrDefault(x => x.ExciseStamp == exciseStamp) == null;
+            return !string.IsNullOrEmpty(mark) && mark.Length == 68 && IsDuplicationMark(mark) == false;
         }
         /// <summary>
         /// Проверить валидность марки по динне
         /// </summary>
-        /// <param name="exciseStamp"></param>
+        /// <param name="mark"></param>
         /// <returns></returns>
-        public bool ValidExciseMarkForLength(string exciseStamp)
+        public bool ValidExciseMarkForLength(string mark)
         {
-            return !string.IsNullOrEmpty(exciseStamp) && exciseStamp.Length == 68;
+            return !string.IsNullOrEmpty(mark) && mark.Length == 68;
+        }
+        /// <summary>
+        /// Это дуликат марки
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <returns></returns>
+        public bool IsDuplicationMark(string mark)
+        {
+             return ScanResults.FirstOrDefault(x => x.ExciseStamp == mark) != null;
+        }
+        /// <summary>
+        /// Получить опсиание по allcode
+        /// </summary>
+        /// <param name="alcCode"></param>
+        /// <returns></returns>
+        public string GetDescriptionAlcCode(string alcCode)
+        {
+            Network.JsonWrapers.ProductionRemainings data = null;
+
+            try
+            {
+                data = Data.RemainingsManager.GetManager().GetRemainingForAlcCode(alcCode);
+            }
+            catch (Exception ex)
+            {
+                AppSettings.HandlerException(ex);
+            }
+
+            string res = "";
+
+            if (data == null)
+                res = "Данные этого AlcCode не обнаружены в остатках";
+            else
+                res = $"{data.FullName}, {data.AlcVolume}, {data.AlcCode}";
+
+            return res;
         }
 
-        protected abstract void SaveExciseMarkFormBase(string exciseStamp, string alkCode);
+        protected abstract void SaveExciseMarkFormBase(string mark, string alkCode);
 
-        protected abstract void DeleteExciseMarkFormBase(string exciseStamp);
+        protected abstract void DeleteExciseMarkFormBase(string mark);
 
         protected abstract void ReadExciseMarkFormBase();
 

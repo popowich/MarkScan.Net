@@ -9,11 +9,13 @@ namespace MarkScan.Models
     {
         List<ScanResult> ScanResults { get; }
 
-        string HandleExciseMark(string exciseStamp);
-        bool DeleteExciseMark(string exciseMark);
-        bool ValidExciseMark(string exciseStamp);
-        bool ValidExciseMarkForLength(string exciseStamp);
+        string HandleExciseMark(string mark);
+        bool DeleteExciseMark(string mark);
+        bool ValidExciseMark(string mark);
+        bool ValidExciseMarkForLength(string mark);
+        bool IsDuplicationMark(string mark);
         bool SendToCvC();
+        string GetDescriptionAlcCode(string alcCode);
 
         void ClearScanDataFormBase();
     }

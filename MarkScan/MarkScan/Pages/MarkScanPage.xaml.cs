@@ -30,10 +30,10 @@ namespace MarkScan.Pages
 
             label1.Visibility = Visibility.Hidden;
             label2.Visibility = Visibility.Hidden;
-            label3.Visibility = Visibility.Hidden;
-            label4.Visibility = Visibility.Hidden;
-            label5.Visibility = Visibility.Hidden;
-            label6.Visibility = Visibility.Hidden;
+            mark1Lb.Visibility = Visibility.Hidden;
+            mark1DestLb.Visibility = Visibility.Hidden;
+            mark2Lb.Visibility = Visibility.Hidden;
+            mark2DestLb.Visibility = Visibility.Hidden;
 
             barcodeTx.Focus();
 

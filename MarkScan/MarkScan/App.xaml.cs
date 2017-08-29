@@ -60,7 +60,7 @@ namespace MarkScan
                 if (res)
                 {
                     App._mainWindowsVm.SetWindowState();
-                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Откройте страницу ввода", "Ввод откланен", System.Windows.Forms.ToolTipIcon.Info);
+                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Откройте страницу ввода", "Ввод отклонен", System.Windows.Forms.ToolTipIcon.Warning);
                 }
 
             });

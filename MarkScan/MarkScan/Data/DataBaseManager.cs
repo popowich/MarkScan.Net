@@ -19,8 +19,19 @@ namespace MarkScan.Data
             _createDataBase();
 
             _dataSource = new SQLiteDataSource(AppSettings.UserWorkDir + "\\database.sqlite");
+
             if (_dataSource.OpenConnect() == false)
                 throw new Exception("Не удалось подулючиться к базе данных");
+
+            try
+            {
+                DeleteAllRemainingProduct();
+            }
+            catch (Exception e)
+            {
+                _dataSource.CloseConnect();
+                _createDataBase(true);
+            }
         }
 
         internal static DataBaseManager GetManager()
@@ -30,11 +41,11 @@ namespace MarkScan.Data
         /// <summary>
         /// Создать базу данных
         /// </summary>
-        private void _createDataBase()
+        private void _createDataBase(bool delBase = false)
         {
             try
             {
-                if (!File.Exists(AppSettings.UserWorkDir + "\\database.sqlite"))
+                if (!File.Exists(AppSettings.UserWorkDir + "\\database.sqlite") || delBase)
                     File.WriteAllBytes(AppSettings.UserWorkDir + "\\database.sqlite", Properties.Resources.database);
             }
             catch (Exception ex)
@@ -143,7 +154,10 @@ namespace MarkScan.Data
         #endregion
 
         #region Remaining
-
+        /// <summary>
+        /// Записать даннык в таблицу остатков
+        /// </summary>
+        /// <param name="product"></param>
         internal void SaveRemainingProduct(Network.JsonWrapers.ProductionRemainings product)
         {
             var res = _dataSource.InsertInto("'" + product.Id + "'," +
@@ -157,6 +171,24 @@ namespace MarkScan.Data
                                              "'" + product.RealQuantity + "'," +
                                              "'" + product.ProductVCode + "'"
                                              , "`Remainings` (`id_service`,`position`,`fullName`,`shortName`,`alcCode`,`capacity`,`alcVolume`,`egaisQuantity`,`realQuantity`,`productVCode`)");
+        }
+        /// <summary>
+        /// Получить данные остатков по alcCode
+        /// </summary>
+        /// <param name="alcCode"></param>
+        /// <returns></returns>
+        internal object[] ReadeRemainingProductForAlcCode(string alcCode)
+        {
+            List<object[]> res = _dataSource.Select("SELECT * FROM `Remainings` where `alcCode`='" + alcCode + "'");
+
+            return res.Count > 0 ? res[0] : null;
+        }
+        /// <summary>
+        /// Удалить все данные из таблицы остатков
+        /// </summary>
+        internal void DeleteAllRemainingProduct()
+        {
+            _dataSource.Delete("", "`Remainings`");
         }
 
         #endregion
