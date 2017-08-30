@@ -21,42 +21,52 @@ namespace MarkScan
     /// </summary>
     public partial class MainWindow : Window
     {
-        /// <summary>
-        /// Объект иконки в трее
-        /// </summary>
-        public System.Windows.Forms.NotifyIcon notify_icon;
+        public System.Windows.Forms.NotifyIcon _notify_icon;
+
+        private ViewModels.MainWindowsVm _mainWindowsVm = App._mainWindowsVm;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            App._mainWindowsVm._generalFrame = generalFrame;
-            App._mainWindowsVm._MainWindow = this;
-            App._mainWindowsVm.GoToAuthPage();
+            _mainWindowsVm._generalFrame = generalFrame;
+            _mainWindowsVm._mainWindow = this;
+            _mainWindowsVm.GoToAuthPage();
 
-            App._mainWindowsVm.SetVersion();
+            _mainWindowsVm.SetVersion();
 
 
-            notify_icon = new System.Windows.Forms.NotifyIcon();
-            notify_icon.Icon = Properties.Resources.CVC;
-            notify_icon.Text = "Mark Scan.Net";
+            _notify_icon = new System.Windows.Forms.NotifyIcon();
+            _notify_icon.Icon = Properties.Resources.CVC;
+            _notify_icon.Text = "Mark Scan.Net";
 
-            notify_icon.MouseDoubleClick += notify_icon_MouseDoubleClick;
+            _notify_icon.MouseDoubleClick += notify_icon_MouseDoubleClick;
             System.Windows.Forms.ContextMenuStrip menu = new System.Windows.Forms.ContextMenuStrip();
             menu.Items.Add("Открыть форму", null, notify_icon_show_form);
 
             menu.Items.Add(new System.Windows.Forms.ToolStripSeparator());
             menu.Items.Add("Выход", null, notify_icon_exit);
-            notify_icon.ContextMenuStrip = menu;
-            notify_icon.Visible = true;
+            _notify_icon.ContextMenuStrip = menu;
+            _notify_icon.Visible = true;
         }
 
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            _mainWindowsVm.SetWindowHide();
+        }
+
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == System.Windows.WindowState.Minimized)
+                _mainWindowsVm.SetWindowHide();
+        }
 
         private void image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            App._mainWindowsVm.ChekUpdate();
+            _mainWindowsVm.ChekUpdate();
         }
-
 
         #region Handler eventes icon tray
 
@@ -67,7 +77,7 @@ namespace MarkScan
         /// <param name="e"></param>
         private void notify_icon_MouseDoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            App._mainWindowsVm.SetWindowState();
+            _mainWindowsVm.SetWindowShow();
         }
         /// <summary>
         /// Обработчик  меню трея открыть окно главной формы
@@ -76,7 +86,7 @@ namespace MarkScan
         /// <param name="e"></param>
         private void notify_icon_show_form(object sender, EventArgs e)
         {
-            App._mainWindowsVm.SetWindowState();
+            _mainWindowsVm.SetWindowShow();
         }
         /// <summary>
         /// Обработчик  меню трея закрыть программу
@@ -85,24 +95,10 @@ namespace MarkScan
         /// <param name="e"></param>
         private void notify_icon_exit(object sender, EventArgs e)
         {
-            notify_icon.Visible = false;
+            _notify_icon.Visible = false;
             App.Current.Shutdown();
         }
 
         #endregion
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            e.Cancel = true;
-            this.Hide();
-        }
-
-        private void Window_StateChanged(object sender, EventArgs e)
-        {
-            if (this.WindowState == WindowState.Minimized)
-                this.Hide();
-        }
-
-
     }
 }

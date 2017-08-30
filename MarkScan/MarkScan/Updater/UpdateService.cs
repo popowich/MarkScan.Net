@@ -1,6 +1,5 @@
 ﻿using OnlineUpdate;
 using System;
-using System.ComponentModel;
 using System.IO;
 using MarkScan.ViewModels;
 
@@ -13,7 +12,7 @@ namespace MarkScan.Updater
     {
         private static UpdateService _instance;
 
-        private UpdateManager upManager;
+        private UpdateManager _upManager;
 
         internal static UpdateService GetService()
         {
@@ -35,35 +34,35 @@ namespace MarkScan.Updater
 
             UpdateManager.InitUpdateManager(opUpdate);
 
-            upManager = new UpdateManager();
-            upManager.ErrorEvent += UpManager_ErrorEvent;
-            upManager.EndCheckUpdateEvent += UpManager_EndCheckUpdateEvent;
+            _upManager = new UpdateManager();
+            _upManager.ErrorEvent += UpManager_ErrorEvent;
+            _upManager.EndCheckUpdateEvent += UpManager_EndCheckUpdateEvent;
 
-            updateFileInstall();
+            _updateFileInstall();
         }
         /// <summary>
         /// Проверить наличие обновлений
         /// </summary>
         internal void SatrtChekUpate()
         {
-            upManager.BeginCheckUpdates();
+            _upManager.BeginCheckUpdates();
         }
         /// <summary>
         /// Выполинть обновление
         /// </summary>
         internal void SatrtUpate()
         {
-            upManager.BeginUpdate();
+            _upManager.BeginUpdate();
         }
 
         internal void Dispose()
         {
-            if (upManager != null)
-                upManager.Dispose();
+            if (_upManager != null)
+                _upManager.Dispose();
 
         }
 
-        private void updateFileInstall()
+        private void _updateFileInstall()
         {
             try
             {
@@ -85,7 +84,7 @@ namespace MarkScan.Updater
             if (e.Description == null || e.Description.AllowUpdate == false)
                 return;
 
-            App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate
+            App._mainWindowsVm._mainWindow.Dispatcher.Invoke((Action)delegate
             {
                 App._mainWindowsVm._generalFrame.Navigate(
                     new Pages.AppUpdateDescriptionPage(new AppUpdateDescriptopnVm(e.Description)));

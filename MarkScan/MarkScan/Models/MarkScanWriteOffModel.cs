@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using MarkScan.Data;
 
 namespace MarkScan.Models
@@ -19,12 +20,22 @@ namespace MarkScan.Models
 
         protected override void SaveExciseMarkFormBase(string mark, string alkCode)
         {
-            DataBaseManager.GetManager().SaveWriteOffMark(mark, alkCode);
+            var dataBase = DataBaseManager.GetManager();
+            lock (dataBase)
+            {
+                dataBase.SaveWriteOffMark(mark, alkCode);
+            }
         }
 
         protected override void ReadExciseMarkFormBase()
         {
-            var datalist = DataBaseManager.GetManager().ReadWriteOffMark();
+            var dataBase = DataBaseManager.GetManager();
+            List<object[]> datalist = null;
+
+            lock (dataBase)
+            {
+                datalist = dataBase.ReadWriteOffMark();
+            }
 
             foreach (var mas in datalist)
             {
@@ -34,12 +45,23 @@ namespace MarkScan.Models
 
         protected override void DeleteExciseMarkFormBase(string exciseStamp)
         {
-            DataBaseManager.GetManager().DeleteWriteOffMark(exciseStamp);
+            var dataBase = DataBaseManager.GetManager();
+
+            lock (dataBase)
+            {
+                dataBase.DeleteWriteOffMark(exciseStamp);
+            }
         }
 
         public override void ClearScanDataFormBase()
         {
-            DataBaseManager.GetManager().DeleteAllWriteOffMark();
+            var dataBase = DataBaseManager.GetManager();
+
+            lock (dataBase)
+            {
+                dataBase.DeleteAllWriteOffMark();
+            }
+
         }
     }
 

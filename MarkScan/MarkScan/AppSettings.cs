@@ -9,6 +9,8 @@ namespace MarkScan
 {
     internal class AppSettings
     {
+        internal static AppSettings _settings;
+
         internal static string NameAssembly
         {
             get
@@ -17,9 +19,6 @@ namespace MarkScan
             }
         }
 
-        /// <summary>
-        /// Версия сборки
-        /// </summary>
         public static string VerAssembly
         {
             get
@@ -38,7 +37,6 @@ namespace MarkScan
 
         internal static string LogFile { get; private set; }
 
-        internal static AppSettings settings;
 
         internal string Login { get; set; }
 
@@ -66,7 +64,7 @@ namespace MarkScan
 
             LogFile = LogsDir + "\\logs.txt";
 
-            settings = new AppSettings();
+            _settings = new AppSettings();
 
             try
             {
@@ -86,6 +84,10 @@ namespace MarkScan
             }
         }
 
+        /// <summary>
+        /// Загрузить настрйоки
+        /// </summary>
+        /// <returns></returns>
         public bool LoadSettings()
         {
             try
@@ -95,14 +97,14 @@ namespace MarkScan
                     XmlDocument document = new XmlDocument();
                     document.Load(CurrDir + "\\settings.conf");
 
-                    Login = GetInnerTextXML(document, "Login");
+                    Login = _getInnerTextXML(document, "Login");
 
                     string temp = "";
                     Tools.Base64.TryParseBase64(Encoding.ASCII, Login,out temp);
                     Tools.Base64.TryParseBase64(Encoding.ASCII, temp, out temp);
                     Login = temp;
 
-                    Pass = GetInnerTextXML(document, "Password");
+                    Pass = _getInnerTextXML(document, "Password");
 
                     temp = "";
                     Tools.Base64.TryParseBase64(Encoding.ASCII, Pass, out temp);
@@ -111,13 +113,13 @@ namespace MarkScan
 
                     try
                     {
-                        this.Prefix = (System.Windows.Forms.Keys)Enum.Parse(typeof(System.Windows.Forms.Keys), GetInnerTextXML(document, "Prefix"));
+                        this.Prefix = (System.Windows.Forms.Keys)Enum.Parse(typeof(System.Windows.Forms.Keys), _getInnerTextXML(document, "Prefix"));
                     }
                     catch {}
 
                     try
                     {
-                        this.Suffix = (System.Windows.Forms.Keys)Enum.Parse(typeof(System.Windows.Forms.Keys), GetInnerTextXML(document, "Suffix"));
+                        this.Suffix = (System.Windows.Forms.Keys)Enum.Parse(typeof(System.Windows.Forms.Keys), _getInnerTextXML(document, "Suffix"));
                     }
                     catch { }
 
@@ -133,7 +135,9 @@ namespace MarkScan
                 return false;
             }
         }
-
+        /// <summary>
+        /// Сохраинть настройки
+        /// </summary>
         public void SaveSetting()
         {
             try
@@ -164,23 +168,10 @@ namespace MarkScan
                 HandlerException(ex);
             }
         }
-
-        private string GetInnerTextXML(XmlDocument _document, string _tag)
-        {
-            if (_document.GetElementsByTagName(_tag).Count > 0)
-                return _document.GetElementsByTagName(_tag)[0].InnerText;
-            else
-                return "";
-        }
-
-        private XmlNode GetNodeXML(XmlDocument _document, string _tag)
-        {
-            if (_document.GetElementsByTagName(_tag).Count > 0)
-                return _document.GetElementsByTagName(_tag)[0];
-            else
-                return null;
-        }
-
+        /// <summary>
+        /// Сохранить данные отладки
+        /// </summary>
+        /// <param name="debug"></param>
         public static void SaveDebug(string debug)
         {
             if (!string.IsNullOrEmpty(LogFile))
@@ -202,7 +193,10 @@ namespace MarkScan
                 }
             }
         }
-
+        /// <summary>
+        /// Сохранить данные тсключения
+        /// </summary>
+        /// <param name="ex"></param>
         public static void HandlerException(Exception ex)
         {
             if (!string.IsNullOrEmpty(LogFile))
@@ -237,6 +231,22 @@ namespace MarkScan
                         write.Close();
                 }
             }
+        }
+
+        private string _getInnerTextXML(XmlDocument _document, string _tag)
+        {
+            if (_document.GetElementsByTagName(_tag).Count > 0)
+                return _document.GetElementsByTagName(_tag)[0].InnerText;
+            else
+                return "";
+        }
+
+        private XmlNode _getNodeXML(XmlDocument _document, string _tag)
+        {
+            if (_document.GetElementsByTagName(_tag).Count > 0)
+                return _document.GetElementsByTagName(_tag)[0];
+            else
+                return null;
         }
     }
 }

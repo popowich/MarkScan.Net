@@ -35,44 +35,42 @@ namespace MarkScan
                 return;
             }
 
-            AppSettings.settings.LoadSettings();
+            AppSettings._settings.LoadSettings();
 
             if (HidSacnerManager.IsReady)
-                HidSacnerManager.hidScaner.StartRead();
+                HidSacnerManager._hidScaner.StartRead();
 
-            RetailEquipment.HidSacnerManager.hidScaner.ReadDataEvent += hidScaner_ReadDataEvent;
+            RetailEquipment.HidSacnerManager._hidScaner.ReadDataEvent += hidScaner_ReadDataEvent;
 
-            Network.CvcOpenApi.GetClientApi().SetTokenAuth(AppSettings.settings.Login, AppSettings.settings.Pass);
+            Network.CvcOpenApi.GetClientApi().SetTokenAuth(AppSettings._settings.Login, AppSettings._settings.Pass);
 
             Data.RemainingsManager.GetManager().UpdateRemainings();
 
             Updater.UpdateService.GetService().SatrtChekUpate();
 
             base.OnStartup(e);
-
         }
 
         private void hidScaner_ReadDataEvent(object sender, RetailEquipment.HIDBarcodeReaderEventArgs e)
         {
-            App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate
+            App._mainWindowsVm._mainWindow.Dispatcher.Invoke((Action)delegate
             {
                 bool res = _mainWindowsVm._generalFrame == null || _mainWindowsVm._generalFrame.Content is Pages.MarkScanPage == false;
                 if (res)
                 {
-                    App._mainWindowsVm.SetWindowState();
-                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Откройте страницу ввода", "Ввод отклонен", System.Windows.Forms.ToolTipIcon.Warning);
+                    _mainWindowsVm.SetWindowShow();
+                    _mainWindowsVm.ShowBalloonTip("Откройте страницу ввода", "Ввод отклонен", true);
                 }
-
             });
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
-            HidSacnerManager.hidScaner.Dispose();
+            HidSacnerManager._hidScaner.Dispose();
 
             Updater.UpdateService.GetService().Dispose();
 
-            AppSettings.settings.SaveSetting();
+            AppSettings._settings.SaveSetting();
 
             _mutex.Dispose();
 

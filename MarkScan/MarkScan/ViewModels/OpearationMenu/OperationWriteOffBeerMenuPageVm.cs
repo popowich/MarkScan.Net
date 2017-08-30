@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MarkScan.ViewModels.OpearationMenu
 {
@@ -9,12 +6,12 @@ namespace MarkScan.ViewModels.OpearationMenu
     {
         public OperationWriteOffBeerMenuPageVm()
         {
-            App._mainWindowsVm._MainWindow.Title = "Mark Scan.Net - списание пива";
+            App._mainWindowsVm._mainWindow.Title = "Mark Scan.Net - списание пива";
         }
 
         public void GoToMainMenuPage()
         {
-            App._mainWindowsVm._MainWindow.Title = "Mark Scan.Net";
+            App._mainWindowsVm._mainWindow.Title = "Mark Scan.Net";
             App._mainWindowsVm._generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MainMenuPage.xaml", UriKind.Absolute));
         }
 

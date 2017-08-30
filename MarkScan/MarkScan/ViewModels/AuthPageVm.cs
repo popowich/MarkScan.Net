@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MarkScan.ViewModels
 {
@@ -16,8 +13,8 @@ namespace MarkScan.ViewModels
 
         internal bool IsPerfAuthoriation()
         {
-            return string.IsNullOrEmpty(AppSettings.settings.Login)
-                   || string.IsNullOrEmpty(AppSettings.settings.Pass);
+            return string.IsNullOrEmpty(AppSettings._settings.Login)
+                   || string.IsNullOrEmpty(AppSettings._settings.Pass);
         }
 
         internal bool Auth(string login, string pass)
@@ -28,9 +25,9 @@ namespace MarkScan.ViewModels
 
                 if (result.Response.Code == 200)
                 {
-                    AppSettings.settings.Login = login;
-                    AppSettings.settings.Pass = pass;
-                    AppSettings.settings.SaveSetting();
+                    AppSettings._settings.Login = login;
+                    AppSettings._settings.Pass = pass;
+                    AppSettings._settings.SaveSetting();
 
                     return true;
                 }

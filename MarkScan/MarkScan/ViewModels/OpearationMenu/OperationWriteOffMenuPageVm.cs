@@ -1,5 +1,4 @@
 ﻿using System;
-using MarkScan.Pages;
 
 namespace MarkScan.ViewModels
 {
@@ -7,12 +6,12 @@ namespace MarkScan.ViewModels
     {
         public OperationWriteOffMenuPageVm()
         {
-            App._mainWindowsVm._MainWindow.Title = "Mark Scan.Net - списание";
+            App._mainWindowsVm._mainWindow.Title = "Mark Scan.Net - списание";
         }
 
         public void GoToMainMenuPage()
         {
-            App._mainWindowsVm._MainWindow.Title = "Mark Scan.Net";
+            App._mainWindowsVm._mainWindow.Title = "Mark Scan.Net";
             App._mainWindowsVm._generalFrame.Navigate(new Uri(@"pack://application:,,,/" + AppSettings.NameAssembly + ";component/Pages/MainMenuPage.xaml", UriKind.Absolute));
         }
 

@@ -131,15 +131,29 @@ namespace MarkScan.Models
 
             return res;
         }
-
+        /// <summary>
+        /// Сохранить введенную марку 
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <param name="alkCode"></param>
         protected abstract void SaveExciseMarkFormBase(string mark, string alkCode);
-
+        /// <summary>
+        /// Удалить марку
+        /// </summary>
+        /// <param name="mark"></param>
         protected abstract void DeleteExciseMarkFormBase(string mark);
-
+        /// <summary>
+        /// Прочитать марки
+        /// </summary>
         protected abstract void ReadExciseMarkFormBase();
-
+        /// <summary>
+        /// Удалить все марки
+        /// </summary>
         public abstract void ClearScanDataFormBase();
-
+        /// <summary>
+        /// Отправить марки
+        /// </summary>
+        /// <returns></returns>
         public bool SendToCvC()
         {
             var resultPositiones = new ResultScanPosititon();

@@ -1,5 +1,6 @@
 ﻿
-using System;
+using System.Collections.Generic;
+using System.Windows.Documents;
 using MarkScan.Data;
 
 namespace MarkScan.Models
@@ -19,12 +20,23 @@ namespace MarkScan.Models
 
         protected override void SaveExciseMarkFormBase(string mark, string alkCode)
         {
-            DataBaseManager.GetManager().SaveInventoryMark(mark, alkCode);
+            var dataBase = DataBaseManager.GetManager();
+
+            lock (dataBase)
+            {
+                dataBase.SaveInventoryMark(mark, alkCode);
+            }
         }
 
         protected override void ReadExciseMarkFormBase()
         {
-            var datalist = DataBaseManager.GetManager().ReadInventoryMark();
+            var dataBase = DataBaseManager.GetManager();
+            List<object[]> datalist = null;
+
+            lock (dataBase)
+            {
+                 datalist = dataBase.ReadInventoryMark();
+            }
 
             foreach (var mas in datalist)
             {
@@ -34,12 +46,23 @@ namespace MarkScan.Models
 
         protected override void DeleteExciseMarkFormBase(string exciseStamp)
         {
-            DataBaseManager.GetManager().DeleteInventoryMark(exciseStamp);
+            var dataBase = DataBaseManager.GetManager();
+
+            lock (dataBase)
+            {
+                dataBase.DeleteInventoryMark(exciseStamp);
+            }
         }
 
         public override void ClearScanDataFormBase()
         {
-            DataBaseManager.GetManager().DeleteAllInventoryMark();
+            var dataBase = DataBaseManager.GetManager();
+
+            lock (dataBase)
+            {
+                dataBase.DeleteAllInventoryMark();
+            }
+
         }
     }
 

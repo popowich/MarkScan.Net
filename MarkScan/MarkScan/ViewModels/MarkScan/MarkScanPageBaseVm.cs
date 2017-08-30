@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -29,20 +26,19 @@ namespace MarkScan.ViewModels
             _validateEnterTimer.Tick += _timer_Tick;
             _validateEnterTimer.Interval = 500;
 
-            RetailEquipment.HidSacnerManager.hidScaner.ReadDataEvent += hidScaner_ReadDataEvent;
+            RetailEquipment.HidSacnerManager._hidScaner.ReadDataEvent += hidScaner_ReadDataEvent;
         }
 
         private void hidScaner_ReadDataEvent(object sender, RetailEquipment.HIDBarcodeReaderEventArgs e)
         {
-            App._mainWindowsVm._MainWindow.Dispatcher.Invoke((Action)delegate
+            App._mainWindowsVm._mainWindow.Dispatcher.Invoke((Action)delegate
            {
                if (showWindowForScan)
-                   App._mainWindowsVm.SetWindowState();
+                   App._mainWindowsVm.SetWindowShow();
 
                _markScanPage.barcodeTx.Text = e.Barcode.ToUpper();
            });
         }
-
 
         public void SetMyPage(Pages.MarkScanPage markScanPage)
         {
@@ -56,54 +52,7 @@ namespace MarkScan.ViewModels
             _updateCountScan();
         }
 
-        private void _timer_Tick(object sender, EventArgs e)
-        {
-            if (_markScanPage.barcodeTx.Text.Length > 0
-                && _markScanPageModel.ValidExciseMark(_markScanPage.barcodeTx.Text) == false)
-            {
-                _validateEnterTimer.Stop();
-
-                _blincTextBox();
-            }
-        }
-
-        private void _blincTextBox()
-        {
-            int countBlink = 0;
-
-            _markScanPage.barcodeTx.IsEnabled = false;
-
-            if (_blinkTimer != null)
-                _blinkTimer.Dispose();
-
-            _blinkTimer = new System.Windows.Forms.Timer();
-            _blinkTimer.Interval = 250;
-            _blinkTimer.Start();
-
-            _blinkTimer.Tick += (object sender, EventArgs e) =>
-            {
-                if (countBlink % 2 == 0)
-                {
-                    _markScanPage.barcodeTx.Background = Brushes.Red;
-                }
-                else
-                {
-                    _markScanPage.barcodeTx.Background = Brushes.White;
-                }
-
-                if (countBlink == 3)
-                {
-                    _markScanPage.barcodeTx.Text = "";
-                    _markScanPage.barcodeTx.IsEnabled = true;
-                    _markScanPage.barcodeTx.Focus();
-
-                    _blinkTimer.Stop();
-                    _blinkTimer.Dispose();
-                }
-
-                countBlink++;
-            };
-        }
+        #region Events handler enter mark
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -216,6 +165,59 @@ namespace MarkScan.ViewModels
             _markScanPage.countScan.Content = _markScanPageModel.ScanResults.Count;
         }
 
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            if (_markScanPage.barcodeTx.Text.Length > 0
+                && _markScanPageModel.ValidExciseMark(_markScanPage.barcodeTx.Text) == false)
+            {
+                _validateEnterTimer.Stop();
+
+                _blincTextBox();
+            }
+        }
+
+        private void _blincTextBox()
+        {
+            int countBlink = 0;
+
+            _markScanPage.barcodeTx.IsEnabled = false;
+
+            if (_blinkTimer != null)
+                _blinkTimer.Dispose();
+
+            _blinkTimer = new System.Windows.Forms.Timer();
+            _blinkTimer.Interval = 250;
+            _blinkTimer.Start();
+
+            _blinkTimer.Tick += (object sender, EventArgs e) =>
+            {
+                if (countBlink % 2 == 0)
+                {
+                    _markScanPage.barcodeTx.Background = Brushes.Red;
+                }
+                else
+                {
+                    _markScanPage.barcodeTx.Background = Brushes.White;
+                }
+
+                if (countBlink == 3)
+                {
+                    _markScanPage.barcodeTx.Text = "";
+                    _markScanPage.barcodeTx.IsEnabled = true;
+                    _markScanPage.barcodeTx.Focus();
+
+                    _blinkTimer.Stop();
+                    _blinkTimer.Dispose();
+                }
+
+                countBlink++;
+            };
+        }
+
+        #endregion
+
+        #region Service notifycations
+
         private void _setServiceMasseg(string text, Brush color)
         {
             _markScanPage.serviceMessageLb.Content = text;
@@ -246,18 +248,20 @@ namespace MarkScan.ViewModels
 
         private void _setTextNotification(bool isGood, string alcod, bool isDuble)
         {
-            if (App._mainWindowsVm._MainWindow.IsVisible == false)
+            if (App._mainWindowsVm._mainWindow.IsVisible == false)
                 if (isGood)
-                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, alcod, "Принято", System.Windows.Forms.ToolTipIcon.Info);
+                    App._mainWindowsVm._mainWindow._notify_icon.ShowBalloonTip(1, alcod, "Принято", System.Windows.Forms.ToolTipIcon.Info);
                 else
-                    if (isDuble)
-                       App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Дублирование марки", "Марка", System.Windows.Forms.ToolTipIcon.Warning);
-                    else
-                    App._mainWindowsVm._MainWindow.notify_icon.ShowBalloonTip(1, "Ввод отклонен", "Марка", System.Windows.Forms.ToolTipIcon.Warning);
+                if (isDuble)
+                    App._mainWindowsVm._mainWindow._notify_icon.ShowBalloonTip(1, "Дублирование марки", "Марка", System.Windows.Forms.ToolTipIcon.Warning);
+                else
+                    App._mainWindowsVm._mainWindow._notify_icon.ShowBalloonTip(1, "Ввод отклонен", "Марка", System.Windows.Forms.ToolTipIcon.Warning);
 
         }
 
-        #region Operations
+        #endregion
+
+        #region SetModes
 
         /// <summary>
         /// Установить режим удаления марки

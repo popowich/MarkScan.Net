@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MarkScan.ViewModels
 {
     internal class MainWindowsVm
     {
         internal System.Windows.Controls.Frame _generalFrame;
-        internal MainWindow _MainWindow;
-
-        public MainWindowsVm()
-        {
-
-        }
-
-
+        internal MainWindow _mainWindow;
 
         internal void GoToAuthPage()
         {
@@ -29,8 +19,8 @@ namespace MarkScan.ViewModels
 
         internal void SetVersion()
         {
-            _MainWindow.verLb.Content = AppSettings.VerAssembly;
-            _MainWindow.loginLb.Content = AppSettings.settings.Login;
+            _mainWindow.verLb.Content = AppSettings.VerAssembly;
+            _mainWindow.loginLb.Content = AppSettings._settings.Login;
         }
 
         internal void ChekUpdate()
@@ -38,14 +28,24 @@ namespace MarkScan.ViewModels
             Updater.UpdateService.GetService().SatrtChekUpate();
         }
 
-        internal void SetWindowState()
+        internal void SetWindowShow()
         {
-            if (!_MainWindow.IsVisible)
-                _MainWindow.Show();
+            if (!_mainWindow.IsVisible)
+                _mainWindow.Show();
 
-            _MainWindow.WindowState = System.Windows.WindowState.Normal;
-            _MainWindow.Activate();
-            _MainWindow.Focus();
+            _mainWindow.WindowState = System.Windows.WindowState.Normal;
+            _mainWindow.Activate();
+            _mainWindow.Focus();
+        }
+
+        internal void SetWindowHide()
+        {
+            _mainWindow.Hide();
+        }
+
+        internal void ShowBalloonTip(string title, string text, bool isWarning)
+        {
+            _mainWindow._notify_icon.ShowBalloonTip(1, title, text, isWarning == true ? System.Windows.Forms.ToolTipIcon.Warning : System.Windows.Forms.ToolTipIcon.Info);
         }
     }
 }

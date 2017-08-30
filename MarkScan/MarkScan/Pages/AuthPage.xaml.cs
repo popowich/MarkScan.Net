@@ -32,7 +32,7 @@ namespace MarkScan.Pages
                 _viewModelAuthPageVm.GoToMainMenuPage();
             else
             {
-                AppSettings.settings.Login = "";
+                AppSettings._settings.Login = "";
                 App._mainWindowsVm.SetVersion();
             }
 
@@ -44,7 +44,7 @@ namespace MarkScan.Pages
 
             _viewModelAuthPageVm = new AuthPageVm(this);
 
-            AppSettings.settings.Login = "";
+            AppSettings._settings.Login = "";
             App._mainWindowsVm.SetVersion();
         }
 

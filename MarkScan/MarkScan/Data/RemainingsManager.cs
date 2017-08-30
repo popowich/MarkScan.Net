@@ -52,7 +52,11 @@ namespace MarkScan.Data
                 EndUpdateRemainings?.Invoke(this, EventArgs.Empty);
             });
         }
-
+        /// <summary>
+        /// Получить опсиание alccode
+        /// </summary>
+        /// <param name="alcCode"></param>
+        /// <returns></returns>
         internal Network.JsonWrapers.ProductionRemainings GetRemainingForAlcCode(string alcCode)
         {
             var dataBase = Data.DataBaseManager.GetManager();

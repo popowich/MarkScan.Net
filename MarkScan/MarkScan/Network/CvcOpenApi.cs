@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using System.Windows.Controls;
 using MarkScan.Network.JsonWrapers;
 
 namespace MarkScan.Network
@@ -51,7 +48,7 @@ namespace MarkScan.Network
         {
             SetTokenAuth(login, pass);
 
-            var request = getHttpWebRequestt("GET", "/openapi/status", false);
+            var request = _getHttpWebRequestt("GET", "/openapi/status", false);
             request.Headers.Add("Authorization", _tokenAuth);
 
             using (var responseStream = request.GetResponse().GetResponseStream())
@@ -65,7 +62,7 @@ namespace MarkScan.Network
         /// </summary>
         internal bool Remainings(ResultScanPosititon positions)
         {
-            var request = getHttpWebRequestt("PATCH", "/openapi/remainings", true);
+            var request = _getHttpWebRequestt("PATCH", "/openapi/remainings", true);
 
             new DataContractJsonSerializer(typeof(ResultScanPosititon))
                 .WriteObject(request.GetRequestStream(), positions);
@@ -92,7 +89,7 @@ namespace MarkScan.Network
         /// </summary>да 
         internal bool Writeoff(ResultScanPosititon positions)
         {
-            var request = getHttpWebRequestt("POST", "/openapi/writeoff", true);
+            var request = _getHttpWebRequestt("POST", "/openapi/writeoff", true);
 
             new DataContractJsonSerializer(typeof(ResultScanPosititon))
                 .WriteObject(request.GetRequestStream(), positions);
@@ -119,7 +116,7 @@ namespace MarkScan.Network
         /// </summary>
         internal ResultRemainings Remainings()
         {
-            var request = getHttpWebRequestt("GET", "/openapi/remainings", true);
+            var request = _getHttpWebRequestt("GET", "/openapi/remainings", true);
 
             using (var responseStream = request.GetResponse().GetResponseStream())
             {
@@ -133,7 +130,7 @@ namespace MarkScan.Network
         /// <returns></returns>
         internal bool TestConnect()
         {
-            HttpWebRequest request = getHttpWebRequestt("GET", "/openapi/status", false);
+            HttpWebRequest request = _getHttpWebRequestt("GET", "/openapi/status", false);
             request.Headers.Add("Authorization", _tokenAuth);
 
             using (var responseStream = request.GetResponse().GetResponseStream())
@@ -168,7 +165,7 @@ namespace MarkScan.Network
         /// <param name="pathAndQuery"></param>
         /// <param name="addAuthToken"></param>
         /// <returns></returns>
-        private HttpWebRequest getHttpWebRequestt(string methods, string pathAndQuery, bool addAuthToken)
+        private HttpWebRequest _getHttpWebRequestt(string methods, string pathAndQuery, bool addAuthToken)
         {
             var request = (HttpWebRequest)WebRequest.Create(Host + pathAndQuery);
 
